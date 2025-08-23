@@ -11,5 +11,4 @@ class AppColors {
   static const Color bg = Color(0xFFF8F8F8);
   static const Color headerBar = Color(0xFF9C7A08); // mustard app bar (Akshaya Lagna Paddati)
   static const Color danger = Color(0xFFB00020);    // for red notes
-
 }
