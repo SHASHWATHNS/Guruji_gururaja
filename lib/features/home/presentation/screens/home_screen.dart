@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:guraj_astro/features/numerology/presentation/screens/numerology_screen.dart';
+import 'package:guraj_astro/features/prashna/presentation/screens/prashna_screen.dart';
+import 'package:guraj_astro/features/youtube/presentation/screens/youtube_videos_screen.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../../../horoscope/presentation/screens/horoscope_screen.dart';
 import '../../../panchanga/presentation/screens/panchanga_screen.dart';
@@ -60,7 +64,12 @@ class HomeScreen extends ConsumerWidget {
                   label: 'NUMEROLOGY',
                   icon: Icons.calculate,
                   color: Colors.teal.shade600,
-                  onTap: () => _soon(context, 'Numerology'),
+                  onTap: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(builder: (_) => const NumerologyScreen()),
+                    );
+                  }
+                  ,
                 ),
               ),
 
@@ -68,10 +77,14 @@ class HomeScreen extends ConsumerWidget {
               _twoTiles(
                 context,
                 left: MenuButton(
-                  label: 'JAMMUKUL\nPRASHANA',
-                  icon: Icons.question_answer,
-                  color: Colors.indigo.shade500,
-                  onTap: () => _soon(context, 'Jammukul Prashana'),
+                    label: 'JAMMUKUL\nPRASHANA',
+                    icon: Icons.question_answer,
+                    color: Colors.indigo.shade500,
+                    onTap: () {
+                      Navigator.of(context).push(
+                        MaterialPageRoute(builder: (_) => const PrashnaScreen()),
+                      );
+                    }
                 ),
                 right: MenuButton(
                   label: 'TARAT',
@@ -148,10 +161,16 @@ class HomeScreen extends ConsumerWidget {
               _twoTiles(
                 context,
                 left: MenuButton(
-                  label: 'YOUTUBE\nVIDEO',
-                  icon: Icons.play_circle_fill,
-                  color: Colors.red.shade700,
-                  onTap: () => _soon(context, 'YouTube Video'),
+                    label: 'YOUTUBE\nVIDEO',
+                    icon: Icons.play_circle_fill,
+                    color: Colors.red.shade700,
+                    onTap: () async {
+                      final url = Uri.parse("https://www.youtube.com/@gurujigururaja/videos");
+                      if (!await launchUrl(url, mode: LaunchMode.externalApplication)) {
+                        throw "Could not launch $url";
+                      }
+                    }
+
                 ),
                 right: MenuButton(
                   label: 'SETTINGS',

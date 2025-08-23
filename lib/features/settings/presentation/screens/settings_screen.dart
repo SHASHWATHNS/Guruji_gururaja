@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-
-// from: lib/features/settings/presentation/screens → up to lib/core/constants
 import '../../../../../core/constants/app_colors.dart';
-// from: lib/features/settings/presentation/screens → auth viewmodel
 import '../../../auth/presentation/viewmodels/auth_view_model.dart';
 
 // Local state for sample toggles

@@ -5,11 +5,7 @@ class AuthState {
   final bool isLoggedIn;
   final bool isRequestingOtp;
   final String phone;
-<<<<<<< HEAD
-  final String otpHint;
-=======
   final String otpHint; // demo only
->>>>>>> d66b4cff86284f58f7c9d039e997763ed5c7a388
 
   const AuthState({
     this.isLoggedIn = false,
@@ -35,10 +31,7 @@ class AuthState {
 
 class AuthNotifier extends StateNotifier<AuthState> {
   AuthNotifier() : super(const AuthState());
-<<<<<<< HEAD
 
-=======
->>>>>>> d66b4cff86284f58f7c9d039e997763ed5c7a388
   static const _key = 'logged_in';
 
   Future<void> loadSession() async {
@@ -53,7 +46,6 @@ class AuthNotifier extends StateNotifier<AuthState> {
     state = state.copyWith(isLoggedIn: false);
   }
 
-<<<<<<< HEAD
   /// Demo: pretend to send OTP 123456
   Future<void> requestOtp(String phone) async {
     state = state.copyWith(isRequestingOtp: true, phone: phone);
@@ -65,33 +57,20 @@ class AuthNotifier extends StateNotifier<AuthState> {
   Future<bool> verifyOtp(String code) async {
     await Future.delayed(const Duration(milliseconds: 400));
     final ok = code.trim() == '123456';
-=======
-  Future<void> requestOtp(String phone) async {
-    state = state.copyWith(isRequestingOtp: true, phone: phone);
-    await Future.delayed(const Duration(milliseconds: 900));
-    state = state.copyWith(isRequestingOtp: false, otpHint: '123456'); // demo OTP
-  }
-
-  Future<bool> verifyOtp(String code) async {
-    await Future.delayed(const Duration(milliseconds: 400));
-    final ok = code.trim() == '123456'; // demo validate
->>>>>>> d66b4cff86284f58f7c9d039e997763ed5c7a388
     if (ok) {
       final prefs = await SharedPreferences.getInstance();
       await prefs.setBool(_key, true);
       state = state.copyWith(isLoggedIn: true);
     }
-    return ok;
+    return ok; // <-- ensures a bool is always returned
   }
-<<<<<<< HEAD
 
   /// Used by Settings page to clear the displayed hint
   void clearOtpHint() {
     state = state.copyWith(otpHint: '');
   }
-=======
->>>>>>> d66b4cff86284f58f7c9d039e997763ed5c7a388
 }
 
+/// Global provider (import this where you use it)
 final authProvider =
 StateNotifierProvider<AuthNotifier, AuthState>((ref) => AuthNotifier());
