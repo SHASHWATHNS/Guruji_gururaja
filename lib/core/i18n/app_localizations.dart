@@ -19,6 +19,26 @@ class AppLocalizations {
     'settings.theme.dark': {'en': 'Dark', 'ta': 'இருள்'},
     'settings.language': {'en': 'Language', 'ta': 'மொழி'},
     'settings.logout': {'en': 'LOG OUT', 'ta': 'வெளியேறு'},
+    // Home tiles + common
+    'home.horoscope': {'en': 'HOROSCOPE', 'ta': 'ஜாதகம்'},
+    'home.match': {'en': 'THIRUMANA\nPORUTHAM', 'ta': 'திருமண\nபொருத்தம்'},
+    'home.panchanga': {'en': 'PANCHANGAM', 'ta': 'பஞ்சாங்கம்'},
+    'home.numerology': {'en': 'NUMEROLOGY', 'ta': 'எண் கணிதம்'},
+    'home.jammukul': {'en': 'JAMMUKUL\nPRASHANA', 'ta': 'ஜாமக்கோள்\nபிரஷ்னா'},
+    'home.tarot': {'en': 'TAROT', 'ta': 'டாரட்'},
+    'home.purchase': {'en': 'PURCHASE', 'ta': 'கொள்முதல்'},
+    'home.about': {'en': 'ABOUT', 'ta': 'தகவல்'},
+    'home.feedback': {'en': 'CLASS\nFEEDBACK', 'ta': 'வகுப்பு\nகருத்து'},
+    'home.transit': {'en': 'TRANSIT DATA', 'ta': 'கிரகப் பயணம்'},
+    'home.video': {'en': 'CLASS\nVIDEO', 'ta': 'வகுப்பு\nவீடியோ'},
+    'home.youtube': {'en': 'YOUTUBE\nVIDEO', 'ta': 'யூடியூப்\nவீடியோ'},
+    'home.settings': {'en': 'SETTINGS', 'ta': 'அமைப்புகள்'},
+    'common.coming': {'en': '— coming soon', 'ta': '— விரைவில்'},
+
+// Panchanga buttons
+    'panchanga.prev': {'en': 'PREVIOUS DAY', 'ta': 'முந்தைய நாள்'},
+    'panchanga.next': {'en': 'NEXT DAY', 'ta': 'அடுத்த நாள்'},
+
   };
 
   String t(String key) {

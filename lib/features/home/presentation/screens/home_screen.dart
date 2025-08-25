@@ -1,24 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:url_launcher/url_launcher.dart';
+import 'package:go_router/go_router.dart';
+
 import 'package:guraj_astro/features/numerology/presentation/screens/numerology_screen.dart';
 import 'package:guraj_astro/features/prashna/presentation/screens/prashna_screen.dart';
 import 'package:guraj_astro/features/settings/presentation/screens/settings_screen.dart';
 import 'package:guraj_astro/features/youtube/presentation/screens/youtube_videos_screen.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 import '../../../horoscope/presentation/screens/horoscope_screen.dart';
 import '../../../panchanga/presentation/screens/panchanga_screen.dart';
 
 import '../widgets/home_header.dart';
 import '../widgets/menu_button.dart';
-import 'package:go_router/go_router.dart';
-
+import '../../../../core/i18n/app_localizations.dart';
 
 class HomeScreen extends ConsumerWidget {
   const HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final t = context.l10n.t;
+
     return Scaffold(
       backgroundColor: const Color(0xFFFFF3CD),
       body: SafeArea(
@@ -29,16 +32,16 @@ class HomeScreen extends ConsumerWidget {
               const HomeHeader(),
               const SizedBox(height: 8),
 
-              // 🔑 Add padding wrapper for all menu sections
+              // Padding wrapper for all menu sections
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 10.0), // <-- horizontal padding
+                padding: const EdgeInsets.symmetric(horizontal: 10.0),
                 child: Column(
                   children: [
                     // Row 1
                     _twoTiles(
                       context,
                       left: MenuButton(
-                        label: 'HOROSCOPE',
+                        label: t('home.horoscope'),
                         icon: Icons.auto_awesome,
                         color: Colors.red.shade400,
                         onTap: () => Navigator.of(context).push(
@@ -46,10 +49,10 @@ class HomeScreen extends ConsumerWidget {
                         ),
                       ),
                       right: MenuButton(
-                        label: 'THIRUMANA\nPORUTHAM',
+                        label: t('home.match'),
                         icon: Icons.favorite,
                         color: Colors.pink.shade400,
-                        onTap: () => _soon(context, 'Thirumana Porutham'),
+                        onTap: () => _soon(context, t('home.match'), t),
                       ),
                     ),
 
@@ -57,7 +60,7 @@ class HomeScreen extends ConsumerWidget {
                     _twoTiles(
                       context,
                       left: MenuButton(
-                        label: 'PANCHANGAM',
+                        label: t('home.panchanga'),
                         icon: Icons.calendar_today,
                         color: Colors.orange.shade600,
                         onTap: () => Navigator.of(context).push(
@@ -65,14 +68,12 @@ class HomeScreen extends ConsumerWidget {
                         ),
                       ),
                       right: MenuButton(
-                        label: 'NUMEROLOGY',
+                        label: t('home.numerology'),
                         icon: Icons.calculate,
                         color: Colors.teal.shade600,
-                        onTap: () {
-                          Navigator.of(context).push(
-                            MaterialPageRoute(builder: (_) => const NumerologyScreen()),
-                          );
-                        },
+                        onTap: () => Navigator.of(context).push(
+                          MaterialPageRoute(builder: (_) => const NumerologyScreen()),
+                        ),
                       ),
                     ),
 
@@ -80,25 +81,20 @@ class HomeScreen extends ConsumerWidget {
                     _twoTiles(
                       context,
                       left: MenuButton(
-                        label: 'JAMMUKUL\nPRASHANA',
+                        label: t('home.jammukul'),
                         icon: Icons.question_answer,
                         color: Colors.indigo.shade500,
-                        onTap: () {
-                        Navigator.of(context).push(
-                        MaterialPageRoute(builder: (_) => const PrashnaScreen()),
-                        );
-                        },
-
+                        onTap: () => Navigator.of(context).push(
+                          MaterialPageRoute(builder: (_) => const PrashnaScreen()),
+                        ),
                       ),
                       right: MenuButton(
-                        label: 'TARAT',
+                        label: t('home.tarot'),
                         icon: Icons.style,
                         color: Colors.purple.shade500,
-                        onTap: () => _soon(context, 'Tarat'),
+                        onTap: () => _soon(context, t('home.tarot'), t),
                       ),
                     ),
-
-                    // const SizedBox(height: 1),
 
                     // Purchase
                     SizedBox(
@@ -114,14 +110,14 @@ class HomeScreen extends ConsumerWidget {
                           elevation: 0,
                         ),
                         icon: const Icon(Icons.shopping_bag),
-                        label: const Text(
-                          'PURCHASE',
-                          style: TextStyle(
+                        label: Text(
+                          t('home.purchase'),
+                          style: const TextStyle(
                             fontWeight: FontWeight.w800,
                             letterSpacing: 1.0,
                           ),
                         ),
-                        onPressed: () => _soon(context, 'Purchase'),
+                        onPressed: () => _soon(context, t('home.purchase'), t),
                       ),
                     ),
 
@@ -131,16 +127,16 @@ class HomeScreen extends ConsumerWidget {
                     _twoTiles(
                       context,
                       left: MenuButton(
-                        label: 'ABOUT',
+                        label: t('home.about'),
                         icon: Icons.info,
                         color: Colors.blueGrey.shade600,
-                        onTap: () => _soon(context, 'About'),
+                        onTap: () => _soon(context, t('home.about'), t),
                       ),
                       right: MenuButton(
-                        label: 'CLASS\nFEEDBACK',
+                        label: t('home.feedback'),
                         icon: Icons.rate_review,
                         color: Colors.deepOrange.shade400,
-                        onTap: () => _soon(context, 'Class Feedback'),
+                        onTap: () => _soon(context, t('home.feedback'), t),
                       ),
                     ),
 
@@ -148,16 +144,16 @@ class HomeScreen extends ConsumerWidget {
                     _twoTiles(
                       context,
                       left: MenuButton(
-                        label: 'TRANSIT DATA',
+                        label: t('home.transit'),
                         icon: Icons.swap_horiz,
                         color: Colors.brown.shade500,
-                        onTap: () => _soon(context, 'Transit Data'),
+                        onTap: () => _soon(context, t('home.transit'), t),
                       ),
                       right: MenuButton(
-                        label: 'CLASS\nVIDEO',
+                        label: t('home.video'),
                         icon: Icons.video_library,
                         color: Colors.blue.shade600,
-                        onTap: () => _soon(context, 'Class Video'),
+                        onTap: () => _soon(context, t('home.video'), t),
                       ),
                     ),
 
@@ -165,27 +161,27 @@ class HomeScreen extends ConsumerWidget {
                     _twoTiles(
                       context,
                       left: MenuButton(
-                        label: 'YOUTUBE\nVIDEO',
+                        label: t('home.youtube'),
                         icon: Icons.play_circle_fill,
                         color: Colors.red.shade700,
                         onTap: () async {
-                          final url = Uri.parse(
-                              "https://www.youtube.com/@gurujigururaja/videos");
-                          if (!await launchUrl(url,
-                              mode: LaunchMode.externalApplication)) {
-                            throw "Could not launch $url";
+                          final url = Uri.parse("https://www.youtube.com/@gurujigururaja/videos");
+                          if (!await launchUrl(url, mode: LaunchMode.externalApplication)) {
+                            if (context.mounted) {
+                              _soon(context, t('home.youtube'), t);
+                            }
                           }
                         },
                       ),
                       right: MenuButton(
-                        label: 'SETTINGS',
+                        label: t('home.settings'),
                         icon: Icons.settings,
                         color: Colors.grey.shade700,
-                        onTap: (){
-                    Navigator.of(context).push(
-                    MaterialPageRoute(builder: (_) => const SettingsScreen()),
-                    );
-                    },
+                        onTap: () {
+                          Navigator.of(context).push(
+                            MaterialPageRoute(builder: (_) => const SettingsScreen()),
+                          );
+                        },
                       ),
                     ),
                   ],
@@ -211,9 +207,9 @@ class HomeScreen extends ConsumerWidget {
     );
   }
 
-  static void _soon(BuildContext context, String label) {
+  static void _soon(BuildContext context, String label, String Function(String) t) {
     ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text('$label — coming soon')),
+      SnackBar(content: Text('$label ${t('common.coming')}')),
     );
   }
 }

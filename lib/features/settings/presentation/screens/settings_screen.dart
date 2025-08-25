@@ -61,7 +61,7 @@ class SettingsScreen extends ConsumerWidget {
       body: ListView(
         padding: const EdgeInsets.fromLTRB(16, 16, 16, 24),
         children: [
-          // =========== PREFERENCES CARD ===========
+          // ===== Preferences card =====
           Card(
             elevation: 0,
             shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
@@ -71,7 +71,8 @@ class SettingsScreen extends ConsumerWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   _SectionTitle(text: l10n.t('settings.preferences')),
-                  // THEME
+
+                  // Theme
                   ListTile(
                     contentPadding: EdgeInsets.zero,
                     leading: const Icon(Icons.brightness_6),
@@ -80,8 +81,10 @@ class SettingsScreen extends ConsumerWidget {
                     trailing: const Icon(Icons.chevron_right),
                     onTap: () => _showThemePicker(context, ref, settings.themeMode),
                   ),
+
                   const Divider(height: 1),
-                  // LANGUAGE (toggle)
+
+                  // Language toggle (TA <-> EN)
                   Padding(
                     padding: const EdgeInsets.only(top: 12, bottom: 8),
                     child: Text(
@@ -94,6 +97,7 @@ class SettingsScreen extends ConsumerWidget {
                     onChanged: (loc) {
                       HapticFeedback.selectionClick();
                       ref.read(appSettingsProvider.notifier).setLocale(loc);
+                      // no navigation needed — whole app rebuilds via AstroApp.locale
                     },
                   ),
                   const SizedBox(height: 8),
@@ -104,7 +108,7 @@ class SettingsScreen extends ConsumerWidget {
 
           const SizedBox(height: 20),
 
-          // =========== LOGOUT BUTTON ===========
+          // ===== Logout =====
           Semantics(
             button: true,
             label: l10n.t('settings.logout'),
@@ -128,9 +132,7 @@ class SettingsScreen extends ConsumerWidget {
                   if (confirmed != true) return;
                   try {
                     await ref.read(authProvider.notifier).logout();
-                  } catch (_) {
-                    // swallow; route anyway to avoid stuck session
-                  }
+                  } catch (_) {}
                   if (context.mounted) context.go('/login');
                 },
               ),
@@ -163,7 +165,6 @@ class SettingsScreen extends ConsumerWidget {
       context: context,
       showDragHandle: true,
       useSafeArea: true,
-      isScrollControlled: false,
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(top: Radius.circular(14)),
       ),
@@ -218,8 +219,7 @@ class SettingsScreen extends ConsumerWidget {
       builder: (ctx) => AlertDialog(
         title: Text(context.l10n.t('settings.logout')),
         content: Text(
-          // You can localize this too if you add a key
-          'Are you sure you want to log out?',
+          'Are you sure you want to log out?', // add a key later if you want this localized
           style: Theme.of(ctx).textTheme.bodyMedium,
         ),
         actions: [
@@ -349,14 +349,14 @@ class LanguageToggle extends StatelessWidget {
                   child: InkWell(
                     borderRadius: BorderRadius.circular(26),
                     onTap: () => onChanged(const Locale('ta')),
-                    child: const _LangCell(label: 'TA', emoji: '🇮🇳', isLeft: true),
+                    child: const _LangCell(label: 'TA', emoji: '🇮🇳'),
                   ),
                 ),
                 Expanded(
                   child: InkWell(
                     borderRadius: BorderRadius.circular(26),
                     onTap: () => onChanged(const Locale('en')),
-                    child: const _LangCell(label: 'EN', emoji: '🇬🇧', isLeft: false),
+                    child: const _LangCell(label: 'EN', emoji: '🇬🇧'),
                   ),
                 ),
               ],
@@ -371,8 +371,7 @@ class LanguageToggle extends StatelessWidget {
 class _LangCell extends StatelessWidget {
   final String label;
   final String emoji;
-  final bool isLeft;
-  const _LangCell({required this.label, required this.emoji, required this.isLeft});
+  const _LangCell({required this.label, required this.emoji});
 
   @override
   Widget build(BuildContext context) {

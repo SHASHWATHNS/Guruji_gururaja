@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../../../core/i18n/app_localizations.dart';
 
 class HomeHeader extends StatelessWidget {
   const HomeHeader({super.key});
@@ -14,24 +15,24 @@ class HomeHeader extends StatelessWidget {
           color: const Color(0xFFFFD400), // bright yellow
           padding: const EdgeInsets.symmetric(vertical: 20),
           alignment: Alignment.center,
-          child: CircleAvatar(
+          child: const CircleAvatar(
             radius: 100,
             backgroundColor: Colors.white,
             child: ClipOval(
-              child: const _LogoAssetOrFallback(size: 200),
+              child: _LogoAssetOrFallback(size: 200),
             ),
           ),
         ),
 
-        // Name on light yellow (matches page)
+        // Localized name on light yellow (matches page)
         Container(
           width: double.infinity,
           color: const Color(0xFFFFF3CD), // light yellow
           padding: const EdgeInsets.symmetric(vertical: 14),
           alignment: Alignment.center,
-          child: const Text(
-            'GURUJI GURURAJA',
-            style: TextStyle(
+          child: Text(
+            context.l10n.t('app.title'),
+            style: const TextStyle(
               fontSize: 22,
               fontWeight: FontWeight.w900,
               letterSpacing: 1.2,
