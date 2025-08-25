@@ -1,34 +1,38 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-import '../../../../../core/constants/app_colors.dart';
-import '../../../auth/presentation/viewmodels/auth_view_model.dart';
 
-// Local state for sample toggles
-final notificationsEnabledProvider = StateProvider<bool>((_) => true);
+import '../../../../core/constants/app_colors.dart';
+import '../../../../core/i18n/app_localizations.dart';
+import '../../../../core/settings/app_settings.dart';
+import '../../../auth/presentation/viewmodels/auth_view_model.dart';
 
 class SettingsScreen extends ConsumerWidget {
   const SettingsScreen({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final notifOn = ref.watch(notificationsEnabledProvider);
+    final l10n = context.l10n;
+    final settings = ref.watch(appSettingsProvider);
 
     return Scaffold(
-      backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: AppColors.headerBar,
         centerTitle: true,
         leading: IconButton(
+          tooltip: MaterialLocalizations.of(context).backButtonTooltip,
           onPressed: () => context.pop(),
           icon: const Icon(Icons.arrow_back, color: Colors.black),
         ),
         title: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            const Text(
-              'GURUJI GURURAJA',
-              style: TextStyle(
+            Text(
+              l10n.t('app.title'),
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+              style: const TextStyle(
                 fontWeight: FontWeight.w800,
                 color: Colors.black,
                 fontSize: 18,
@@ -36,14 +40,14 @@ class SettingsScreen extends ConsumerWidget {
             ),
             const SizedBox(height: 6),
             Container(
-              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
+              padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 4),
               decoration: BoxDecoration(
-                color: Colors.grey.shade900,
+                color: Colors.black87,
                 borderRadius: BorderRadius.circular(6),
               ),
-              child: const Text(
-                'SETTINGS',
-                style: TextStyle(
+              child: Text(
+                l10n.t('chip.settings'),
+                style: const TextStyle(
                   color: Colors.white,
                   fontWeight: FontWeight.w600,
                   fontSize: 13,
@@ -55,135 +59,192 @@ class SettingsScreen extends ConsumerWidget {
         ),
       ),
       body: ListView(
+        padding: const EdgeInsets.fromLTRB(16, 16, 16, 24),
         children: [
-          const SizedBox(height: 6),
-
-          // --- Account ---
-          const _SectionHeader('Account'),
-          ListTile(
-            leading: const CircleAvatar(child: Icon(Icons.person)),
-            title: const Text('Profile'),
-            subtitle: const Text('View or edit your profile (coming soon)'),
-            trailing: const Icon(Icons.chevron_right),
-            onTap: () {
-              ScaffoldMessenger.of(context).showSnackBar(
-                const SnackBar(content: Text('Profile — coming soon')),
-              );
-            },
-          ),
-
-          const Divider(height: 1),
-
-          // --- Preferences ---
-          const _SectionHeader('Preferences'),
-          SwitchListTile(
-            secondary: const Icon(Icons.notifications_active),
-            title: const Text('Notifications'),
-            value: notifOn,
-            onChanged: (v) =>
-            ref.read(notificationsEnabledProvider.notifier).state = v,
-          ),
-          ListTile(
-            leading: const Icon(Icons.brightness_6),
-            title: const Text('Theme'),
-            subtitle: const Text('Light (Dark mode coming soon)'),
-            onTap: () {
-              ScaffoldMessenger.of(context).showSnackBar(
-                const SnackBar(content: Text('Dark mode — coming soon')),
-              );
-            },
-          ),
-
-          const Divider(height: 1),
-
-          // --- About & Help ---
-          const _SectionHeader('About & Help'),
-          ListTile(
-            leading: const Icon(Icons.info_outline),
-            title: const Text('About Founder'),
-            trailing: const Icon(Icons.chevron_right),
-            onTap: () => context.push('/about-founder'),
-          ),
-          ListTile(
-            leading: const Icon(Icons.privacy_tip_outlined),
-            title: const Text('Privacy Policy'),
-            subtitle: const Text('Opens website (coming soon)'),
-            onTap: () {
-              ScaffoldMessenger.of(context).showSnackBar(
-                const SnackBar(content: Text('Privacy Policy — coming soon')),
-              );
-            },
-          ),
-
-          const Divider(height: 1),
-
-          // --- Advanced ---
-          const _SectionHeader('Advanced'),
-          ListTile(
-            leading: const Icon(Icons.cleaning_services_outlined),
-            title: const Text('Clear demo OTP hint'),
-            subtitle:
-            const Text('Remove the “OTP: 123456” helper from Login'),
-            onTap: () {
-              ref.read(authProvider.notifier).clearOtpHint(); // ✅ fixed
-              ScaffoldMessenger.of(context).showSnackBar(
-                const SnackBar(content: Text('Demo OTP hint cleared')),
-              );
-            },
-          ),
-
-          const SizedBox(height: 12),
-
-          // --- Danger zone: Logout ---
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16.0),
-            child: ElevatedButton.icon(
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.red.shade600,
-                foregroundColor: Colors.white,
-                padding: const EdgeInsets.symmetric(vertical: 14),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                elevation: 0,
+          // =========== PREFERENCES CARD ===========
+          Card(
+            elevation: 0,
+            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+            child: Padding(
+              padding: const EdgeInsets.fromLTRB(12, 8, 12, 4),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  _SectionTitle(text: l10n.t('settings.preferences')),
+                  // THEME
+                  ListTile(
+                    contentPadding: EdgeInsets.zero,
+                    leading: const Icon(Icons.brightness_6),
+                    title: Text(l10n.t('settings.theme')),
+                    subtitle: Text(_themeLabel(l10n, settings.themeMode)),
+                    trailing: const Icon(Icons.chevron_right),
+                    onTap: () => _showThemePicker(context, ref, settings.themeMode),
+                  ),
+                  const Divider(height: 1),
+                  // LANGUAGE (toggle)
+                  Padding(
+                    padding: const EdgeInsets.only(top: 12, bottom: 8),
+                    child: Text(
+                      l10n.t('settings.language'),
+                      style: const TextStyle(fontWeight: FontWeight.w700),
+                    ),
+                  ),
+                  LanguageToggle(
+                    value: settings.locale,
+                    onChanged: (loc) {
+                      HapticFeedback.selectionClick();
+                      ref.read(appSettingsProvider.notifier).setLocale(loc);
+                    },
+                  ),
+                  const SizedBox(height: 8),
+                ],
               ),
-              icon: const Icon(Icons.logout),
-              label: const Text(
-                'LOG OUT',
-                style: TextStyle(
-                  fontWeight: FontWeight.w800,
-                  letterSpacing: 1,
+            ),
+          ),
+
+          const SizedBox(height: 20),
+
+          // =========== LOGOUT BUTTON ===========
+          Semantics(
+            button: true,
+            label: l10n.t('settings.logout'),
+            child: SizedBox(
+              width: double.infinity,
+              child: ElevatedButton.icon(
+                icon: const Icon(Icons.logout),
+                label: Text(
+                  l10n.t('settings.logout'),
+                  style: const TextStyle(fontWeight: FontWeight.w800, letterSpacing: 0.6),
                 ),
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.red.shade600,
+                  foregroundColor: Colors.white,
+                  padding: const EdgeInsets.symmetric(vertical: 14),
+                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+                  elevation: 0,
+                ),
+                onPressed: () async {
+                  final confirmed = await _confirmLogout(context);
+                  if (confirmed != true) return;
+                  try {
+                    await ref.read(authProvider.notifier).logout();
+                  } catch (_) {
+                    // swallow; route anyway to avoid stuck session
+                  }
+                  if (context.mounted) context.go('/login');
+                },
               ),
-              onPressed: () async {
-                await ref.read(authProvider.notifier).logout();
-                if (context.mounted) context.go('/login');
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  String _themeLabel(AppLocalizations l10n, ThemeMode m) {
+    switch (m) {
+      case ThemeMode.light:
+        return l10n.t('settings.theme.light');
+      case ThemeMode.dark:
+        return l10n.t('settings.theme.dark');
+      default:
+        return l10n.t('settings.theme.system');
+    }
+  }
+
+  Future<void> _showThemePicker(
+      BuildContext context,
+      WidgetRef ref,
+      ThemeMode current,
+      ) async {
+    final l10n = context.l10n;
+    HapticFeedback.selectionClick();
+    await showModalBottomSheet<void>(
+      context: context,
+      showDragHandle: true,
+      useSafeArea: true,
+      isScrollControlled: false,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(14)),
+      ),
+      builder: (_) => SafeArea(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            _ThemeOptionTile(
+              mode: ThemeMode.system,
+              group: current,
+              label: l10n.t('settings.theme.system'),
+              icon: Icons.phone_iphone,
+              onChanged: (v) {
+                HapticFeedback.selectionClick();
+                ref.read(appSettingsProvider.notifier).setThemeMode(v);
+                Navigator.of(context).pop();
               },
             ),
-          ),
-
-          const SizedBox(height: 18),
-          const Center(
-            child: Text(
-              'v1.0.0',
-              style: TextStyle(color: Colors.black45),
+            _ThemeOptionTile(
+              mode: ThemeMode.light,
+              group: current,
+              label: l10n.t('settings.theme.light'),
+              icon: Icons.light_mode,
+              onChanged: (v) {
+                HapticFeedback.selectionClick();
+                ref.read(appSettingsProvider.notifier).setThemeMode(v);
+                Navigator.of(context).pop();
+              },
             ),
+            _ThemeOptionTile(
+              mode: ThemeMode.dark,
+              group: current,
+              label: l10n.t('settings.theme.dark'),
+              icon: Icons.dark_mode,
+              onChanged: (v) {
+                HapticFeedback.selectionClick();
+                ref.read(appSettingsProvider.notifier).setThemeMode(v);
+                Navigator.of(context).pop();
+              },
+            ),
+            const SizedBox(height: 10),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Future<bool?> _confirmLogout(BuildContext context) {
+    return showDialog<bool>(
+      context: context,
+      barrierDismissible: true,
+      builder: (ctx) => AlertDialog(
+        title: Text(context.l10n.t('settings.logout')),
+        content: Text(
+          // You can localize this too if you add a key
+          'Are you sure you want to log out?',
+          style: Theme.of(ctx).textTheme.bodyMedium,
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.of(ctx).pop(false),
+            child: const Text('CANCEL'),
           ),
-          const SizedBox(height: 18),
+          FilledButton(
+            onPressed: () => Navigator.of(ctx).pop(true),
+            child: const Text('LOG OUT'),
+          ),
         ],
       ),
     );
   }
 }
 
-class _SectionHeader extends StatelessWidget {
+class _SectionTitle extends StatelessWidget {
   final String text;
-  const _SectionHeader(this.text);
+  const _SectionTitle({required this.text});
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.fromLTRB(16, 16, 16, 6),
+      padding: const EdgeInsets.fromLTRB(4, 8, 4, 6),
       child: Text(
         text.toUpperCase(),
         style: TextStyle(
@@ -191,6 +252,146 @@ class _SectionHeader extends StatelessWidget {
           fontWeight: FontWeight.w700,
           letterSpacing: 0.6,
         ),
+      ),
+    );
+  }
+}
+
+class _ThemeOptionTile extends StatelessWidget {
+  final ThemeMode mode;
+  final ThemeMode group;
+  final String label;
+  final IconData icon;
+  final ValueChanged<ThemeMode> onChanged;
+
+  const _ThemeOptionTile({
+    required this.mode,
+    required this.group,
+    required this.label,
+    required this.icon,
+    required this.onChanged,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final selected = mode == group;
+    return ListTile(
+      leading: Icon(icon),
+      title: Text(label),
+      trailing: selected
+          ? Icon(Icons.check_circle, color: Theme.of(context).colorScheme.primary)
+          : const Icon(Icons.radio_button_unchecked),
+      onTap: () => onChanged(mode),
+    );
+  }
+}
+
+/// Pill-style TA/EN toggle with a11y + animation
+class LanguageToggle extends StatelessWidget {
+  final Locale value; // current locale
+  final ValueChanged<Locale> onChanged;
+  const LanguageToggle({super.key, required this.value, required this.onChanged});
+
+  bool get _isTamil => value.languageCode.toLowerCase() == 'ta';
+
+  @override
+  Widget build(BuildContext context) {
+    return Semantics(
+      toggled: _isTamil,
+      label: context.l10n.t('settings.language'),
+      hint: 'Double tap to switch language',
+      child: SizedBox(
+        height: 52,
+        child: Stack(
+          children: [
+            // Track
+            Container(
+              decoration: BoxDecoration(
+                color: const Color(0xFFF1F3F6),
+                borderRadius: BorderRadius.circular(26),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black.withOpacity(0.06),
+                    blurRadius: 8,
+                    offset: const Offset(0, 3),
+                  ),
+                ],
+              ),
+            ),
+            // Thumb
+            AnimatedAlign(
+              alignment: _isTamil ? Alignment.centerLeft : Alignment.centerRight,
+              duration: const Duration(milliseconds: 220),
+              curve: Curves.easeOut,
+              child: FractionallySizedBox(
+                widthFactor: 0.5,
+                heightFactor: 1.0,
+                child: Container(
+                  margin: const EdgeInsets.all(4),
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(22),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black.withOpacity(0.08),
+                        blurRadius: 10,
+                        offset: const Offset(0, 2),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+            // Labels + taps
+            Row(
+              children: [
+                Expanded(
+                  child: InkWell(
+                    borderRadius: BorderRadius.circular(26),
+                    onTap: () => onChanged(const Locale('ta')),
+                    child: const _LangCell(label: 'TA', emoji: '🇮🇳', isLeft: true),
+                  ),
+                ),
+                Expanded(
+                  child: InkWell(
+                    borderRadius: BorderRadius.circular(26),
+                    onTap: () => onChanged(const Locale('en')),
+                    child: const _LangCell(label: 'EN', emoji: '🇬🇧', isLeft: false),
+                  ),
+                ),
+              ],
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class _LangCell extends StatelessWidget {
+  final String label;
+  final String emoji;
+  final bool isLeft;
+  const _LangCell({required this.label, required this.emoji, required this.isLeft});
+
+  @override
+  Widget build(BuildContext context) {
+    return ExcludeSemantics(
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Text(emoji, style: const TextStyle(fontSize: 18)),
+          const SizedBox(width: 8),
+          Text(
+            label,
+            style: const TextStyle(
+              fontSize: 16,
+              fontWeight: FontWeight.w700,
+              letterSpacing: 1.0,
+              color: Colors.black87,
+            ),
+          ),
+        ],
       ),
     );
   }
