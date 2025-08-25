@@ -9,10 +9,9 @@ import '../features/auth/presentation/screens/login_screen.dart';
 // Existing
 import '../features/home/presentation/screens/home_screen.dart';
 import '../features/horoscope/presentation/screens/horoscope_screen.dart';
-import '../features/matchmaking/presentation/screens/alp_matchmaking_screen.dart';
+import '../features/matchmaking/presentation/screens/matchmaking_screen.dart';
 import '../features/panchanga/presentation/screens/panchanga_screen.dart';
 import '../features/prashna/presentation/screens/prashna_screen.dart';
-import '../features/matching/presentation/screens/horoscope_matching_screen.dart';
 import '../features/purchase/presentation/screens/purchase_screen.dart';
 import '../features/settings/presentation/screens/settings_screen.dart'; // keep this one
 import '../features/about/presentation/screens/about_founder_screen.dart';
@@ -33,10 +32,9 @@ final appRouterProvider = Provider<GoRouter>((ref) {
       // --- App ---
       GoRoute(path: '/', name: 'home', builder: (_, __) => const HomeScreen()),
       GoRoute(path: '/horoscope', name: 'horoscope', builder: (_, __) => const HoroscopeScreen()),
-      GoRoute(path: '/alp-matchmaking', name: 'alp-matchmaking', builder: (_, __) => const AlpMatchMakingScreen()),
+      GoRoute(path: '/alp-matchmaking', name: 'alp-matchmaking', builder: (_, __) => const MatchMakingScreen()),
       GoRoute(path: '/panchanga', name: 'panchanga', builder: (_, __) => const PanchangaScreen()),
       GoRoute(path: '/prashna', name: 'prashna', builder: (_, __) => const PrashnaScreen()),
-      GoRoute(path: '/horoscope-matching', name: 'horoscope-matching', builder: (_, __) => const HoroscopeMatchingScreen()),
       GoRoute(path: '/purchase', name: 'purchase', builder: (_, __) => const PurchaseScreen()),
       GoRoute(path: '/settings', name: 'settings', builder: (_, __) => const SettingsScreen()),
       GoRoute(path: '/about-founder', name: 'about-founder', builder: (_, __) => const AboutFounderScreen()),

@@ -38,6 +38,52 @@ class AppLocalizations {
 // Panchanga buttons
     'panchanga.prev': {'en': 'PREVIOUS DAY', 'ta': 'முந்தைய நாள்'},
     'panchanga.next': {'en': 'NEXT DAY', 'ta': 'அடுத்த நாள்'},
+// matching
+    // Matching (Star/Rasi) screen
+    'match.chip': {'en': 'MATCHING', 'ta': 'பொருத்தம்'},
+    'match.section.bride': {'en': 'Bride Details', 'ta': 'பெண் விவரம்'},
+    'match.section.groom': {'en': 'Groom Details', 'ta': 'ஆண் விவரம்'},
+    'match.name': {'en': 'Full Name', 'ta': 'முழுப் பெயர்'},
+    'match.nakshatra': {'en': 'Nakshatra', 'ta': 'நட்சத்திரம்'},
+    'match.rasi': {'en': 'Rasi (Zodiac)', 'ta': 'ராசி'},
+    'match.calculate': {'en': 'CALCULATE', 'ta': 'பொருத்தம்'},
+    'match.error.requiredAll': {
+      'en': 'Please enter name and select nakshatra & rasi for both.',
+      'ta': 'பெயர், நட்சத்திரம், ராசி — இருவருக்கும் தேர்ந்தெடுக்கவும்.'},
+    'match.result.title': {'en': 'Porutham Scores', 'ta': 'பொருத்த மதிப்பெண்கள்'},
+    'match.result.total': {'en': 'Total', 'ta': 'மொத்தம்'},
+
+// Class Feedback
+    'fb.chip': {'en': 'CLASS FEEDBACK', 'ta': 'வகுப்பு கருத்து'},
+    'fb.section.student': {'en': 'Student Details', 'ta': 'மாணவர் விவரங்கள்'},
+    'fb.section.experience': {'en': 'Class Experience', 'ta': 'வகுப்பு அனுபவம்'},
+
+    'fb.name': {'en': 'Full Name', 'ta': 'முழுப் பெயர்'},
+    'fb.phone': {'en': 'Phone Number', 'ta': 'தொலைபேசி எண்'},
+    'fb.phone.invalid': {'en': 'Enter a valid phone number', 'ta': 'சரியான எண்ணை உள்ளிடவும்'},
+
+    'fb.course': {'en': 'Course', 'ta': 'பாடநெறி'},
+    'fb.course.basic': {'en': 'Basic Astrology', 'ta': 'அடிப்படை ஜோதிடம்'},
+    'fb.course.prashna': {'en': 'Prashna', 'ta': 'பிரஷ்னா'},
+    'fb.course.matching': {'en': 'Matching', 'ta': 'பொருத்தம்'},
+    'fb.course.panchanga': {'en': 'Panchanga', 'ta': 'பஞ்சாங்கம்'},
+    'fb.course.numerology': {'en': 'Numerology', 'ta': 'எண் கணிதம்'},
+    'fb.course.other': {'en': 'Other', 'ta': 'மற்றவை'},
+
+    'fb.rating': {'en': 'Your Rating', 'ta': 'உங்கள் மதிப்பீடு'},
+    'fb.good': {'en': 'What went well?', 'ta': 'நன்றாக இருந்தவை'},
+    'fb.improve': {'en': 'What can improve?', 'ta': 'மேம்படுத்த வேண்டியவை'},
+    'fb.recommend': {'en': 'I would recommend this class', 'ta': 'இந்த வகுப்பை பரிந்துரைப்பேன்'},
+
+    'fb.submit': {'en': 'SUBMIT FEEDBACK', 'ta': 'கருத்தை சமர்ப்பிக்கவும்'},
+
+    'fb.required': {'en': 'Required', 'ta': 'தேவை'},
+    'fb.error.rating': {'en': 'Please select a rating.', 'ta': 'மதிப்பீட்டைத் தேர்ந்தெடுக்கவும்.'},
+    'fb.error.course': {'en': 'Please choose a course.', 'ta': 'பாடநெறியைத் தேர்ந்தெடுக்கவும்.'},
+
+    'fb.success': {'en': 'Thank you! Your feedback was submitted.', 'ta': 'நன்றி! உங்கள் கருத்து பதிவானது.'},
+    'fb.fail': {'en': 'Submission failed. Please try again.', 'ta': 'சமர்ப்பிப்பு தோல்வி. மறுபடியும் முயற்சிக்கவும்.'},
+
 
   };
 

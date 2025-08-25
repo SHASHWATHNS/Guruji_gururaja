@@ -8,7 +8,9 @@ import 'package:guraj_astro/features/prashna/presentation/screens/prashna_screen
 import 'package:guraj_astro/features/settings/presentation/screens/settings_screen.dart';
 import 'package:guraj_astro/features/youtube/presentation/screens/youtube_videos_screen.dart';
 
+import '../../../feedback/presentation/screens/class_feedback_screen.dart';
 import '../../../horoscope/presentation/screens/horoscope_screen.dart';
+import '../../../matchmaking/presentation/screens/matchmaking_screen.dart';
 import '../../../panchanga/presentation/screens/panchanga_screen.dart';
 
 import '../widgets/home_header.dart';
@@ -52,7 +54,9 @@ class HomeScreen extends ConsumerWidget {
                         label: t('home.match'),
                         icon: Icons.favorite,
                         color: Colors.pink.shade400,
-                        onTap: () => _soon(context, t('home.match'), t),
+                        onTap: () => Navigator.of(context).push(
+                          MaterialPageRoute(builder: (_) => const MatchMakingScreen()),
+                        ),
                       ),
                     ),
 
@@ -136,7 +140,9 @@ class HomeScreen extends ConsumerWidget {
                         label: t('home.feedback'),
                         icon: Icons.rate_review,
                         color: Colors.deepOrange.shade400,
-                        onTap: () => _soon(context, t('home.feedback'), t),
+                          onTap: () => Navigator.of(context).push(
+                            MaterialPageRoute(builder: (_) => const ClassFeedbackScreen()),
+                          )
                       ),
                     ),
 
