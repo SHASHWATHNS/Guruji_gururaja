@@ -83,9 +83,40 @@ class AppLocalizations {
 
     'fb.success': {'en': 'Thank you! Your feedback was submitted.', 'ta': 'நன்றி! உங்கள் கருத்து பதிவானது.'},
     'fb.fail': {'en': 'Submission failed. Please try again.', 'ta': 'சமர்ப்பிப்பு தோல்வி. மறுபடியும் முயற்சிக்கவும்.'},
+// About page
+    'about.chip': {'en': 'ABOUT', 'ta': 'தகவல்'},
+    'about.name': {'en': 'Guruji Gururaja', 'ta': 'குருஜி குருராஜா'},
+    'about.role': {'en': 'Astrologer & Researcher', 'ta': 'ஜோதிட ஆசான் & ஆராய்ச்சியாளர்'},
+
+    'about.section.bio': {'en': 'Biography', 'ta': 'சுருக்கம்'},
+    'about.bio.origin': {
+      'en': 'Born and raised in Narasothipatti (Salem district). Originally named Yuvaraja, later changed to Guruji Gururaja for auspicious progress.',
+      'ta': 'சேலம் மாவட்டம், நரசோத்திப்பட்டி பகுதியில் பிறந்து வளர்ந்தார். முதற்பெயர் “யுவராஜா”; முன்னேற்ற நன்மைக்காக “குருஜி குருராஜா” என மாற்றினார்.'
+    },
+    'about.bio.inspiration': {
+      'en': 'Meeting astrologer Balaji transformed his path; accurate predictions deepened his faith in astrology.',
+      'ta': 'ஜோதிடர் பாலாஜியை சந்தித்தது வாழ்க்கைப் பாதையை மாற்றியது; அவர் கூறிய கணிப்புகள் ஒன்றன்பின் ஒன்றாக நனவாகி ஜோதிட நம்பிக்கையை வலுப்படுத்தின.'
+    },
+    'about.bio.work': {
+      'en': 'Studied with several Gurus; analysed around 20,000 horoscopes; created structured astrology courses and began teaching — including free classes.',
+      'ta': 'பல குருமார்களிடம் பயின்று, சுமார் 20,000 ஜாதகங்களை ஆய்வு செய்தார்; முறையான ஜோதிடப் பாடத்திட்டங்களை உருவாக்கி, இலவச வகுப்புகள் உட்பட கற்பித்தல் தொடங்கினார்.'
+    },
+    'about.bio.trust': {
+      'en': 'Founded the “Guruji Gururaja Spiritual Trust” on Karthigai Deepam day, 2021. Over 1,500 students have benefited; conferences conducted, books published, and certificates awarded.',
+      'ta': '2021-ஆம் ஆண்டு கார்த்திகை தீபத் திருநாளன்று “குருஜி குருராஜா ஸ்பிரிச்சுவாலிட்டி டிரஸ்ட்” அமைப்பை தொடங்கினார். இதுவரை 1,500-க்கும் மேற்பட்டவர்கள் பயனடைந்துள்ளனர்; ஜோதிட மாநாடுகள், நூல் வெளியீடுகள், சான்றிதழ்கள் வழங்கல் போன்றவை நடைபெற்றுள்ளன.'
+    },
+
+    'about.section.contact': {'en': 'Reach Guruji', 'ta': 'குருஜியை தொடர்புகொள்ள'},
+    'about.contact.location': {'en': 'Narasothipatti, Salem, Tamil Nadu', 'ta': 'நரசோத்திப்பட்டி, சேலம், தமிழ்நாடு'},
+    'about.contact.phone': {'en': 'Phone', 'ta': 'தொலைபேசி'},
+    'about.email': {'en': 'Email', 'ta': 'மின்னஞ்சல்'},
+    'about.website': {'en': 'Website', 'ta': 'இணையதளம்'},
+    'about.youtube': {'en': 'YouTube Channel', 'ta': 'யூடியூப் சேனல்'},
+    'about.share': {'en': 'Share App', 'ta': 'ஆப்பை பகிர்'},
 
 
   };
+
 
   String t(String key) {
     final m = _s[key];

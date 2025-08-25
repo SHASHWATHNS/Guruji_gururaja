@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:go_router/go_router.dart';
 
 import 'package:guraj_astro/features/numerology/presentation/screens/numerology_screen.dart';
 import 'package:guraj_astro/features/prashna/presentation/screens/prashna_screen.dart';
 import 'package:guraj_astro/features/settings/presentation/screens/settings_screen.dart';
-import 'package:guraj_astro/features/youtube/presentation/screens/youtube_videos_screen.dart';
 
+import '../../../about/presentation/screens/about_founder_screen.dart';
 import '../../../feedback/presentation/screens/class_feedback_screen.dart';
 import '../../../horoscope/presentation/screens/horoscope_screen.dart';
 import '../../../matchmaking/presentation/screens/matchmaking_screen.dart';
 import '../../../panchanga/presentation/screens/panchanga_screen.dart';
 
+import '../../../transit/presentation/screens/transit_screen.dart';
 import '../widgets/home_header.dart';
 import '../widgets/menu_button.dart';
 import '../../../../core/i18n/app_localizations.dart';
@@ -134,7 +134,9 @@ class HomeScreen extends ConsumerWidget {
                         label: t('home.about'),
                         icon: Icons.info,
                         color: Colors.blueGrey.shade600,
-                        onTap: () => _soon(context, t('home.about'), t),
+                          onTap: () => Navigator.of(context).push(
+                      MaterialPageRoute(builder: (_) => const AboutFounderScreen()),
+                    )
                       ),
                       right: MenuButton(
                         label: t('home.feedback'),
@@ -153,7 +155,9 @@ class HomeScreen extends ConsumerWidget {
                         label: t('home.transit'),
                         icon: Icons.swap_horiz,
                         color: Colors.brown.shade500,
-                        onTap: () => _soon(context, t('home.transit'), t),
+                          onTap: () => Navigator.of(context).push(
+                      MaterialPageRoute(builder: (_) => const TransitScreen()),
+                    )
                       ),
                       right: MenuButton(
                         label: t('home.video'),

@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
@@ -15,10 +14,10 @@ import '../features/prashna/presentation/screens/prashna_screen.dart';
 import '../features/purchase/presentation/screens/purchase_screen.dart';
 import '../features/settings/presentation/screens/settings_screen.dart'; // keep this one
 import '../features/about/presentation/screens/about_founder_screen.dart';
+import '../features/transit/presentation/screens/transit_screen.dart';
 import '../features/youtube/presentation/screens/youtube_videos_screen.dart';
 import '../features/shares/presentation/screens/shares_screen.dart';
 import '../features/training/presentation/screens/training_video_screen.dart';
-import '../features/transit/presentation/screens/transit_data_screen.dart';
 import '../features/numerology/presentation/screens/numerology_screen.dart';
 
 final appRouterProvider = Provider<GoRouter>((ref) {
@@ -41,7 +40,7 @@ final appRouterProvider = Provider<GoRouter>((ref) {
       GoRoute(path: '/youtube', name: 'youtube', builder: (_, __) => const YoutubeVideosScreen()),
       GoRoute(path: '/shares', name: 'shares', builder: (_, __) => const SharesScreen()),
       GoRoute(path: '/training', name: 'training', builder: (_, __) => const TrainingVideoScreen()),
-      GoRoute(path: '/transit', name: 'transit', builder: (_, __) => const TransitDataScreen()),
+      GoRoute(path: '/transit', name: 'transit', builder: (_, __) => const TransitScreen()),
       GoRoute(path: '/numerology', name: 'numerology', builder: (_, __) => const NumerologyScreen()),
     ],
   );
