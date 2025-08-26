@@ -1,0 +1,548 @@
+[
+  {
+    "id": "major_00",
+    "name": "The Fool",
+    "image": "TARROT1.JPG",
+    "benefit_paragraph_en": "This negative card warns against new beginnings. Reckless freedom and naïve courage lead to danger and losses. Avoid hasty decisions and unfamiliar ventures. Confusion from negligence, caution in vehicles and partnerships, and bad habits can cause disappointment. Patience and guidance are needed now.",
+    "benefit_paragraph_ta": "100% நெகட்டிவ் கார்டு, புதிய தொடக்கம் கூடாது. சுதந்திர மனப்பான்மையால் ஆபத்து. பயமில்லாத அசட்டு துணிச்சல் மனக்கவலை இல்லாத மறதி முட்டாள்தனமான முடிவது. அவசர நிலையில் ஆபத்தை தேடுதல். அனுபவம் இல்லாத தொழிலில் இருந்து நஷ்டப்படுதல். அஜாகிரதையால் குழப்பம். வாகனம் ,ஓட்டல் கூட்டுத் தொழில் மிக கவனம். வாய்ப்புகளை தவறவிடுதல். தவறான பழக்கம் ஏமாற்றம். நிதானமும் வழிகாட்டியும் தற்சமயம் தேவை"
+  },
+  {
+    "id": "major_01",
+    "name": "The Magician",
+    "image": "TARROT2.JPG",
+    "benefit_paragraph_en": "A very positive card. You will carry out tasks swiftly and successfully. Genuine relationships and cosmic energy will support you. Ignorance will fade and self-awareness will grow. Your intellect will sharpen, divine power will increase, and others will seek your advice. Secrets and support for work will arrive.",
+    "benefit_paragraph_ta": "100% வெற்றிக்கார்டு, எந்த செயலையும் சுறுசுறுப்பாக இனிமேல் நடத்தி காட்டுவீர்கள். ஆத்மார்த்தமான உறவுகள் உங்களை தேடி வரும். பிரபஞ்ச ஆற்றல் சக்தி கிடைக்கும். இவ்வளவு நாள் இருந்த கண்மூடித்தனம் விலகி சுய விழிப்புணர்வு ஏற்படும். புத்தி கூர்மையாக வைத்து செயல்படுவீர்கள். தெய்வீக ஆற்றல் அதிகரிக்கும் கல்வியில் நாட்டம் வரும். உங்களின் அறிவுரையை மற்றவர்கள் கேட்பார்கள். தேடி வந்த ரகசியம் கிடைக்கும். தொழிலா ஆதரவு கிடைக்கப்பெறும்."
+  },
+  {
+    "id": "major_02",
+    "name": "The High Priestess",
+    "image": "TARROT3.JPG",
+    "benefit_paragraph_en": "A card of 75% success. Promotions and recognition come through patience. You may face confusion and feel unfulfilled despite having everything. Strong leadership but underlying fear. You may converse with your subconscious; intuition is heightened and a female deity guides you.",
+    "benefit_paragraph_ta": "75% வெற்றிக்கார்டு, உயர்பதவி, அங்கீகாரம், பதவி மாற்றம் கிடைக்கும். நிதானத்தால் காரியத்தை சாதிப்பீர்கள். அதிகமான குழப்பத்தில் இருப்பீர்கள். அனைத்தும் இருந்தும் அனுபவிக்காத சூழல். ஆளுமை திறன் இருக்கும் ஆனால் பயம் இருக்கும். கற்பனையில் தன் ஆழ் மனதோடு பேசுவார்கள். இண்டியூஷன் பவர் அதிகமாக இருக்கும். பெண் தெய்வம் இவர்களோடு இருக்கும்."
+  },
+  {
+    "id": "major_03",
+    "name": "The Empress",
+    "image": "TARROT4.JPG",
+    "benefit_paragraph_en": "A card of complete success. Wealth and influence rise; fertility and creativity blossom. Life becomes beautiful; love succeeds and luxury flows in. Business grows; new discoveries bring fame; auspicious events occur soon, and luck comes through women.",
+    "benefit_paragraph_ta": "100% வெற்றிக்கார்டு, பணம் செல்வாக்கு உயரும். குழந்தை பாக்கியம் விரைவில் கிடைக்கும். உங்கள் வாழ்க்கை அழகாக மாறும். காதல் கைகூடும். ஆடம்பர வாழ்க்கை தேடி வரும். நல்ல தொழில் வளர்ச்சி ஏற்படும். புதிய கண்டுபிடிப்புகள் மூலம் புகழ் கிடைக்கும். சுப காரியங்கள் விரைவில் நடக்கும். பெண்களால் அதிர்ஷ்டம் ஏற்படும்."
+  },
+  {
+    "id": "major_04",
+    "name": "The Emperor",
+    "image": "TARROT5.JPG",
+    "benefit_paragraph_en": "A strong success card. You gain authority and position and act with integrity. Stubbornness may cause some isolation. You have great physical energy and leadership ability. Often tied to uniformed professions. Anger is a weakness. You plan your life, provide protection for others and work for your community.",
+    "benefit_paragraph_ta": "90% வெற்றிக்கார்டு, அதிகாரம் பதவி கிடைக்கும். எதிலும் நேர்மை. பிடிவாதத்தால் சில விலகல் இருக்கும். அதிகமான உடல் சக்தி இருக்கும். ஆளுமை திறன் இருக்கும். சீருடை சார்ந்த தொழில். கோபம் இவரது பலவீனம். திட்டமிடலோடு தன் வாழ்க்கையை நகர்த்துவார். மற்றவர்களுக்கு பாதுகாப்பு தருபவர். ஊருக்கு உழைப்பவர்"
+  },
+  {
+    "id": "major_05",
+    "name": "The Hierophant",
+    "image": "TARROT6.JPG",
+    "benefit_paragraph_en": "A card of certain success. Your ventures succeed and good teachers appear. It’s a time to manage finances and property. Problems find solutions. Success comes through sacrifice and deep spirituality. Your business stabilizes; heritage fame finds you; foreign endeavors succeed and expansion flourishes.",
+    "benefit_paragraph_ta": "100% வெற்றிக்கார்டு, எடுத்த காரியம் நடக்கும். நல்ல குருமார்கள் கிடைப்பார்கள். பணம், சொத்து முதலீடு நிர்வகிக்கும் காலம். பிரச்சனைக்கு தீர்வு கிடைக்கும். தியாகத்தின் மூலம் வெற்றி. ஆன்மீகத்தில் அதிக ஈடுபாடு. தொழில் நிலைக்கும் நேரம். பாரம்பரிய புகழ் தனக்கே தேடி வருதல். வெளிநாடு முயற்சி வெற்றி. தொழில் ,விரிவு வெற்றி."
+  },
+  {
+    "id": "major_06",
+    "name": "The Lovers",
+    "image": "TARROT7.JPG",
+    "benefit_paragraph_en": "A card of total success. Genuine relationships and love marriage thrive. Partners unite under divine blessing. It's a lucky period to make correct decisions. Good business partners appear; obstacles fade; you gain profit through your partner; sudden changes lead to success.",
+    "benefit_paragraph_ta": "100% வெற்றிக்கார்டு, உண்மையான உறவுகள் கிடைக்கும். காதல் திருமணம் கை கூடும். கணவன் மனைவி இணைவார்கள். இறை அனுகிரகம் அதிகமாக இருக்கும். அதிர்ஷ்டமான காலம். சரியான முடிவு எடுக்கும் காலம். நல்ல தொழில் பார்ட்னர் அமையும் நேரம். தடைகள் விலகும் நேரம் தன் வாழ்க்கை துணையால் லாபம். திடீர் மாற்றம் வெற்றியை கொடுக்கும்."
+  },
+  {
+    "id": "major_07",
+    "name": "The Chariot",
+    "image": "TARROT8.JPG",
+    "benefit_paragraph_en": "A card of 75% success. Self-control is essential. You achieve unique success and may travel abroad soon. It's time to act on past desires. Authority and leadership come. You gain worldly experience and increase mental and physical strength. Bold decisions bring victory, but beware flattery and heavy responsibilities.",
+    "benefit_paragraph_ta": "75% வெற்றிக்கார்டு, சுய கட்டுப்பாடு மிக அவசியம். தனித்துவமாக வெற்றி பெறும் நேரம். வெளிநாட்டு பயணம் விரைவில் ஏற்படும் முந்தைய ஆசைகளை செயல்படுத்தும் நேரம். ஆளுமை அதிகாரம் தேடி வரும். உலக அனுபவத்தை உணரக்கூடிய காலம். மனவலிமை உடல் வலிமை கூடும். துணிச்சலாக முடிவெடுத்தல். புகழ்ச்சிக்கு மயங்கி ஏமாறுதல். வயதுக்கு மீறிய பொ றுப்புகளை தாங்குதல்"
+  },
+  {
+    "id": "major_08",
+    "name": "Strength",
+    "image": "TARROT9.JPG",
+    "benefit_paragraph_en": "An 85% success card indicating courage and victory. You succeed in action and sports. You live with self-control and hold onto relationships. Wisdom and energy exceed your years. Debts are cleared and you receive praise. Changes become stable, you stand firm on your goal, salary rises and fear disappears.",
+    "benefit_paragraph_ta": "85% வெற்றிக்கார்டு, தைரியத்தோடு செயலில் வெற்றி. விளையாட்டுப் போட்டிகளில் வெற்றி. சுய கட்டுப்பாட்டில் வாழும் நபர். உறவுகளை விடாமல் இழுத்து பிடிப்பது. வயதுக்கு மீறிய அறிவும் ஆற்றலும் இருக்கும். கடன் நீங்கும். புகழ் பாராட்டு தேடி வரும். மாறிய முடிவுகள் இனி நிலையாக இருக்கும். ஒரே குறிக்கோளில் நிலையாக நிற்பார். ஊதியம் உயரும். பயம் நீங்கும்."
+  },
+  {
+    "id": "major_09",
+    "name": "The Hermit",
+    "image": "TARROT10.JPG",
+    "benefit_paragraph_en": "A 70% success card. You immerse yourself in research and withdraw from family. You crave solitude and suffer from emotions. You seek others' secrets and are not greedy. After many struggles you move toward your ideals. Simplicity brings advancement and cultural change comes.",
+    "benefit_paragraph_ta": "70% வெற்றிக்கார்டு, கண்டுபிடிப்பு ஆய்வில் மூழ்குதல்.. குடும்பத்தை விட்டு தனித்திருத்தல். தனிமையை விரும்புவது. உணர்ச்சிவசத்தால் சிக்கித் தவிப்பது. பிறர் ரகசியங்களை தேடுவது. பணம் பொருள் ஆசைப்படாதவர் அதிக போராட்டங்களை சந்தித்தவர். லட்சியத்தை நோக்கி நகரும் காலம். எளிமையாக இருந்தால் உயர்வு கிடைக்கும். இனிமேல் நாகரிக மாற்றம் ஏற்படும்"
+  },
+  {
+    "id": "major_10",
+    "name": "Wheel of Fortune",
+    "image": "TARROT11.JPG",
+    "benefit_paragraph_en": "A 75% success card. Auspicious events and career advancement happen. Obstacles disappear and your mindset changes. Money flows and universal energy supports you. New ventures soon; success in elections and exams; karmic struggles. New encounters become relationships; fortunes fluctuate; a guide appears; beware of flattery; luck comes soon.",
+    "benefit_paragraph_ta": "75% வெற்றிக்கார்டு, சுப காரியம் நடக்கும். தொழில் நிலையில் உயர்வு கிடைக்கும். தடைகள் விலகும் மன மாற்றம் ஏற்படும் பண வரவு ஏற்படும் பிரபஞ்ச சக்தி கிடைக்கும். புதிய முயற்சி விரைவில் நடக்கும். தேர்தல் வெற்றி தேர்வில் வெற்றி கர்ம வினையால் இன்னல்கள். புதிய சந்திப்புகள் உறவாய் அமையும். வீழ்ச்சியும் உயர்வும் மாறி மாறி வரும். வழிகாட்டி அமையும். வஞ்சப்புகழ்ச்சி ஆபத்து. கல்வி, கலை, பதவி விரைவில் அதிர்ஷ்டம் கிடைக்கும்."
+  },
+  {
+    "id": "major_11",
+    "name": "Justice",
+    "image": "TARROT12.JPG",
+    "benefit_paragraph_en": "A 75% success card. You live by justice and fairness but may lack strong friendships. Self-awareness brings success. Stop criticizing; you never stray from fairness. Property and legal issues resolve; respect increases. Inexperience in investments is dangerous. The future is prosperous; balanced thinking brings good solutions; mental confusion clears.",
+    "benefit_paragraph_ta": "75% வெற்றிக்கார்டு, நீதி நேர்மை என்று வாழ்பவர் நல்ல நட்பு அமையாது. தன்னை உணர்ந்தால் வெற்றி. குறை சொல்வதை நிறுத்தினால் நன்மை. நியாயம் தவறாதவர். நிலம் வீடு பிரச்சனை நீங்கும். சட்ட சிக்கல்கள் விலகும். மதிப்பு மரியாதை கூடும் அனுபவம் இல்லாத முதலீடு ஆபத்து. எதிர்காலம் வளமை. சமநிலை மனம் நல்ல தீர்வு. மனக்குழப்பம் நீங்கும்"
+  },
+  {
+    "id": "major_12",
+    "name": "The Hanged Man",
+    "image": "TARROT13.JPG",
+    "benefit_paragraph_en": "A 75% success card. Gains through sacrifice; you may serve others and endure delays. You must use intellect and let go of expectations. Problems resolve and plans change. Health precautions are needed. Interest in spiritual learning and new ventures soon. Avoid self-punishment; seek love.",
+    "benefit_paragraph_ta": "75% வெற்றிக்கார்டு, தியாக மனப்பான்மை உயர்வு கிடைக்கும். பிறருக்காக தான் பலியீடாகுதல் அடிபணியும் காலம் மாறும். தடை தாமதம் இருக்கும். அதிகமாக புத்தியை பயன்படுத்த வேண்டும். எதிர்பார்ப்புகளை கைவிட வேண்டும். சிக்கல்கள் தீரும். திட்டங்கள் மாறும். ஆரோக்கியத்தில் பாதுகாப்பு அவசியம். ஆன்மீக கல்வி ஆர்வம் இருக்கும். புதிய தொழில், முயற்சி விரைவில் நடக்கும். தானே தன்னை வருத்திக் கொள்ளுதல். அன்பை நாடுதல்"
+  },
+  {
+    "id": "major_13",
+    "name": "Death",
+    "image": "TARROT14.JPG",
+    "benefit_paragraph_en": "A completely negative card. Avoid new beginnings and investments; fear rises. Do not compete. Anxiety is high; avoid decisions. Misuse of power is dangerous; follow gurus and elders. Good times are delayed. Avoid gambling and be careful with vehicles; do not fear death.",
+    "benefit_paragraph_ta": "100% வெற்றிக்கார்டு, புதிய துவக்கம் கூடாது பயம் அதிகரிக்கும். தற்சமயத்தில் முதலீடு கூடாது. போட்டிகள் வேண்டாம். மன அழுத்தம் இருக்கும். எதைச் சார்ந்தும் முடிவெடுக்காமல் இருப்பது நல்லது. அதிகார துஷ்பிரயோகம் ஆபத்து. தன்னிச்சையான செயல் வேண்டாம். குருமார்களின் வழிகாட்டல் அவசியம். பெரியோருக்கு கீழ்ப்படிதல். நல்ல சூழலுக்கு தாமதம் ஆகும். சூதாட்டம் கூடாது. வண்டி வாகனத்தில் கவனம். மரண பயம் கூடாது."
+  },
+  {
+    "id": "major_14",
+    "name": "Temperance",
+    "image": "TARROT15.JPG",
+    "benefit_paragraph_en": "A 50% success card. There is great confusion and indecision. Use experience and intellect; avoid decisions based on affection. Do not hide problems; life will feel challenging. Redirect focus; hasty decisions are dangerous. Delay important choices; avoid excessive emotions; manage expectations; patience is key.",
+    "benefit_paragraph_ta": "50% வெற்றிக்கார்டு, அதிக மனகுழப்பம். எதை தேர்வு செய்வது என்ற நிலை அனுபவமும் அறிவும் பயன்படுத்தும் நேரம். அன்புக்காக முடிவு எடுக்கக் கூடாது. பிரச்சனையை மறைப்பது நல்லதல்ல. வாழ்க்கையே சவாலாக இருக்கும். கவனத்தை வேறு வழியில் காட்டினால் நல்லது. அவசர முடிவு ஆபத்து. முக்கியமான தீர்வை தாமதப்படுத்துவது நல்லது. அளவுக்கு அதிகமான உணர்ச்சிகள் கூடாது. எதிர்பார்ப்பு வைத்து ஏமாறுதல். பொறுத்தார் பூமி ஆள்வார். பொறுமையாக இருப்பது நல்லது"
+  },
+  {
+    "id": "major_15",
+    "name": "The Devil",
+    "image": "TARROT16.JPG",
+    "benefit_paragraph_en": "A totally negative card. You may become a sacrificial victim trapped by desires, addictions or abuses. Ill-gotten wealth and bad guidance lead to destruction. You may be under others' control; greed brings great loss. Illness and supernatural fears appear. Spirituality, yoga, patience and calm are required.",
+    "benefit_paragraph_ta": "100% நெகட்டிவ் கார்டு, பலிகடா ஆக்கப்படுதல். அபிலாசைகள் சிக்கித் தவித்தல். போதைக்கு அடிமை ஆகுதல். பாலியல் வன்கொடுமைக்கு ஆளாகுதல். தவறான வழியில் சொத்து. தீய வழிகாட்டியால் அழிவு. பிறர் கட்டுப்பாட்டுக்குள் சிக்குவது. பேராசை பெருநஷ்டம். நோய்வாய்ப்படுதல். அமானுஷ்ய பயம். ஆன்மீகம் யோகா பொறுமை நிதானம் தேவை"
+  },
+  {
+    "id": "major_16",
+    "name": "The Tower",
+    "image": "TARROT17.JPG",
+    "benefit_paragraph_en": "A totally negative card. Life feels like a struggle with insecurity, cruelty and mental burden. Blind love brings harm; unnecessary conflicts cause damage. There is waste and destruction; unexpected shocks; losses in investments; relationship separations and fear of death. Spiritual practice and meditation are essential.",
+    "benefit_paragraph_ta": "100% நெகட்டிவ் கார்டு, போராட்டமான வாழ்க்கை. பாதுகாப்பற்ற நிலையில் தவிப்பது. கொடூரமான இன்னல்கள். மனபாரம். கண்மூடித்தனமான அன்பு சேர்க்கையால் பாதிப்பு. தேவையற்ற விரோதம் ஆபத்து. கெட்ட பெயர் வருதல். விரையம் ,அழிவு எதிர்பாராத அதிர்ச்சி. முதலீட்டில் நஷ்டம் உறவுகள் பிரிவினை மரண பயம். ஆன்மீகம் யோகா தியானம் தற்காலத்தில் அவசியம்"
+  },
+  {
+    "id": "major_17",
+    "name": "The Star",
+    "image": "TARROT18.JPG",
+    "benefit_paragraph_en": "A 75% success card. Act with faith; fame and praise come. Losing patience is dangerous. Medical treatments succeed. You overcome delays and new opportunities appear. Good guides come; understanding and intellect are needed. Unexpected profits and progress through women.",
+    "benefit_paragraph_ta": "75% வெற்றிக்கார்டு, நம்பிக்கையோடு செயலில் இறங்குதல். புகழ் பாராட்டு பெறுதல் பொறுமையை இழந்தால் ஆபத்து மருத்துவ சிகிச்சை பலன் கிடைக்கும். தடை தாமதத்தை கடந்து வெற்றி பெறுவார். புதிய வாய்ப்பு தேடி வரும். நல்ல வழிகாட்டிகள் கிடைப்பார்கள். புரிதல் வேண்டும். புத்தியை பயன்படுத்த வேண்டும். எதிர்பாரா லாபம் கிடைக்கும். பெண்களால் முன்னேற்றம் ஏற்படும்"
+  },
+  {
+    "id": "major_18",
+    "name": "The Moon",
+    "image": "TARROT19.JPG",
+    "benefit_paragraph_en": "A 75% success card. Fear dominates. Avoid decisions now. Business causes anxiety; you feel insecure and sad; mental pain increases. You get stuck by others' provocation; competition increases. Patience and tolerance are needed. Avoid acting as guarantor; debt dealings bring shame. Watch health; rest and spiritual practice are needed.",
+    "benefit_paragraph_ta": "75% வெற்றிக்கார்டு, மனபயம் அதிகமாக இருக்கும். தற்போதைய காலத்தில் எந்த முடிவும் இருக்கக்கூடாது. தொழில் நினைவில் பதட்டம் ஏற்படும். தனக்கான பாதுகாப்பு இல்லை என்ற சோகம். ஆள் மனதில் வேதனை. பிறர் தூண்டுதலில் சிக்கித் தவித்தல் போட்டிகள் அதிகமாகும் . பொறுமையும் சகிப்புத்தன்மையும் தற்சமயம் தேவை. ஜாமீன் கொடுத்தால் ஆபத்து. கொடுக்கல் வாங்கலால் அவமானம். உடல் நிலையில் கவனம் தேவை. நல்ல ஓய்வும் ஆன்மீக பயிற்சியும் தேவை"
+  },
+  {
+    "id": "major_19",
+    "name": "The Sun",
+    "image": "TARROT20.JPG",
+    "benefit_paragraph_en": "A 100% success card. Success, fame, authority and promotion come. Good management increases respect. New ventures bring profit; mind and body are healthy; love succeeds; luck arises. Government helps; joy and fun appear; business profits; social status rises; earnings through women; heritage fame and career elevation.",
+    "benefit_paragraph_ta": "100% வெற்றிக்கார்டு, வெற்றி தேடி வரும். புகழ் அதிகாரம் பதவி கிடைக்கும். சிறந்த நிர்வாக மதிப்பு கூடும். புதிய தொடக்கம் லாபம் தரும் மனமும் உடல் நலமும் நன்மை. காதல் வெற்றி பெறும். அதிர்ஷ்டம் ஏற்படும். அரசாங்க உதவிகள் கிடைக்கும். மகிழ்ச்சியான உல்லாசம் இருக்கும். தொழிலில் லாபம் ஏற்படும். சமூகத்தில் அந்தஸ்து பெருகும். பெண்களால் வரவு ஏற்படும். பாரம்பரிய புகழ் தொழில் உயர்வு"
+  },
+  {
+    "id": "major_20",
+    "name": "Judgement",
+    "image": "TARROT21.JPG",
+    "benefit_paragraph_en": "A 75% success card. Problems find solutions; self-respect arises. Awareness in work grows. Discard the old; new forms emerge. Partners reunite; new relationships form. A time to reveal discoveries. Needs and desires are fulfilled; new opportunities arise; mental confusion ends; blessings of the family deity; challenges are overcome; new beginnings succeed.",
+    "benefit_paragraph_ta": "75% வெற்றிக்கார்டு, நடந்த பிரச்சனைக்கான தீர்வு கிடைக்கும். சுயமரியாதையை உணரும் காலம். தொழிலில் விழிப்புணர்வு ஏற்படும். பழையன கழிதல் புதுமை உருவாகுதல். கணவன் மனைவி சேர்க்கை. புதிய உறவு அமைதல். கண்டுபிடிப்பை வெளிப்படுத்தும் காலம். தேவைகளும் ஆசைகளும் நிறைவேறுதல். புதிய வாய்ப்புகள் தேடி வரும். மனக்குழப்பம் தீரும் குலதெய்வ அனுகூலம் கிடைக்கும். சவால்கள் வெற்றி பெறும். புதிய தொடக்கம் வெற்றி பெறும்."
+  },
+  {
+    "id": "major_21",
+    "name": "The World",
+    "image": "TARROT22.JPG",
+    "benefit_paragraph_en": "A 75% success card. Contentment and union occur. New experiences and obstacles vanish. Higher education, childbirth and job opportunities appear. You achieve goals. Social service brings fame; you sense opposition; security appears; foreign opportunities come; persistence brings success.",
+    "benefit_paragraph_ta": "75% வெற்றிக்கார்டு, மனநிறைவு ஏற்படும். உறவுகளின் சேர்க்கை ஏற்படும். புதிய அனுபவம் கிடைக்கும். தடைகள் விலகும். உயர்கல்வி குழந்தை பிறப்பு வேலை வாய்ப்பு அமையும். லட்சியத்தை அடையக்கூடிய காலம். சமூக சேவை புகழ் கிடைக்கும். தன்னைச் சுற்றி இருக்கும் எதிர்ப்பை உணர்வார்கள். பாதுகாப்பு தானாக அமையும். வெளிநாட்டு யோகம் கிடைக்கும். பின் வாங்காமல் விடாமுயற்சி வெற்றி தரும்."
+  },
+  {
+    "id": "cups_ace",
+    "name": "Ace of Cups",
+    "image": "TARROT50.JPG",
+    "benefit_paragraph_en": "A 100% success card. True love begins, bringing happiness and a bright life. Good news arrives soon; life is abundant. New ventures succeed; business profits increase; child blessings come; investments bring profit. Spiritual interest grows; problems resolve and opportunities come; you act as a guide.",
+    "benefit_paragraph_ta": "100% வெற்றிக்கார்டு, உண்மையான அன்பு தொடக்கம் மகிழ்ச்சி பிரகாசமான வாழ்க்கை ஆரம்பம் இனிய செய்தி விரைவில் வரும் வளமான வாழ்க்கை புதிய முயற்சி வெற்றி தரும் தொழில் வருமானம் முன்னேற்றம் தரும் குழந்தை பாக்கியம் கிடைக்கும் முதலீடு லாபம் தரும் ஆன்மீக ஆர்வம் அதிகரிக்கும் சிக்கல்கள் தீரும் வாய்ப்புகள் தேடி வரும் வழிகாட்டியாக வாழ்பவர்"
+  },
+  {
+    "id": "cups_two",
+    "name": "Two of Cups",
+    "image": "TARROT49.JPG",
+    "benefit_paragraph_en": "A 100% success card. Two hearts unite and relationships last. Equality and unity prevail. It's a lucky time with success in competitions and support. Honor and fame increase; financial dealings bring profit. Through female support you rise. Family problems are solved.",
+    "benefit_paragraph_ta": "100% வெற்றிக்கார்டு, இரு மனங்களின் இணைவு ஏற்படும் உறவுகள் நீடிக்கும் சமத்துவ ஒற்றுமை அதிர்ஷ்டமான காலம் போட்டிகளில் வெற்றி ஆதரவு கிடைக்கும் கௌரவம் உண்டாகும் புகழ் கிடைக்கும் பணம் கொடுக்கல் வாங்கல் லாபம் தரும் பெண் துணையால் உயர்வு கிடைக்கும். குடும்பத்தில் பிரச்சனை தீரும்."
+  },
+  {
+    "id": "cups_three",
+    "name": "Three of Cups",
+    "image": "TARROT48.JPG",
+    "benefit_paragraph_en": "A 100% success card. Group work succeeds; delayed auspicious events occur; conception is possible. Career growth is good. It's a time of celebration and success; festivals and inaugurations take place. True friendship brings progress. Knowledge, fame, wealth and skill all grow; advice from many brings a good position.",
+    "benefit_paragraph_ta": "100% வெற்றிக்கார்டு, கூட்டுப் பணி வெற்றி பெறும். தடைபட்ட சுப காரியம் நடக்கும். கருவுறுதல் கிடைக்கும். தொழிலில் நல்ல வளர்ச்சி உண்டாகும். புகழ் வெற்றி கொண்டாடும் காலம் திருவிழா பிரம்மாண்டம் திறப்பு விழா அனைத்தும் நடக்கும். உண்மையான நட்பால் உயர்வு அறிவு புகழ் செல்வம் திறமை அனைத்தும் உயரும் காலம். பலரது ஆலோசனை நல்ல பதவியை தரும்."
+  },
+  {
+    "id": "cups_four",
+    "name": "Four of Cups",
+    "image": "TARROT47.JPG",
+    "benefit_paragraph_en": "A 50% success card. Opportunities may slip despite being presented. Dissatisfaction exists in everything. Daydreaming wastes the future. Waiting for others and taking no action. Laziness must be eliminated; avoid group efforts. Using opportunities correctly leads to advancement. Avoid competitions; maintain balanced relations; take initiative yourself.",
+    "benefit_paragraph_ta": "50% வெற்றிக்கார்டு, வாய்ப்பு தேடி வந்தும் நழுவு விடுவது எதிலும் அதிருப்தியாக இருத்தல் பகல் கனவால் எதிர்காலம் வீணாகப் போவது மற்றவர்களை எதிர்பார்த்து எந்த முயற்சியும் எடுக்காமல் இருத்தல் சோம்பேறித்தனத்தை ஒதுக்க வேண்டும். கூட்டு முயற்சிகளில் ஈடுபடக்கூடாது வாய்ப்பை சரியாக பயன்படுத்தினால் உயர்வு போட்டிகளை தவிர்க்க வேண்டும் உறவுகளிடம் ஒட்டியும் ஒட்டாமல் இருக்க வேண்டும். தானாக முயற்சி செய்ய வேண்டும்."
+  },
+  {
+    "id": "cups_five",
+    "name": "Five of Cups",
+    "image": "TARROT46.JPG",
+    "benefit_paragraph_en": "A 100% negative card. Disappointment causes mental distress and business loss. Loneliness brings confusion; physical pain and shocking news hurt. It's better to live among people. Progress slowly and overcome obstacles. Grief heals slowly. Avoid investments, loans and taking responsibility for others.",
+    "benefit_paragraph_ta": "100% எதிர்மறை கார்டு, ஏமாற்றத்தால் மனக்கவலை தொழில் நஷ்டம் அதிக தனிமையால் மனக்குழப்பம் உடல் நோய் வலி அதிர்ச்சியான செய்தி வேதனை மக்கள் நெருக்கத்துடன் வாழ்வது நல்லது. படிப்படியாக முன்னேற வேண்டும. தடைகளை தாண்டி முன்னேற நினைக்க வேண்டும். துக்கங்கள் மெதுவாகத்தான் சரியாகும். முதலீடுகள் கூடாது. பணம் வாங்குதல் கூடாது. ஜாமீன் ஏற்றல் கூடாது"
+  },
+  {
+    "id": "cups_six",
+    "name": "Six of Cups",
+    "image": "TARROT45.JPG",
+    "benefit_paragraph_en": "A 100% success card. Good thoughts lift you up. Money and goods return. Compassionate people appear; relationships endure. A new life begins with promotion, awards and fame. Past love returns; marriage and children happen. Family traditions continue; ancestral blessings and help come.",
+    "benefit_paragraph_ta": "100% வெற்றிக்கார்டு, நல்ல எண்ணம் இவர்களை உயர்த்தும். கொடுத்த பணமும் பொருளும் திரும்ப கிடைக்கும். அக்கறை உள்ள நபர்கள் கிடைப்பார்கள் உறவுகள் நீடிக்கும் புதிய வாழ்க்கை ஆரம்பம். பதவி உயர்வு பரிசு புகழ் அவார்டு கிடைக்கும் பழைய உறவு காதல் திரும்ப வரும். திருமணம் கைகூடும் குழந்தை பாக்கியம் கிடைக்கும். குடும்ப பாரம்பரியம் தொடரும். முன்னோர்களின் ஆசி கிடைக்கும். தொழிலுக்கான உதவிகள் கிடைக்கும்"
+  },
+  {
+    "id": "cups_seven",
+    "name": "Seven of Cups",
+    "image": "TARROT44.JPG",
+    "benefit_paragraph_en": "A 75% success card. Many opportunities exist but go unused. Excessive imagination and unrealistic expectations create risk. Change will come soon. To overcome obstacles, change your thinking and choose correctly now. Be careful in career and choosing relationships. Arrogance leads to embarrassment; excessive sacrifice brings disappointment. Success comes after many obstacles.",
+    "benefit_paragraph_ta": "75% வெற்றிக்கார்டு, வாய்ப்புகள் இருந்தும் பயன்படுத்தாத நிலை அதித கற்பனையால் ஆபத்து மித மிஞ்சிய அபாயம் விரைவில் மாற்றம் ஏற்படும் தடைகளை தான் நினைத்தால் மட்டும் மாற்ற முடியும் சரியான தேர்வு தற்போது அவசியம் தொழில் நிலையில் கவனம். உறவை தேர்ந்தெடுப்பதிலும் கவனம். தற்பெருமை அவமானப்படுத்தும் அதிக தியாகம் விரக்தி தரும். பல தடைகளை தாண்டி வெற்றி பெறுவார்கள்"
+  },
+  {
+    "id": "cups_eight",
+    "name": "Eight of Cups",
+    "image": "TARROT43.JPG",
+    "benefit_paragraph_en": "A 75% success card. A new quest arises; travel brings restlessness. Life has many obstacles; loneliness increases. You may leave relationships. Hard work creates a turning point. Marriage will happen. Even when good things occur they may feel empty. You seek spirituality; you may prefer solitude even in marriage; supernatural powers develop.",
+    "benefit_paragraph_ta": "75% வெற்றிக்கார்டு, புதிய தேடல் உருவாகும் பயணம் அலைச்சலை கொடுக்கும் வாழ்க்கையில் தடைகள் அதிகமாக இருக்கும் தனிமை அதிகரிக்கும் உறவுகளை வில க்கும் . கடின முயற்சியால் திருப்புமுனை ஏற்பqடும் திருமணம் நடக்கும் நடந்த நன்மையான அனைத்தும் பலன் இல்லை போன்று உணர்வர். ஆன்மீகத்தை தேடி சொல்பவர். திருமணம் ஆகி இருந்தாலும் தனிமையை விரும்புபவர் தெய்வீக வித்தையில் சித்தி உண்டாகும்"
+  },
+  {
+    "id": "cups_nine",
+    "name": "Nine of Cups",
+    "image": "TARROT42.JPG",
+    "benefit_paragraph_en": "A 90% success card. Long-held wishes now come true. Act quickly and plans succeed. Happiness comes in career, relationships, health, finances and spirituality. Seeking physical pleasure may harm the body. Conjugal satisfaction; union of relationships; marriage. The coming period is lucky.",
+    "benefit_paragraph_ta": "90% வெற்றிக்கார்டு, பல நாள் விருப்பம் தற்சமயம் நிறைவேறுதல். வேகத்துடன் செயல்படுதல். திட்டங்கள் நிறைவேறும். தொழில் வேலை உறவு உடல் நிலை நிதிநிலை ஆன்மீக பற்று அனைத்தும் மகிழ்ச்சி தரும். சிற்றின்பத்தை நாடினால் உடல் பாதிப்பு ஏற்படும் தாம்பத்தியம் திருப்திகரமாக இருக்கும். உறவுகளின் சேர்க்க ஏற்படும் திருமணம் கைகூடும். வரும் காலம் அதிர்ஷ்டம்"
+  },
+  {
+    "id": "cups_ten",
+    "name": "Ten of Cups",
+    "image": "TARROT41.JPG",
+    "benefit_paragraph_en": "A 100% success card. A good family forms; new ventures succeed. Unexpected friendships occur; family cooperates. Good fortune; group work success; group activities bring progress. Profit in financial dealings; obstacles overcome; childbirth; elders' blessings; auspicious events; contentment with what you have; buying land or house; saving for the future.",
+    "benefit_paragraph_ta": "100% வெற்றிக்கார்டு, நல்ல குடும்பம் அமையும். புதிய செயல்களில் வெற்றி . எதிர்பாராத நட்புகள் ஏற்படும் . குடும்ப உறவுகள் ஒத்துழைப்பு கிடைக்கும் நல்ல அதிர்ஷ்டம். கூட்டுத் தொழில் வெற்றி குழு பணிகள் உயர்வு பணம் கொடுக்கல் வாங்கல் லாபம் தடைகளை தாண்டி முன்னேறுவர். குழந்தை பிறப்பு மூத்தோரின் ஆசிர்வாதம். சுப நிகழ்வுகள் கூடும். இருப்பதை வைத்து மகிழ்ச்சியான. நிலம் வீடு வாங்குதல். எதிர்கால சந்ததிக்கு சேமிப்பு."
+  },
+  {
+    "id": "cups_page",
+    "name": "Page of Cups",
+    "image": "TARROT40.JPG",
+    "benefit_paragraph_en": "A 90% success card. A new beginning succeeds. Unexpected friendships and relationships form. Fame comes. You act boldly. You are sincere to others. Beware in love matters. Legal issues resolve. Bad habits become apparent. You help others succeed. You are an achiever who is not a slave to anyone but courteous.",
+    "benefit_paragraph_ta": "90% வெற்றிக்கார்டு, புதிய ஆரம்பம் வெற்றி. எதிர்பாரா நட்புக்கள் உறவுகள் அமையும் புகழ் கிடைக்கும் துணிச்சலோடு காரியத்தில் இறங்குவார்கள். மற்றவருக்கு நேர்மையாக இருப்பார்கள். காதலில் எச்சரிக்கை தேவை வழக்குகள் தீரும் தீய பழக்கங்கள் வெளியில் தெரியும். மற்றவர்களுக்கு வெற்றி பெற்று தருவார்கள். சாதனையாளர்கள். யாருக்கும் அடிமையாகாதவர்கள் ஆனால் பண்பானவர்"
+  },
+  {
+    "id": "cups_knight",
+    "name": "Knight of Cups",
+    "image": "TARROT39.JPG",
+    "benefit_paragraph_en": "A 100% success card. Competitions are won; discipline and authority. Victories in sports, politics and leadership. Leaders emerge and responsibilities come. Lost things are recovered. New learning and languages and travels succeed. Conflicts resolve and safety appears. Plans succeed. Recognition and fame come; mental confusion frees.",
+    "benefit_paragraph_ta": "100% வெற்றிக்கார்டு, போட்டிகளில் வெற்றி. கட்டுப்பாட்டில் ஆளுமை. விளையாட்டு பதவி அரசியல் வெற்றி தலைவன் தலைவி பொறுப்பு தேடி வரும் இழந்ததை மீட்டெடுப்பார்கள். புதிய கல்வி புதிய மொழி புதிய பயணம் வெற்றியாகும். சண்டை சச்சரவு தீரும். பாதுகாப்பு கிடைக்கும் நினைத்த காரியம் கைகூடும். அங்கீகாரத்திற்கான உதவிகள் கிடைக்கும் மேடை, புகழ் , ஆளுமை அமையும். மனக்குழப்பத்திலிருந்து விடுதலை."
+  },
+  {
+    "id": "cups_queen",
+    "name": "Queen of Cups",
+    "image": "TARROT38.JPG",
+    "benefit_paragraph_en": "A 100% success card. Honest victory occurs. Dignity in work. Promotion occurs. Management is established. Child blessings come. Your own group forms. Prosperity arises. They are not enslaved to any emotion. Blessings from elders. Fashion and decoration increase. Fame and praise come.",
+    "benefit_paragraph_ta": "100% வெற்றிக்கார்டு, நேர்மையான வெற்றி ஏற்படும். தொழிலில் கௌரவம் ஏற்படும் பதவி உயர்வு ஏற்படும். நிர்வாகம் அமையும். குழந்தை பாக்கியம் கிடைக்கும். தனக்கான கூட்டம் அமையும். செல்வ செழிப்பு ஏற்படும். தனக்கான கூட்டம் அமையும். எந்த உணர்வுக்கும் அடிமையாக மாட்டார்கள். பெரியோர்களின் ஆசி கிடைக்கும். ஆடை அலங்காரம் அதிகரிக்கும். புகழும் பாராட்டும் தேடி வரும்"
+  },
+  {
+    "id": "cups_king",
+    "name": "King of Cups",
+    "image": "TARROT37.JPG",
+    "benefit_paragraph_en": "A 100% success card. Keeps emotions balanced; uses intellect to excel. Lakshmi's grace arises. Royal fortune; promotion. Youthfulness in old age. Works for society. Overseas travel. Leadership qualities. Mentally strong. Child blessings and new profit arrive. Creative talent brings fame.",
+    "benefit_paragraph_ta": "100% வெற்றிக்கார்டு, உணர்ச்சிகளை சமமாக வைத்திருப்பவர். அறிவை பயன்படுத்தி உயர் பவர். லட்சுமி கடாட்சம் உண்டாகும். ராஜ யோகம் ஏற்படும். பதவி உயர்வு கிடைக்கும். முதுமையிலும் இளமையாக இருப்பவர். சமூகத்திற்காக உழைப்பவர். கடல் கடந்த பயணம் ஏற்படும். தலைமை பண்பு வகுப்பவர். மனதால் பலசாலி. குழந்தை பாக்கியம், புதுவரவு லாபம் ஏற்படும். படைப்பாற்றலில் புகழ் பெறுபவர்."
+  },
+  {
+    "id": "wands_ace",
+    "name": "Ace of Wands",
+    "image": "TARROT36.JPG",
+    "benefit_paragraph_en": "A 100% success card. New ventures succeed and business grows. New opportunities come; child blessings and auspicious events occur. Sudden luck appears. You realize your strength. It's a time to learn new skills. Good job opportunities; divine grace; overseas travel; clear mind; creative energy; time to fulfill duties.",
+    "benefit_paragraph_ta": "100% வெற்றிக்கார்டு, புதிய காரியம் வெற்றி தொழில் வளர்ச்சி புதிய வாய்ப்புகள் தேடி வரும். குழந்தை பாக்கியம் சுப காரியம் நடக்கும் திடீர் அதிஷ்டம் ஏற்படும். தன் பலத்தை தானே உணரும் காலம். புதிய வித்தைகளை கற்கக்கூடிய காலம். நல்ல வேலை வாய்ப்பு அமையும். இறைவனின் பரிபூரண அருட் கடாட்சம் கிடைக்கும். கடல் கடந்த பயணம் தெளிவான மனநிலை படைப்பாற்றல் நடக்கும். கடமைகளை நிறைவேற்றும் காலம்"
+  },
+  {
+    "id": "wands_two",
+    "name": "Two of Wands",
+    "image": "TARROT35.JPG",
+    "benefit_paragraph_en": "A 75% success card. Future plans succeed; career progresses. Support for new inventions and business ability increases. Joint ventures thrive; broad experience is gained. New responsibilities come; sudden travel brings fame; expected overseas travel occurs.",
+    "benefit_paragraph_ta": "75% வெற்றிக்கார்டு, எதிர்கால திட்டம் நிறைவேறும். தொழிலில் முன்னேற்றம். புதிய கண்டுபிடிப்புக்கு ஆதரவு கிடைக்கும். வியாபாரத் தன்மை பெருகும். கூட்டுத் தொழில் சிறக்கும். உலக அனுபவம் நிறைய கிடைக்கும். வளர்ச்சியான ஊர், அல்லது சமுதாயம், நாட்டை உருவாக்குவார்கள். புதிய பொறுப்புகள் தேடி வரும். திடீர் பயணம் புகழ் தரும். வெளிநாட்டில் எதிர்பார்த்த சுற்றுலா வாய்ப்பு அமையும்"
+  },
+  {
+    "id": "wands_three",
+    "name": "Three of Wands",
+    "image": "TARROT34.JPG",
+    "benefit_paragraph_en": "A 75% success card. Your efforts succeed; bank loans are approved; right partners appear; job applications are accepted. Talent brings success; foreign luck; real estate business prospers; friendships with influential people; physical energy good; auspicious events and celebrations; income rises.",
+    "benefit_paragraph_ta": "75% வெற்றிக்கார்டு, முயற்சி செய்யும் காரியம் வெற்றி. வங்கி கடன் கிடைக்கும் சரியான கூட்டாளிகள் அமைவார்கள். வேலைக்கு விண்ணப்பித்திருந்தால் விரைவில் கிடைக்கும். திறமையால் வெற்றி ஏற்படும். அயல்நாட்டு யோகம் கிடைக்கும். ரியல் எஸ்டேட் பூமி சம்மந்தமான தொழில் வளரும். உயர் நபர்களின் நட்பு ஏற்படும். உடல் நிலையில் நல்ல ஆற்றல் ஏற்படும். சுப காரியங்களும் மங்கல நிகழ்ச்சி தேடிவரும். வருமானத்தில் உயர்வு ஏற்படும்"
+  },
+  {
+    "id": "wands_four",
+    "name": "Four of Wands",
+    "image": "TARROT33.JPG",
+    "benefit_paragraph_en": "A 100% success card. A marriage celebration happens soon. Group work succeeds. A good family and property are formed. A child is born. Joint family happiness. Social status increases. Past mistakes change and mental confusion resolves. Separated relationships reunite. Love marriage; obstacles and delays are removed; enemies retreat.",
+    "benefit_paragraph_ta": "100% வெற்றிக்கார்டு, திருமண விழா விரைவில் நடக்கும். குழுப்பணி விரைவில் வெற்றியாகும். நல்ல குடும்பம் வீடு சொத்து சேர்க்கப்படும். குழந்தை பிறப்பு நடக்கும். கூட்டுக் குடும்பம் சந்தோஷம் தேடிவரும் சமுதாயத்தில் அந்தஸ்து கிடைக்கும். கடந்த கால தவறுகள் மாறும். மனக்குழப்பம் தீரும். பிரிந்த உறவுகள் சேரும். காதல் திருமணம் நடக்கும். தடை தாமதம் விலகும். எதிரிகள் விலகுவார்கள்."
+  },
+  {
+    "id": "wands_five",
+    "name": "Five of Wands",
+    "image": "TARROT32.JPG",
+    "benefit_paragraph_en": "A 100% negative card. Competition increases and hidden enemies cause trouble. Mental tension and conflicts occur within relationships. Authority and leadership may be lost. You may abandon your goal to fight for others. Expecting change causes disappointment; misled by others; partner opposition; fear from conflicts.",
+    "benefit_paragraph_ta": "100% நெகட்டிவ் கார்டு, போட்டிகள் அதிகமாகும் மறைமுக எதிரிகளால் தொல்லை ஏற்படும். மனப்பதட்டம் குழப்பம் உறவுகளுக்குள் மோதல் ஏற்படும். அதிகாரம் ஆளுமை கைவிட்டுப் போகுதல்.. தன் லட்சியத்தை விட்டுவிட்டு பிறருக்காக போராடுதல். மாற்றத்தை எதிர்பார்த்து ஏமாறுதல். மற்றவர்களின் தூண்டுதலால் தவறான வழியில் செல்லுதல். பங்காளிகள் விரோதம் . சண்டை சச்சரவால் பயம்"
+  },
+  {
+    "id": "wands_six",
+    "name": "Six of Wands",
+    "image": "TARROT31.JPG",
+    "benefit_paragraph_en": "A 75% success card. You gain recognition and win after struggle. Good news arrives; you get promoted; business grows; partners financially support you. Business travel often. Acting by conscience shows influence; listening to others leads to waste; fear of failure fades; reduce arrogance.",
+    "benefit_paragraph_ta": "75% வெற்றிக்கார்டு, நல்ல அங்கீகாரம் கிடைக்கும். போராடி வெற்றி பெறும். நல்ல செய்தி வந்து சேரும். பதவி உயர்வு கிடைக்கும். வியாபாரம் பெருகும். பணம் கூட்டாளிகளின் உதவி கிடைக்கும். தொழில் ரீதியான பயணம் அடிக்கடி ஏற்படும். மனசாட்சி படி நடந்தால் செல்வாக்கு தெரியும். மற்றவர் பேச்சை கேட்டால் நிறைய விரயங்கள் சந்திக்க வேண்டும். தோல்வி பயம் விலகும் தற்பெருமையை குறைத்துக் கொள்வது நல்லது."
+  },
+  {
+    "id": "wands_seven",
+    "name": "Seven of Wands",
+    "image": "TARROT30.JPG",
+    "benefit_paragraph_en": "A 75% success card. Challenges increase; personal skill improves; enemies increase; the environment is competitive. Many obstacles and threats; you fight and win. Peaceful talk doesn't work; you must fight. It's time to show who you are; conflicting travel occurs. Strong courage; the world recognizes your skill.",
+    "benefit_paragraph_ta": "75% வெற்றிக்கார்டு, சவால்கள் அதிகரிக்கும் தனிப்பட்ட திறன் வளரும் எதிரிகள் அதிகரிக்கும் போட்டி நிறைந்த சூழல். அதிக தடைகளை சந்திப்பார் போட்டிகளும் அச்சுறுத்தலும் இருக்கும் போராடி வெற்றி பெறுவர் சமாதான பேச்சு பலன் தராது போராட வேண்டும் நான் யார் என்பதை உலகத்திற்கு காண்பிக்க கூடிய தருணம். முரண்பாடான பயணம் ஏற்படும். உறுதியான மன தைரியம் ஏற்படும். திறமை வெளி உலகத்திற்கு வரும்"
+  },
+  {
+    "id": "wands_eight",
+    "name": "Eight of Wands",
+    "image": "TARROT29.JPG",
+    "benefit_paragraph_en": "A 75% success card. All efforts succeed but delays occur. Hasty decisions are dangerous. Expected good news comes. Money and property gains. Future savings build. Addiction risk exists. Low satisfaction in family life. Unity in society. Avoid love affairs now; be patient; avoid investments.",
+    "benefit_paragraph_ta": "75% வெற்றிக்கார்டு அனைத்து முயற்சியும் வெற்றி. தடை தாமதத்தை சந்திக்கும். அவசர முடிவுகள் ஆபத்து. எதிர்பார்த்த நல்ல செய்தி வந்து சேரும். பணம் சொத்து கிடைக்கும். வருங்கால சேமிப்பு உருவாகும். போதைக்கு அடிமை ஆவார்கள். குடும்ப வாழ்வில் குறை. சமுதாய நிலையில் ஒற்றுமை. தற்போது காதல் விவகாரத்தில் விழாமல் இருப்பது நல்லது. பொறுமையை கடைப்பிடிப்பது நல்லது. முதலீடு கூடாது."
+  },
+  {
+    "id": "wands_nine",
+    "name": "Nine of Wands",
+    "image": "TARROT28.JPG",
+    "benefit_paragraph_en": "A 75% success card. Test after test. Caution is necessary in everything. You have self-defense skills and protect trusted people. Conflicts end and you win. Past trials end; challenges create enemies. You have faced many battles; despite mental pain you fight bravely. You like police or the army.",
+    "benefit_paragraph_ta": "75% வெற்றிக்கார்டு, சோதனை மேல் சோதனை எதிலும் முன்னெச்சரிக்கை அவசியம். தற்காப்பு கலை இருக்கும். நம்பியவருக்கு பாதுகாப்பு தருபவர். சண்டைகள் தீரும் போராடி வெற்றி பெறும் கடந்த காலம் சோதனை முடியும் காலங்கள் சவால்களால் பகை ஏற்படும். பல போராட்டங்களை கடந்தவர். மனதால் வலி இருந்தாலும் தைரியத்துடன் போராடுபவர். காவல்துறை, ராணுவத்தை விரும்புபவர்."
+  },
+  {
+    "id": "wands_ten",
+    "name": "Ten of Wands",
+    "image": "TARROT27.JPG",
+    "benefit_paragraph_en": "A 75% success card. You carry heavy burdens and are responsible. Growth is slow. You suffer from debt; you act as guarantor for others. Frequent travel is risky. You need wisdom. You work day and night; pay and profit eventually come but are delayed. Mind and body need rest; share your workload.",
+    "benefit_paragraph_ta": "75% வெற்றிக்கார்டு, அதிக சுமையை தாங்கி கொண்டு இருப்பவர். பொறுப்புள்ள நபர். மெதுவான வளர்ச்சி. கடனால் தவிப்பவர். அடுத்தவர் பிரச்சனைக்கு ஜாமீன் கொடுத்து மாட்டு பவர். அதிகப்பயணம் ஆபத்து புத்திசாலித்தனம் அவசியம் இரவு பகல் வேலை செய்பவர். உழைப்புக்கேற்ற ஊதியமும் லாபமும் தாமதமானாலும் கிடைக்கும். மனதிற்கும் உடலுக்கும் ஓய்வு அவசியம். வேலையை பகிர்ந்து கொள்வது அவசியம்"
+  },
+  {
+    "id": "wands_page",
+    "name": "Page of Wands",
+    "image": "TARROT26.JPG",
+    "benefit_paragraph_en": "A 75% success card. You create new achievements and love youthfulness and freedom. Pride may lead to humiliation. Be cautious in financial matters. Rest is needed. New inventions bring profit. Acting by conscience brings success. Friendships and relationships may cause trouble. Frank speech benefits. You protect those who trust you.",
+    "benefit_paragraph_ta": "75% வெற்றிக்கார்டு, புதிய சாதனைகளை படைப்பார். இளமையை விரும்புபவர். சுதந்திர மனப்பான்மை இருக்கும். தற்பெருமை சில நேரம் அவமானத்தை தரும். பணம் விஷயத்தில் எச்சரிக்கை ஓய்வு அதிகம் தேவை புதிய கண்டுபிடிப்புகள் லாபம். மனசாட்சிப்படி நடந்தால் வெற்றி. நட்பால் உறவால் சங்கடம் ஏற்படும். வெளிப்படையான பேச்சு நல்லது. நம்பியவருக்கு பாதுகாப்பு தருபவர்."
+  },
+  {
+    "id": "wands_knight",
+    "name": "Knight of Wands",
+    "image": "TARROT25.JPG",
+    "benefit_paragraph_en": "A 100% success card. It’s time to cross obstacles and advance. Career progresses; new partnerships form; awaited news arrives. Fearless success; all actions are favorable. Business travel overseas; profit from new acquaintances. Speed and courage bring success. New plans receive help. Victory in competitions.",
+    "benefit_paragraph_ta": "100% வெற்றிக்கார்டு தடையை தாண்டி முன்னேற கூடிய காலம். தொழில் முன்னேற்றம். புதிய சேர்க்கை. காத்திருந்த செய்தி வருதல். பயம் இல்லாத வெற்றி. அனைத்து செயல்களுக்கும் சாதகமான நேரம். தொழிலுக்காக கடல் கடந்த பயணம். புது நபர்களால் ஆதாயம். எதிலும் வேகம் துணிச்சல் வெற்றி கிடைக்கும். புதிய திட்டங்களுக்கு உதவி . போட்டிகளில் வெற்றி"
+  },
+  {
+    "id": "wands_queen",
+    "name": "Queen of Wands",
+    "image": "TARROT24.JPG",
+    "benefit_paragraph_en": "A 100% success card. Good management comes. Hardworking people earn profit. Self-respect and position arrive. Confident actions succeed. Charm, eloquence and attractiveness. Separated relationships reunite. Government help comes; expenses decrease. You need rest; divine power and rare associations appear.",
+    "benefit_paragraph_ta": "100% வெற்றிக்கார்டு, நல்ல நிர்வாகம் தேடி வரும். கடின உழைப்பாளிகளுக்கு லாபம். சுயமரியாதையும் பதவியும் தேடிவரும். தன்னம்பிக்கை செயல்கள் வெற்றி. பேச்சு அழகு திறமை கவர்ச்சி ஏற்படும். பிரிந்து போன உறவுகள் சேரும். அரசாங்க உதவிகள் கிடைக்கும். விரயங்கள் குறையும். தனக்கான ஓய்வு அவசியம். இறை சக்தி கிடைக்கும். அபூர்வ நபர்களின் சேர்க்கை ஏற்படும்"
+  },
+  {
+    "id": "wands_king",
+    "name": "King of Wands",
+    "image": "TARROT23.JPG",
+    "benefit_paragraph_en": "A 100% success card. You act respectfully and gain admiration. Creative talent succeeds; good plans lead to progress. Unexpected help arrives; high position, house and vehicle luck. Long efforts bring profit; good health. Political speech yields authority; unexpected money comes; an unseen force motivates you.",
+    "benefit_paragraph_ta": "100% வெற்றிக்கார்டு, அனைவரும் மதிக்கும்படி நடப்பவர். படைப்பாற்றலில் வெற்றி. நல்ல திட்டங்கள் முன்னேற்றத்தை தரும். எதிர்பாராத உதவிகள் தேடி வரும். உயர் பதவி வீடு வாகன யோகம் ஏற்படும். பல நாள் உழைப்பிற்கு லாபம் கிடைக்கும். நல்ல ஆரோக்கியம் கிடைக்கும். அரசியல் பேச்சு அதிகாரத்தை கொடுக்கும். எதிர்பாரா இடத்திலிருந்து பணம் கிடைக்கும். ஏதோ ஒரு சக்தி தூண்டிக்கொண்டே இருக்கும்."
+  },
+  {
+    "id": "swords_ace",
+    "name": "Ace of Swords",
+    "image": "TARROT64.JPG",
+    "benefit_paragraph_en": "A 100% success card. New experiences bring clarity in thought and speech. Luck is present. Long struggles end in victory. Relationships unite; help others without expecting return. New experiences change life; promotions; property and legal disputes resolve.",
+    "benefit_paragraph_ta": "100% வெற்றிக்கார்டு, புதிய அனுபவம் கிடைக்கும். சிந்தனையில் தெளிவு பேச்சில் தெளிவு தேவை அதிர்ஷ்டம் உண்டாகும் பல நாள் போராட்டம் வெற்றி காலம் உறவுகளில் ஒற்றுமை பிரதிபலன் பாராது உதவுவது நல்லது. புதிய அனுபவம் வாழ்க்கையை மாற்றும். பதவி உயர்வு கிடைக்கும். நிலம் வீடு அமையும். சொத்துப்பிரச்சனை நீங்கும். சட்டப் பிரச்சனை அகலும்."
+  },
+  {
+    "id": "swords_two",
+    "name": "Two of Swords",
+    "image": "TARROT63.JPG",
+    "benefit_paragraph_en": "A 100% negative card. Foolish beliefs and ignorance of danger cause great mental stress. Karma is affected; entanglement in magic or manipulation. Avoid decisions; investments lead to shame. Avoid competitions and impulsive speech; don't involve yourself in others' problems.",
+    "benefit_paragraph_ta": "100% நெகட்டிவ் கார்டு, முட்டாள்தனமான நம்பிக்கை ஆபத்தை உணராமல் இருப்பது அதிக மன உளைச்சல் செய்வினை பாதிப்பு மாந்திரீகத்தில் சிக்கித் தவிப்பது எந்த முடிவு எடுக்கக் கூடாது. முதலீடு அவமானத்தை தரும் போட்டிகள் வேண்டாம். வார்த்தைகளை விடக்கூடாது. யாருடைய பிரச்சினையும் தலையிடக்கூடாது"
+  },
+  {
+    "id": "swords_three",
+    "name": "Three of Swords",
+    "image": "TARROT62.JPG",
+    "benefit_paragraph_en": "A 100% negative card. Pain and disappointment, particularly in love. Relationships may end; betrayal of trust. Be cautious; avoid decisions and new actions. A time of loss. Embrace simplicity, peace and meditation. Ensure rest and connect with nature.",
+    "benefit_paragraph_ta": "100% நெகட்டிவ் கார்டு, மனவேதனை பாதிப்பு காதலால் ஏமாற்றம் உறவுகள் கைவிடுதல் நம்பிக்கை துரோகம் எச்சரிக்கையான காலம் முடிவுகள் எடுக்கக் கூடாது. புதிய செயலில் இறங்கக்கூடாது. உறவை இழக்கும் தருணம். மாற்றம் எளிமை நல்லது. அமைதி தியானம் நல்ல உறக்கம் இயற்கையோடு இருப்பது நல்லது."
+  },
+  {
+    "id": "swords_four",
+    "name": "Four of Swords",
+    "image": "TARROT61.JPG",
+    "benefit_paragraph_en": "A 100% negative card. Medical treatment is needed. Loneliness is dangerous; insomnia persists. Stay calm; watch health. Karma is affected; heavy evil eye; relationships leave; avoid anger. Spiritual harm is possible. Overcome past karma; patience is crucial. Avoid major decisions and conflicts; don't act as guarantor.",
+    "benefit_paragraph_ta": "100% நெகட்டிவ் கார்டு, மருத்துவ சிகிச்சை அவசியம். தனிமை ஆபத்து உறக்கமற்ற நிலை. அமைதியாக இருப்பது நல்லது. உடல் நிலையில் கவனம். செய்வினை பாதிப்பு அதிக திருஷ்டி உறவுகள் கை விடுதல் கோபத்தை தவிர்ப்பது நல்லது. ஆத்மா பாதிப்பு கர்மவினையை கடப்பது. பொறுமை மிக அவசியம். முக்கிய முடிவுகள் எடுக்கக்கூடாது. கருத்து வேறுபாடுகள் கூடாது ஜாமீன் கூடாது."
+  },
+  {
+    "id": "swords_five",
+    "name": "Five of Swords",
+    "image": "TARROT60.JPG",
+    "benefit_paragraph_en": "A 100% negative card. A time of humiliation and losses. Caution is needed. You face challenges; act knowing the danger; sharpen your intellect. Many contract problems arise. Avoid investments and loans; avoid property transfers. Risk of theft and blame. Prayer, meditation and yoga are beneficial.",
+    "benefit_paragraph_ta": "100% நெகட்டிவ் கார்டு, அவமானப்படும் காலம் நிதானம் அவசியம் இழப்புகள் விரயம் ஏற்படும். சவால்களை எதிர்கொள்ளும் காலம். ஆபத்தை உணர்ந்து செயலில் இறங்குவது நல்லது. புத்தியை தீட்டினால் நல்லது. பல ஒப்பந்த பிரச்சனைகள் வரும். முதலீடுகள், கொடுக்கல் வாங்கல் கூடாது. சொத்து மாற்றம் கூடாது. அபகரித்தல் திருட்டு பழி இறை பிரார்த்தனை தியான யோகா நல்லது"
+  },
+  {
+    "id": "swords_six",
+    "name": "Six of Swords",
+    "image": "TARROT59.JPG",
+    "benefit_paragraph_en": "A 100% negative card. Leaving your job; job loss; demotion and losses. Sorrow and tears. You wade through problems; may struggle away from home or abroad. Relationships are lost. Handle with patience; avoid investments; seek peace; speak less.",
+    "benefit_paragraph_ta": "100% நெகட்டிவ் கார்டு, தொழிலில் இருந்து விலகுதல் வேலை இறப்பு பதவி இழப்பு நஷ்டம் துயரம் ,கண்ணீர். சிக்கல்களை கடப்பது ... கஷ்டப்பட்டு வெளியூர் செல்வது வெளிநாடு செல்வது உறவுகளை இழப்பது பொறுமை கையாளுவது நல்லது முதலீடு போடக்கூடாது அமைதி மிக அவசியம் அதிகம் பேசுவதையே குறைக்க வேண்டும்"
+  },
+  {
+    "id": "swords_seven",
+    "name": "Seven of Swords",
+    "image": "TARROT58.JPG",
+    "benefit_paragraph_en": "A 100% negative card. Bearing blame and humiliation; you may ruin your own life. Trusting leads to deception; you may plot or be trapped in plots; partners deceive. Patience is necessary; be careful handling money and property; speak appropriately. Patience, faith and physical exercise are needed.",
+    "benefit_paragraph_ta": "100% நெகட்டிவ் கார்டு, பழி ஏற்றல். அவமானத்தை சந்தித்தல் தானே தன் வாழ்க்கையை கெடுத்துக் கொள்வது. நம்பி ஏமாறுவது சூழ்ச்சி செய்வது அல்லது சூழ்ச்சியில் மாட்டுவது. கூட்டாளிகள் ஏமாற்றம் பொறுமை அவசியம். பணத்தை கையாளுவதில் கவனம். சொத்துக்களில் கவனம் . இடம் பொருள் அறிந்து பேச வேண்டும். பொறுமை நிதானம் அவசியம். இறை நம்பிக்கை தியானம் உடற்பயிற்சி தேவை"
+  },
+  {
+    "id": "swords_eight",
+    "name": "Eight of Swords",
+    "image": "TARROT57.JPG",
+    "benefit_paragraph_en": "A 100% negative card. Surrounded by fear, your karma is affected. Those around you betray you; hidden enemies exist. You get yourself into trouble. Lack of control and selfishness lead you to seek danger. Peace, patience and humility are needed. Avoid ego, love affairs and new friendships; don't trust new people or involve them in business.",
+    "benefit_paragraph_ta": "100% நெகட்டிவ் கார்டு, பயத்தால் சூழ்ந்துள்ள நிலை செய்வினை பாதிப்பு உடன் இருப்பவர்களால் துரோகம் மறைமுக எதிரிகள் தானே பிரச்சனையில் சிக்கிக் கொள்வது கட்டுப்பாடற்ற நிலை சுயநலம் ஆபத்தை தேடி போய் வாங்கி கொள்ளுதல் அமைதி நிதானம் பொறுமை தேவை தற்பெருமை கூடாது காதல் கூடாது புதிய நட்புகள் கூடாது புதியவர்களை நம்பி வெளி பயணம் கூடாது. புதியவர்களை தொழிலில் ஈடுபடுத்த கூடாது"
+  },
+  {
+    "id": "swords_nine",
+    "name": "Nine of Swords",
+    "image": "TARROT56.JPG",
+    "benefit_paragraph_en": "A 100% negative card. A time of loss or separation. Illness increases; mental disturbance increases; sleep suffers and health is affected. Karma is affected; evil eye problems. You are trapped by emotions and betrayed by love. Loneliness hurts. Humiliation at work; difficult transfers; guilt and crying. Patience is good; avoid new decisions.",
+    "benefit_paragraph_ta": "100% நெகட்டிவ் கார்டு, உறவுகளை இழக்கும் காலம் அல்லது பிரியும் காலம் உடல் நோய் அதிகரிப்பு மனபாலம் அதிகரிப்பு உறக்கம் கெடுவது உடல்நிலை பாதிப்பு செய்வினை பாதிப்பு திருஷ்டி பிரச்சனை உணர்ச்சியில் சிக்கித் தவிப்பது பாசத்தில் ஏமாறுவது தனிமையில் பாதிப்பு தொழிலில் அவமானம் புதிய இடமாற்றம் கஷ்டம் குற்ற உணர்ச்சியால் அழுகை பொறுமை நல்லது புதிய முடிவுகள் தற்சமயம் வேண்டாம்."
+  },
+  {
+    "id": "swords_ten",
+    "name": "Ten of Swords",
+    "image": "TARROT55.JPG",
+    "benefit_paragraph_en": "A 100% negative card. Fear of death; betrayal by those around you. Entangled in problems and struggles; deception in money and property; loss of relationships; losses. A testing period. Illness and humiliation. Affected by enemies; betrayal of trust. Patience is essential; avoid new alliances and beginnings.",
+    "benefit_paragraph_ta": "100% நெகட்டிவ் கார்டு, மரண பயம் உடன் இருப்பவர்களால் துரோகம் பிரச்சனையில் சிக்கி தவிப்பது போராட்டம் பணம் சொத்து ஏமாற்றம் உறவுகள் இழப்பு நஷ்டம் சோதனைக்காலம். நோய் பாதிப்பு அவமானம் எதிரிகளால் பாதிப்பு. நம்பிக்கை துரோகம். பொறுமை அவசியம் புதிய சேர்க்கை வேண்டாம். புதிய தொடக்கம் வேண்டாம்."
+  },
+  {
+    "id": "swords_page",
+    "name": "Page of Swords",
+    "image": "TARROT54.JPG",
+    "benefit_paragraph_en": "A 75% success card. Transfers and changes are positive; you fight and win. Mental and physical restlessness; many disturbances. You must free yourself from conspiracies. You suffer conflicts; obstacles and delays occur; training intensifies; hidden enemies appear. You overcome everything to succeed.",
+    "benefit_paragraph_ta": "75% வெற்றிக்கார்டு, இடமாற்றம் தொடர் மாற்றம் நல்லது. போராடி வெற்றி . மன உளைச்சல் உடல் அமைச்சல் தொந்தரவுகள் அதிகரிக்கும் சூழ்ச்சிகளில் இருந்து விடுபடுவது சண்டை சச்சரவில் தவிப்பது தடை தாமதம் ஏற்படுதல் பயிற்சி அதிகமாக எடுப்பது மறைமுக எதிரிகள் உருவாவது அனைத்தையும் தாண்டி வெற்றி பெறுவது"
+  },
+  {
+    "id": "swords_knight",
+    "name": "Knight of Swords",
+    "image": "TARROT53.JPG",
+    "benefit_paragraph_en": "A 90% success card. Act bravely; fight and win. Wins in sports, tests, interviews and elections. Unexpected benefits. You have endured many struggles. Sudden change brings luck. Money comes; you make quick decisions that succeed.",
+    "benefit_paragraph_ta": "90% வெற்றிக்கார்டு, வீரமாக தன்னுடைய செயலியை இறங்குவார்கள். போராடி வெற்றி பெறுவார்கள் விளையாட்டு போட்டிகள் வெற்றி தேர்வு, இன்டர்வியூ தேர்தல் வெற்றி எதிர்பாராத நன்மை அதிக போராட்டத்தை கடந்தவர். திடீர் மாற்றம் அதிர்ஷ்டத்தை தரும். பணவரவு ஏற்படும். அவசரமாக முடிவெடுப்பார்கள். அதுவும் வெற்றி."
+  },
+  {
+    "id": "swords_queen",
+    "name": "Queen of Swords",
+    "image": "TARROT52.JPG",
+    "benefit_paragraph_en": "A 90% success card. Independent life and research succeed. Changing plans also succeed. Promotions and authority come; income increases; benefits through women. Legal and property problems resolve. You feel secure. Help comes for your work.",
+    "benefit_paragraph_ta": "90% வெற்றிக்கார்டு, சுதந்திரமான வாழ்க்கை அமையும். ஆய்வுகள் வெற்றிபெறும். திட்டங்கள் மாறுபடும் அதுவும் வெற்றியடையும். பதவி உயர்வு கிடைக்கும் அதிகாரம் கிடைக்கும். வருமான உயர்வு கிடைக்கும் பெண்களால் ஆதாயம் ஏற்படும். சட்ட பிரச்சனை தீரும். சொத்து பிரச்சனை தீரும். பாதுகாப்பாக உணர்வார்கள். தொழிலுக்கு உண்டான உதவிகள் கிடைக்கும்."
+  },
+  {
+    "id": "swords_king",
+    "name": "King of Swords",
+    "image": "TARROT51.JPG",
+    "benefit_paragraph_en": "A 90% success card. Begin work majestically; judgments favor you. Fight and win. Circumstances are favorable. You become a good guide; gain name, fame and position. Social welfare increases. Your actions amaze others. Wealth accumulates. New business may start slowly but will succeed; you gain good experience.",
+    "benefit_paragraph_ta": "90% வெற்றிக்கார்டு, கம்பீரமாக வேலை ஆரம்பம் தீர்ப்பு இவங்களுக்கு சாதகமாகும். போராடி வெற்றி பெறுவார். வரும் சூழ்நிலை இவர்களுக்கு சாதகமாகும். நல்ல வழிகாட்டி அமையும். பெயர் புகழ் பதவி அமையும். பொதுநலம் அதிகரிக்கும். மற்றவர்கள் வியக்கத்தக்க வகையில் செயல்பாடுகள் இருக்கும். பொன் பொருள் சேரும். புதிய தொழில் ஆரம்பத்தில் தடையானாலும் பிறகு வெற்றியாகும் நல்ல அனுபவம் கிடைக்கும்."
+  },
+  {
+    "id": "pentacles_ace",
+    "name": "Ace of Pentacles",
+    "image": "TARROT78.JPG",
+    "benefit_paragraph_en": "A 100% success card. New ventures succeed and property grows. Desires are fulfilled and life is prosperous. Auspicious events soon; business profits; success in competitions and interviews. Achievements in research. Luck arrives; hardships disappear; business expands; personal talent and fame increase.",
+    "benefit_paragraph_ta": "100% வெற்றிக்கார்டு, புதிய முயற்சி வெற்றி சொத்து சேர்க்கை ஏற்படும். ஆசைகள் நிறைவேறும். வளமான வாழ்க்கை சுபகாரியம் விரைவில் நடக்கும் தொழிலில் லாபம் கிடைக்கும். போட்டியில் வெற்றி தேர்வு இன்டர்வியூ வெற்றி ஆராய்ச்சி கண்டுபிடிப்பு சாதனை ஆசைகள் நிறைவேறுதல் அதிர்ஷ்டம் தேடி வருதல் கஷ்டம் விலகும் தொழில் விரிவு தனி திறமை புகழ்"
+  },
+  {
+    "id": "pentacles_two",
+    "name": "Two of Pentacles",
+    "image": "TARROT77.JPG",
+    "benefit_paragraph_en": "A 75% success card. Growth experiences delays; money may be handled carelessly; unnecessary expenses; lack of balance. Persistent effort yields results. Promotion in politics or uniformed careers. Energy must be maintained; carelessness brings problems; unused talents; irresponsibility. Intelligence and patience lead to success.",
+    "benefit_paragraph_ta": "75% வெற்றிக்கார்டு, வளர்ச்சியில் தடை தாமதம் வருதல் விளையாட்டுத்தனமாக பண மாற்றம் தேவையில்லாத செலவுகள் சமநிலை இல்லாத தன்மை விடா முயற்சி பலன் கிடைக்கும் அரசியல் சீருடை சார்ந்த தொழில் உயர்வு சுறுசுறுப்பாக செயல்படும் காலம் அஜாக்கிரதையால் பிரச்சனை திறமை இருந்தும் பயன்படுத்தாத நிலை பொறுப்பில்லாமல் இருத்தல் புத்தி அறிவு பொறுமையை கடைப்பிடித்தால் வெற்றி"
+  },
+  {
+    "id": "pentacles_three",
+    "name": "Three of Pentacles",
+    "image": "TARROT76.JPG",
+    "benefit_paragraph_en": "A 75% success card. Research succeeds and new discoveries become famous. Time to reveal plans. You can invest but must be cautious. Stabilize your environment. Job opportunities. Success through sacrifice. Help comes. Business prospers; innovations occur; financial cooperation; profit through new friendships.",
+    "benefit_paragraph_ta": "75% வெற்றிக்கார்டு, ஆராய்ச்சி வெற்றி பெறும். புதிய கண்டுபிடிப்பு பிரபலமடையும். திட்டங்களை வெளிப்படுத்தும் காலம் முதலீடு செய்யலாம் ஆனாலும் கவனம் சூழல்களை சீராக்குதல் வேலை வாய்ப்பு அமையும். தியாகத்தினால் ஆதாயம் கிடைக்கும். உதவிகள் கிடைக்கும் வியாபாரம் சிறப்பாக இருக்கும் தொழில் புதுமை அடையும். பணத்தால் ஒத்துழைப்பு கிடைக்கும். புதிய நட்புகளால் லாபம்"
+  },
+  {
+    "id": "pentacles_four",
+    "name": "Four of Pentacles",
+    "image": "TARROT75.JPG",
+    "benefit_paragraph_en": "An 80% success card. It's time to save money and accumulate property. Profit comes; caution and clarity are essential. Prosperity grows; promotions and transfers; fame; your own business expands. Higher education; respect from elders; large sums of money. Lending money at interest; saving in banks. New beginnings succeed if careful.",
+    "benefit_paragraph_ta": "80% வெற்றிக்கார்டு, பணத்தை சேமிக்கும் காலம் சொத்து சேர்க்கை உண்டாகும் லாபம் ஏற்படும். நிதானம் தெளிவு மிக அவசியம். வளமான செழிப்பு ஏற்படும். பதவி உயர்வு, பதவி மாற்றம் ஏற்படும் புகழ் சொந்தத் தொழில் பிரம்மாண்டம் ஏற்படும். கல்வி உயர்வு. பெரியோர்களால் கவுரவம் பெரும்பணம் கைக்கு வரும். பணம் வட்டிக்கு விடுதல். வங்கியில் ஒத்துமட்டுமாக சேமித்தல் . புதிய தொடக்கம் நிதானமாக இருந்தால் வெற்றி"
+  },
+  {
+    "id": "pentacles_five",
+    "name": "Five of Pentacles",
+    "image": "TARROT74.JPG",
+    "benefit_paragraph_en": "A 100% negative card. Relocation and separation of relationships. Close ones leave. You experience karmic consequences. Avoid investments; uncertain conditions bring danger. Illness from mental stress; fear and withdrawal. Poverty affects greatly; family suffers. Job changes, relocations and relationship changes occur. Caution and patience are needed; rushing leads to foolish decisions; high expenses; betrayal and deception; faith in God is necessary.",
+    "benefit_paragraph_ta": "100% நெகட்டிவ் கார்டு, இடமாற்றம் ஏற்படும். உறவுகள் விலகல் ஏற்படும். நெருங்கியவர்கள் விட்டுச் செல்வார்கள் கர்மவினையை அனுபவிக்கும் காலம் முதலீடு கூடாது தெளிவில்லாத நிலையான ஆபத்து மன உளைச்சலால் நோய் பாதிப்பு. பயம் அறிந்து விலகி செல்லுதல் வறுமை அதிக பாதிப்பு குடும்ப நபர்களுக்கும் துன்பம் தொழில் மாற்றம் இடமாற்றம் உறவுகள் மாற்றம் ஏற்படும். நிதானம் மிக அவசியம் அவசரம் முட்டாள்தனமான முடிவு எடுக்க வைக்கும் அதிக விரயம் துரோகம் ஏமாற்றம் ஏற்படும் கவனம் தேவை இறை நம்பிக்கை அதிகம் தேவை"
+  },
+  {
+    "id": "pentacles_six",
+    "name": "Six of Pentacles",
+    "image": "TARROT73.JPG",
+    "benefit_paragraph_en": "An 80% success card. A time to make sacrifices and gain honor, fame and recognition. Your own business prospers and expands. You protect family tradition. Gain social status and support for your community and region. New beginnings are good. Patience and caution are needed. Hasty decisions cause problems. Clear thinking ensures success.",
+    "benefit_paragraph_ta": "80% வெற்றிக்கார்டு, இறக்கப்பட்டு நிறைய தியாகம் செய்யும் காலம். கௌரவம் தேடி வரும் புகழ் பரிசு அங்கீகாரம் கிடைக்கும். சொந்த தொழில் வளரும். தொழில் விரிவு படுத்தும் காலம். பரம்பரை புகழை காக்கும் நேரம். சமூகம் சார்ந்த அந்தஸ்து கிடைக்கும். தன்மக்கள், தன் ஊர் தமிழ்நாடு, பலப்படுத்தி பார்ப்பீர்கள். புதிய தொடக்கம் நல்லது. பொறுமையும் நிதானமும் தேவை. அவசர முடிவு பிரச்சனை மனதை தெளிவாக வைத்தால் வெற்றி நிச்சயம்."
+  },
+  {
+    "id": "pentacles_seven",
+    "name": "Seven of Pentacles",
+    "image": "TARROT72.JPG",
+    "benefit_paragraph_en": "A 75% success card. Many efforts; business is likely to grow. Hard work brings progress; expected success soon. New opportunities come. Profit through auspicious events. Delayed projects will happen. Lost relationships return. Money owed is repaid. Opportunities to buy livestock or vehicles; to buy a house or land. Success comes with clarity and effort.",
+    "benefit_paragraph_ta": "75% வெற்றிக்கார்டு, அதிக முயற்சி வியாபாரம் பெருகக்கூடிய காலம் கடின உழைப்பால் முன்னேற்றம் எதிர்பார்த்த சாதனை கூடிய விரைவில் அமையும். புதிய வாய்ப்புகள் தேடி வரும். சுபகாரியத்தால் லாபம் ஏற்படும். தடையான காரியம் நடக்கும். விட்டுப்போன உறவுகள் சேரும். வெளியில் நின்ற பணம் வரும். கால்நடை அல்லது வாகன யோகம் உண்டாகும். வீடு நிலம் வாங்கும் யோகம் ஏற்படும். தெளிவாகவும் அதிக முயற்சியும் இருந்தால் வெற்றி"
+  },
+  {
+    "id": "pentacles_eight",
+    "name": "Eight of Pentacles",
+    "image": "TARROT71.JPG",
+    "benefit_paragraph_en": "A 90% success card. Artistic sense increases; you become skilful. A lucky time. Your salary matches your efforts. New plans move quickly. Individual talents bring fame and recognition. Help arrives spontaneously. Income increases. Bank loans and government assistance are available. Long-awaited desires are fulfilled.",
+    "benefit_paragraph_ta": "90% வெற்றிக்கார்டு, கலை உணர்வு அதிகரிக்கும். சாமர்த்தியசாலியாக மாறும் காலம். அதிர்ஷ்ட காலம் உழைப்புக்கு ஏற்ற ஊதியம் வந்தடையும். புதிய திட்டங்கள் வேகமாக நடக்கும். தனிப்பட்ட திறமையில் புகழ் அங்கீகாரம் கிடைக்கும். உதவிகள் தானாக கிடைக்கும். வருமான நிலையில் உயர்வு ஏற்படும். வங்கி,லோன், அரசாங்க உதவி கிடைக்கும். பலநாள் எதிர் பார்ப்பு நிறைவேறும் காலம்."
+  },
+  {
+    "id": "pentacles_nine",
+    "name": "Nine of Pentacles",
+    "image": "TARROT70.JPG",
+    "benefit_paragraph_en": "A 100% success card. Marriage happens; love succeeds. You buy clothes and build a house. Property accumulates; relationships strengthen; child blessings; foreign luck; peaceful period. You accumulate wealth and property; people admire you. Buying valuable items; time to learn foreign languages and succeed in creative work.",
+    "benefit_paragraph_ta": "100% வெற்றிக்கார்டு, திருமணம் கைகூடும் காதல் வெற்றி பெறும் நிறம் வாங்குதல் வீடு கட்டுதல். சொத்து சேகரிப்பு. உறவுகள் சேர்க்கை குழந்தை பாக்கியம். வெளிநாட்டு யோகம் நிம்மதியான காலம் அமையும் சொத்து பணம் பொருள் சேகரிப்பு மக்கள் வசப்படும் காலம். விலைமதிப்பான பொருட்கள் வாங்குதல் அந்நிய மொழி, கற்கவும், பொதுப் படைப்புகள் வெற்றி பெறவும் சரியான நேரம்."
+  },
+  {
+    "id": "pentacles_ten",
+    "name": "Ten of Pentacles",
+    "image": "TARROT69.JPG",
+    "benefit_paragraph_en": "A 100% success card. Family strength increases; good fortune. A luxurious life; love marriage. Profit from ancestral property. Promotion and recognition. Investments give good profit. Grand new beginnings. Foreign travel brings increased income. Family cooperation is strong.",
+    "benefit_paragraph_ta": "100% வெற்றிக்கார்டு, குடும்ப பலம் ஏற்படும். யோகங்கள் வரும். சுகபோக வாழ்க்கை ஏற்படும் . காதல் திருமணம் கைகூடும். பரம்பரை சொத்துக்களால் ஆதாயம் பதவி உயர்வு, அங்கீகாரம் கிடைக்கும். முதலீடுகள் நல்ல லாபம். புதிய தொடக்கம் பிரம்மாண்டம். வெளி பயணம் ஏற்படும். வெளி பயணத்தால் வருமானம் பெருகும். குடும்பத்தார் ஒத்துழைப்பு கிடைக்கும்."
+  },
+  {
+    "id": "pentacles_page",
+    "name": "Page of Pentacles",
+    "image": "TARROT68.JPG",
+    "benefit_paragraph_en": "A 90% success card. Opportunities in cinema and media; celebrity luck. Success for unique talent; preserving heritage fame. Opportunities come. Success in accumulating wealth; transfers. Unexpected money luck. New beginnings profitable; auspicious events; pleasant environment; trips; savings develop.",
+    "benefit_paragraph_ta": "90% வெற்றிக்கார்டு, சினிமா மீடியா வாய்ப்பு பிரபல யோகம் தனி திறமைக்கான வெற்றி பாரம்பரிய புகழைக் காப்பாற்றுதல். வாய்ப்புகள் தேடி வருதல். பொருள் சேர்க்கையில் வெற்றி. பதவி மாற்றம். எதிர்பாராத பண யோகம் அமையும். புதிய தொடக்கம் லாபம் சுப காரியம் மகிழ்ச்சிகரமான சூழல் சுப காரியங்கள் சுற்றுலா சேமிப்பு ஏற்படும்"
+  },
+  {
+    "id": "pentacles_knight",
+    "name": "Knight of Pentacles",
+    "image": "TARROT67.JPG",
+    "benefit_paragraph_en": "A 90% success card. Continuous effort brings success. Victories in competitions; legal matters go in your favor. Success through overseas or interstate connections. New opportunities; new decisions bring luck. Plans and activities manifest. You succeed individually. Wealth accumulates.",
+    "benefit_paragraph_ta": "90% வெற்றிக்கார்டு, தொடர் முயற்சி வெற்றி போட்டிகளில் வெற்றி வழக்குகள் தனக்கு சாதகமாக முடிதல் வெளிநாடு வெளி மாநிலம் வெற்றியை தரும். புதிய வாய்ப்புகள் தேடிவரும் புதிய முடிவுகள் அதிர்ஷ்டமாகும். திட்டங்கள் செயல்பாடுகள் ஆகும். தனித்து வெற்றி காணக்கூடிய காலம் பொருள் சேர்க்கை ஏற்படும்."
+  },
+  {
+    "id": "pentacles_queen",
+    "name": "Queen of Pentacles",
+    "image": "TARROT66.JPG",
+    "benefit_paragraph_en": "A 100% success card. Financial needs are fulfilled; clarity of mind and progress. Promotions and fame increase; accumulate clothes and jewelry; recognition for yourself. Property in your name. Achieve your goals. Sudden luck; wealth accumulation; auspicious events; lucky period.",
+    "benefit_paragraph_ta": "100% வெற்றிக்கார்டு, பணத்தின்தேவை பூர்த்தி அடையும். தெளிவான மனநிலை உயர்வு ஏற்படும். பதவி புகழ் உயர்வு கிடைக்கும் ஆடை ஆபரணம் சேர்க்கும். தனக்கான அங்கீகாரம் கிடைக்கும். தன் பெயரில் சொத்து அமையும். லட்சியத்தை அடைவார்கள் திடீர் அதிர்ஷ்டம் பொன் பொருள் சேர்க்கை சுப காரியம் நடக்கும். அதிர்ஷ்டகாலம்"
+  },
+  {
+    "id": "pentacles_king",
+    "name": "King of Pentacles",
+    "image": "TARROT65.JPG",
+    "benefit_paragraph_en": "A 100% success card. Promotion and income rise; gold and wealth accumulate. Honor and fame come; elders' blessings; social status. Success in exams and competitions; leadership in elections. Recognition. Long-awaited desires are fulfilled.",
+    "benefit_paragraph_ta": "100% வெற்றிக்கார்டு, பதவி உயர்வு, வருமானம் உயர்வு பொன் பொருள் சேர்க்கை கௌரவம் புகழ் தேடி வருதல். பெரியோர் ஆசீர்வாதம் கிடைக்கும் சமுதாய அந்தஸ்து கிடைக்கும். தேர்வு வெற்றி போட்டிகளில் வெற்றி தேர்தலில் முதன்மை . தனக்கான அங்கீகாரம் கிடைத்தல். பல நாள் எதிர்பார்ப்பு நிறைவேறும் காலம்."
+  }
+]

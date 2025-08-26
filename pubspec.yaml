@@ -53,4 +53,9 @@ flutter:
     - assets/images/about_face.jpg
     - assets/images/header.PNG
     - assets/images/icon.png
+
     - assets/palan/palan_ta.txt
+
+    - assets/tarot/
+    - assets/tarot/data/tarot_cards.json
+

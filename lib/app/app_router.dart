@@ -19,10 +19,13 @@ import '../features/youtube/presentation/screens/youtube_videos_screen.dart';
 import '../features/shares/presentation/screens/shares_screen.dart';
 import '../features/training/presentation/screens/training_video_screen.dart';
 import '../features/numerology/presentation/screens/numerology_screen.dart';
+import '../features/tarot/presentation/screens/tarot_grid_screen.dart' hide TarotDetailScreen;
+import '../features/tarot/presentation/screens/tarot_detail_screen.dart';
+
 
 final appRouterProvider = Provider<GoRouter>((ref) {
   return GoRouter(
-    initialLocation: '/splash', // ⬅ start at Splash
+    initialLocation: '/splash',
     routes: [
       // --- Auth flow ---
       GoRoute(path: '/splash', name: 'splash', builder: (_, __) => const SplashScreen()),
@@ -42,6 +45,22 @@ final appRouterProvider = Provider<GoRouter>((ref) {
       GoRoute(path: '/training', name: 'training', builder: (_, __) => const TrainingVideoScreen()),
       GoRoute(path: '/transit', name: 'transit', builder: (_, __) => const TransitScreen()),
       GoRoute(path: '/numerology', name: 'numerology', builder: (_, __) => const NumerologyScreen()),
+
+      // --- Tarot ---
+      GoRoute(
+        path: '/tarot',
+        name: 'tarot-grid',
+        builder: (_, __) => const TarotGridScreen(),
+      ),
+      GoRoute(
+        path: '/tarot/:id',
+        name: 'tarot-detail',
+        builder: (context, state) {
+          final id = state.pathParameters['id']!;
+          return TarotDetailScreen(cardId: id);
+        },
+      ),
     ],
   );
 });
+

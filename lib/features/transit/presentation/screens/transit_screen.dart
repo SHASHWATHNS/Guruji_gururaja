@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../domain/entities/transit_models.dart';
 import '../viewmodels/tranist_view_model.dart';
-import '../viewmodels/transit_view_model.dart';
 
 class TransitScreen extends ConsumerWidget {
   const TransitScreen({super.key});
