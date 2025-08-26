@@ -12,6 +12,7 @@ import '../../../horoscope/presentation/screens/horoscope_screen.dart';
 import '../../../matchmaking/presentation/screens/matchmaking_screen.dart';
 import '../../../panchanga/presentation/screens/panchanga_screen.dart';
 
+import '../../../purchase/presentation/screens/purchase_screen.dart';
 import '../../../transit/presentation/screens/transit_screen.dart';
 import '../widgets/home_header.dart';
 import '../widgets/menu_button.dart';
@@ -38,7 +39,7 @@ class HomeScreen extends ConsumerWidget {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 10.0),
                 child: Column(
-                  children: [
+                  children: <Widget>[
                     // Row 1
                     _twoTiles(
                       context,
@@ -101,6 +102,7 @@ class HomeScreen extends ConsumerWidget {
                     ),
 
                     // Purchase
+                    // Purchase
                     SizedBox(
                       width: double.infinity,
                       child: ElevatedButton.icon(
@@ -121,34 +123,41 @@ class HomeScreen extends ConsumerWidget {
                             letterSpacing: 1.0,
                           ),
                         ),
-                        onPressed: () => _soon(context, t('home.purchase'), t),
+                        onPressed: () {
+                          Navigator.of(context).push(
+                            MaterialPageRoute(builder: (_) => const PurchaseScreen()),
+                          );
+                        },
                       ),
                     ),
 
                     const SizedBox(height: 12),
 
                     // Row 4
-                    _twoTiles(
-                      context,
-                      left: MenuButton(
-                        label: t('home.about'),
-                        icon: Icons.info,
-                        color: Colors.blueGrey.shade600,
-                          onTap: () => Navigator.of(context).push(
-                      MaterialPageRoute(builder: (_) => const AboutFounderScreen()),
-                    )
-                      ),
-                      right: MenuButton(
-                        label: t('home.feedback'),
-                        icon: Icons.rate_review,
-                        color: Colors.deepOrange.shade400,
-                          onTap: () => Navigator.of(context).push(
-                            MaterialPageRoute(builder: (_) => const ClassFeedbackScreen()),
-                          )
-                      ),
+                _twoTiles(
+                  context,
+                  left: MenuButton(
+                    label: t('home.about'),
+                    textStyle: TextStyle(
+                      fontSize: Localizations.localeOf(context).languageCode == 'ta' ? 14 : 16,
+                      fontWeight: FontWeight.bold,
                     ),
-
-                    // Row 5
+                    icon: Icons.info,
+                    color: Colors.blueGrey.shade600,
+                    onTap: () => Navigator.of(context).push(
+                      MaterialPageRoute(builder: (_) => const AboutFounderScreen()),
+                    ),
+                  ),
+                  right: MenuButton(
+                    label: t('home.feedback'),
+                    icon: Icons.rate_review,
+                    color: Colors.deepOrange.shade400,
+                    onTap: () => Navigator.of(context).push(
+                      MaterialPageRoute(builder: (_) => const ClassFeedbackScreen()),
+                    ),
+                  ),
+                ),
+                // Row 5
                     _twoTiles(
                       context,
                       left: MenuButton(

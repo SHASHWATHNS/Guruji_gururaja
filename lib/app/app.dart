@@ -16,7 +16,6 @@ class AstroApp extends ConsumerWidget {
     final settings = ref.watch(appSettingsProvider); // ⬅️ read theme/locale
 
     return MaterialApp.router(
-      title: 'ALP Astrology',
       debugShowCheckedModeBanner: false,
       theme: AppTheme.light,
       darkTheme: AppTheme.dark,                 // ⬅️ provide dark theme

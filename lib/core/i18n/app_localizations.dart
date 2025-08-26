@@ -9,7 +9,6 @@ class AppLocalizations {
 
   // Minimal keys used by Settings + a few common ones
   static const _s = <String, Map<String, String>>{
-    'app.title': {'en': 'GURUJI GURURAJA', 'ta': 'குருஜி குருராஜா'},
     'chip.settings': {'en': 'SETTINGS', 'ta': 'அமைப்புகள்'},
 
     'settings.preferences': {'en': 'Preferences', 'ta': 'விருப்பங்கள்'},
@@ -23,14 +22,14 @@ class AppLocalizations {
     'home.horoscope': {'en': 'HOROSCOPE', 'ta': 'ஜாதகம்'},
     'home.match': {'en': 'THIRUMANA\nPORUTHAM', 'ta': 'திருமண\nபொருத்தம்'},
     'home.panchanga': {'en': 'PANCHANGAM', 'ta': 'பஞ்சாங்கம்'},
-    'home.numerology': {'en': 'NUMEROLOGY', 'ta': 'எண் கணிதம்'},
-    'home.jammukul': {'en': 'JAMMUKUL\nPRASHANA', 'ta': 'ஜாமக்கோள்\nபிரஷ்னா'},
+    'home.numerology': {'en': 'NUMEROLOGY', 'ta': 'நியூமராலஜி'},
+    'home.jammukul': {'en': 'JAMAKKOL', 'ta': 'ஜாமக்கோள்'},
     'home.tarot': {'en': 'TAROT', 'ta': 'டாரட்'},
     'home.purchase': {'en': 'PURCHASE', 'ta': 'கொள்முதல்'},
-    'home.about': {'en': 'ABOUT', 'ta': 'தகவல்'},
-    'home.feedback': {'en': 'CLASS\nFEEDBACK', 'ta': 'வகுப்பு\nகருத்து'},
-    'home.transit': {'en': 'TRANSIT DATA', 'ta': 'கிரகப் பயணம்'},
-    'home.video': {'en': 'CLASS\nVIDEO', 'ta': 'வகுப்பு\nவீடியோ'},
+    'home.about': {'en': 'ABOUT US', 'ta': 'எங்களைப் பற்றி தகவல்'},
+    'home.feedback': {'en': 'CLASS\nFEEDBACK', 'ta': 'வகுப்பு\nகருத்துக்கள்'},
+    'home.transit': {'en': 'PLANET\nMOVEMENT', 'ta': 'கோச்சாரம்'},
+    'home.video': {'en': 'CLASS\nVIDEOS', 'ta': 'வகுப்பு\nவீடியோ'},
     'home.youtube': {'en': 'YOUTUBE\nVIDEO', 'ta': 'யூடியூப்\nவீடியோ'},
     'home.settings': {'en': 'SETTINGS', 'ta': 'அமைப்புகள்'},
     'common.coming': {'en': '— coming soon', 'ta': '— விரைவில்'},

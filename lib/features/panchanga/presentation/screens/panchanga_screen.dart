@@ -21,7 +21,7 @@ class PanchangaScreen extends ConsumerWidget {
         appBar: AppBar(
           backgroundColor: AppColors.headerBar,
           title: const Text(
-            'Akshaya Lagna Paddati',
+            'GURUJI GURURAJA',
             style: TextStyle(fontWeight: FontWeight.w700, color: Colors.black),
           ),
           actions: [
