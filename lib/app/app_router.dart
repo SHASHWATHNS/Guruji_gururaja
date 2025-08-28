@@ -14,13 +14,15 @@ import '../features/prashna/presentation/screens/prashna_screen.dart';
 import '../features/purchase/presentation/screens/purchase_screen.dart';
 import '../features/settings/presentation/screens/settings_screen.dart'; // keep this one
 import '../features/about/presentation/screens/about_founder_screen.dart';
+import '../features/tarot/presentation/models/tarot_card_lite.dart';
 import '../features/transit/presentation/screens/transit_screen.dart';
 import '../features/youtube/presentation/screens/youtube_videos_screen.dart';
 import '../features/shares/presentation/screens/shares_screen.dart';
 import '../features/training/presentation/screens/training_video_screen.dart';
 import '../features/numerology/presentation/screens/numerology_screen.dart';
-import '../features/tarot/presentation/screens/tarot_grid_screen.dart' hide TarotDetailScreen;
-import '../features/tarot/presentation/screens/tarot_detail_screen.dart';
+import '../features/tarot/presentation/screens/tarot_quick_grid_screen.dart'
+    hide TarotDetailScreen;
+import '../features/tarot/presentation/screens/tarot_quick_detail_screen.dart';
 
 
 final appRouterProvider = Provider<GoRouter>((ref) {
@@ -50,14 +52,14 @@ final appRouterProvider = Provider<GoRouter>((ref) {
       GoRoute(
         path: '/tarot',
         name: 'tarot-grid',
-        builder: (_, __) => const TarotGridScreen(),
+        builder: (_, __) => const TarotQuickGridScreen(),
       ),
       GoRoute(
-        path: '/tarot/:id',
+        path: '/tarot/detail',
         name: 'tarot-detail',
         builder: (context, state) {
-          final id = state.pathParameters['id']!;
-          return TarotDetailScreen(cardId: id);
+          final card = state.extra as TarotCardLite;
+          return TarotQuickDetailScreen(card: card);
         },
       ),
     ],

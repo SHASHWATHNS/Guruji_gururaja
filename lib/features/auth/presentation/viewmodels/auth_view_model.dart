@@ -1,76 +1,111 @@
+import 'dart:convert';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../../../auth/data/auth_api.dart';
+import '../../../auth/domain/auth_repository.dart';
+import '../../../auth/domain/entities/auth_session.dart';
+
 class AuthState {
   final bool isLoggedIn;
-  final bool isRequestingOtp;
-  final String phone;
-  final String otpHint; // demo only
+  final bool isLoading;
+  final String? token;
+  final Map<String, dynamic>? user;
 
   const AuthState({
     this.isLoggedIn = false,
-    this.isRequestingOtp = false,
-    this.phone = '',
-    this.otpHint = '',
+    this.isLoading = false,
+    this.token,
+    this.user,
   });
 
   AuthState copyWith({
     bool? isLoggedIn,
-    bool? isRequestingOtp,
-    String? phone,
-    String? otpHint,
+    bool? isLoading,
+    String? token,
+    Map<String, dynamic>? user,
   }) {
     return AuthState(
       isLoggedIn: isLoggedIn ?? this.isLoggedIn,
-      isRequestingOtp: isRequestingOtp ?? this.isRequestingOtp,
-      phone: phone ?? this.phone,
-      otpHint: otpHint ?? this.otpHint,
+      isLoading: isLoading ?? this.isLoading,
+      token: token ?? this.token,
+      user: user ?? this.user,
     );
   }
 }
 
 class AuthNotifier extends StateNotifier<AuthState> {
-  AuthNotifier() : super(const AuthState());
+  AuthNotifier(this._repo) : super(const AuthState());
+  final AuthRepository _repo;
 
-  static const _key = 'logged_in';
+  static const _kLoggedIn = 'logged_in';
+  static const _kToken = 'auth_token';
+  static const _kUser = 'auth_user';
 
   Future<void> loadSession() async {
     final prefs = await SharedPreferences.getInstance();
-    final logged = prefs.getBool(_key) ?? false;
-    state = state.copyWith(isLoggedIn: logged);
+    final logged = prefs.getBool(_kLoggedIn) ?? false;
+    final token = prefs.getString(_kToken);
+    final userS = prefs.getString(_kUser);
+    Map<String, dynamic>? user;
+    if (userS != null && userS.isNotEmpty) {
+      try { user = Map<String, dynamic>.from(jsonDecode(userS)); } catch (_) {}
+    }
+    state = state.copyWith(isLoggedIn: logged, token: token, user: user);
+  }
+
+  Future<AuthSession> register({
+    required String name,
+    required String phone,
+    required String password,
+    required String email, // <-- required
+  }) async {
+    state = state.copyWith(isLoading: true);
+    final res = await _repo.register(
+      name: name,
+      phone: phone,
+      password: password,
+      email: email, // <-- pass through
+    );
+    await _handleAuthResult(res);
+    return res;
+  }
+
+  Future<AuthSession> login({
+    required String phone,
+    required String password,
+  }) async {
+    state = state.copyWith(isLoading: true);
+    final res = await _repo.login(phone: phone, password: password);
+    await _handleAuthResult(res);
+    return res;
   }
 
   Future<void> logout() async {
     final prefs = await SharedPreferences.getInstance();
-    await prefs.setBool(_key, false);
-    state = state.copyWith(isLoggedIn: false);
+    await prefs.remove(_kLoggedIn);
+    await prefs.remove(_kToken);
+    await prefs.remove(_kUser);
+    state = const AuthState(isLoggedIn: false);
   }
 
-  /// Demo: pretend to send OTP 123456
-  Future<void> requestOtp(String phone) async {
-    state = state.copyWith(isRequestingOtp: true, phone: phone);
-    await Future.delayed(const Duration(milliseconds: 900));
-    state = state.copyWith(isRequestingOtp: false, otpHint: '123456');
-  }
+  Future<void> _handleAuthResult(AuthSession res) async {
+    state = state.copyWith(isLoading: false);
+    if (!res.success) return;
 
-  /// Demo verify: accept only 123456
-  Future<bool> verifyOtp(String code) async {
-    await Future.delayed(const Duration(milliseconds: 400));
-    final ok = code.trim() == '123456';
-    if (ok) {
-      final prefs = await SharedPreferences.getInstance();
-      await prefs.setBool(_key, true);
-      state = state.copyWith(isLoggedIn: true);
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setBool(_kLoggedIn, true);
+    if (res.token != null && res.token!.isNotEmpty) {
+      await prefs.setString(_kToken, res.token!);
     }
-    return ok; // <-- ensures a bool is always returned
-  }
-
-  /// Used by Settings page to clear the displayed hint
-  void clearOtpHint() {
-    state = state.copyWith(otpHint: '');
+    if (res.userRaw != null) {
+      await prefs.setString(_kUser, jsonEncode(res.userRaw));
+    }
+    state = state.copyWith(isLoggedIn: true, token: res.token, user: res.userRaw);
   }
 }
 
-/// Global provider (import this where you use it)
-final authProvider =
-StateNotifierProvider<AuthNotifier, AuthState>((ref) => AuthNotifier());
+/// DI graph
+final _apiProvider = Provider<AuthApi>((ref) => const AuthApi());
+final _repoProvider = Provider<AuthRepository>((ref) => AuthRepository(ref.read(_apiProvider)));
+final authProvider = StateNotifierProvider<AuthNotifier, AuthState>((ref) => AuthNotifier(ref.read(_repoProvider)));

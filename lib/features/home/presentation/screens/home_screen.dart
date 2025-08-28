@@ -13,7 +13,7 @@ import '../../../matchmaking/presentation/screens/matchmaking_screen.dart';
 import '../../../panchanga/presentation/screens/panchanga_screen.dart';
 
 import '../../../purchase/presentation/screens/purchase_screen.dart';
-import '../../../tarot/presentation/screens/tarot_grid_screen.dart';
+import '../../../tarot/presentation/screens/tarot_quick_grid_screen.dart';
 import '../../../transit/presentation/screens/transit_screen.dart';
 import '../widgets/home_header.dart';
 import '../widgets/menu_button.dart';
@@ -99,7 +99,7 @@ class HomeScreen extends ConsumerWidget {
                         icon: Icons.style,
                         color: Colors.purple.shade500,
                         onTap: () => Navigator.of(context).push(
-                          MaterialPageRoute(builder: (_) => const TarotGridScreen()),
+                          MaterialPageRoute(builder: (_) => const TarotQuickGridScreen()),
                         ),
                       ),
                     ),
