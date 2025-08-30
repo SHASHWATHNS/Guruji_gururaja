@@ -1,16 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:guraj_astro/features/numerology/presentation/providers/numerology_providers.dart';
+
+
+import '../providers/numerology_providers.dart';
+import '../widgets/name_list_section.dart';
+import '../widgets/name_palan_section.dart';
 import '../widgets/phone_number_palan_section.dart';
+
+import '../widgets/stones_section.dart';
+import '../widgets/vehicle_number_palan_section.dart';
 
 class NumerologyScreen extends StatelessWidget {
   const NumerologyScreen({super.key});
 
-  static const _tabs = <(String label, NumerologySection section)>[
+  // NOTE: final (not const) to avoid const-eval errors across records/enums.
+  static final _tabs = <(String label, NumerologySection section)>[
     ('Jadagarin Vivaram', NumerologySection.jadagarinVivaram),
     ('Kattangal & Lucky Nos', NumerologySection.kattangalLuckyNumbers),
     ('Cell Number', NumerologySection.cellNumber),
     ('Name', NumerologySection.name),
+    ('Name List', NumerologySection.nameList),
     ('Vehicle Number', NumerologySection.vehicleNumber),
     ('Lucky Color', NumerologySection.luckyColor),
     ('Stones', NumerologySection.stones),
@@ -43,10 +52,15 @@ class _NumerologySectionPage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final asyncData = ref.watch(numerologySectionProvider(section));
-    final isCellNumberTab = section == NumerologySection.cellNumber;
 
+    final isCellNumberTab = section == NumerologySection.cellNumber;
+    final isVehicleNumberTab = section == NumerologySection.vehicleNumber;
+    final isNameTab = section == NumerologySection.name;
+    final isNameListTab = section == NumerologySection.nameList;
+    final isStonesTab = section == NumerologySection.stones;
+
+    // CELL NUMBER: always show calculator; provider content optional beneath
     if (isCellNumberTab) {
-      // Always show calculator; provider content is optional & silent.
       return ListView(
         padding: const EdgeInsets.all(16),
         children: [
@@ -61,7 +75,59 @@ class _NumerologySectionPage extends ConsumerWidget {
       );
     }
 
-    // Other tabs keep existing behavior.
+    // VEHICLE NUMBER: always show calculator; provider content optional beneath
+    if (isVehicleNumberTab) {
+      return ListView(
+        padding: const EdgeInsets.all(16),
+        children: [
+          const VehicleNumberPalanSection(),
+          const SizedBox(height: 16),
+          asyncData.when(
+            loading: () => const SizedBox.shrink(),
+            error: (e, st) => const SizedBox.shrink(),
+            data: (json) => _JsonViewer(json: json, embedded: true),
+          ),
+        ],
+      );
+    }
+
+    // NAME: always show calculator; provider content optional beneath
+    if (isNameTab) {
+      return ListView(
+        padding: const EdgeInsets.all(16),
+        children: [
+          const NamePalanSection(),
+          const SizedBox(height: 16),
+          asyncData.when(
+            loading: () => const SizedBox.shrink(),
+            error: (e, st) => const SizedBox.shrink(),
+            data: (json) => _JsonViewer(json: json, embedded: true),
+          ),
+        ],
+      );
+    }
+
+    // NAME LIST: custom widget (no provider JSON below)
+    if (isNameListTab) {
+      return ListView(
+        padding: const EdgeInsets.all(16),
+        children: const [
+          NameListSection(),
+        ],
+      );
+    }
+
+    // STONES: custom widget (no provider JSON below)
+    if (isStonesTab) {
+      return ListView(
+        padding: const EdgeInsets.all(16),
+        children: const [
+          StonesSection(),
+        ],
+      );
+    }
+
+    // Other tabs keep provider-driven behavior
     return asyncData.when(
       loading: () => const Center(child: CircularProgressIndicator()),
       error: (e, st) => _ErrorView(
@@ -135,8 +201,7 @@ class _JsonViewer extends StatelessWidget {
       return _KVGroup(
         title: key,
         children: [
-          for (var i = 0; i < value.length; i++)
-            _buildNode(context, '[$i]', value[i]),
+          for (var i = 0; i < value.length; i++) _buildNode(context, '[$i]', value[i]),
         ],
       );
     } else {
@@ -161,10 +226,7 @@ class _KVGroup extends StatelessWidget {
           children: [
             Text(
               title,
-              style: Theme.of(context)
-                  .textTheme
-                  .titleMedium
-                  ?.copyWith(fontWeight: FontWeight.w600),
+              style: Theme.of(context).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w600),
             ),
             const SizedBox(height: 8),
             ...children,
@@ -191,10 +253,7 @@ class _KVRow extends StatelessWidget {
             flex: 4,
             child: Text(
               title,
-              style: Theme.of(context)
-                  .textTheme
-                  .bodyMedium
-                  ?.copyWith(fontWeight: FontWeight.w600),
+              style: Theme.of(context).textTheme.bodyMedium?.copyWith(fontWeight: FontWeight.w600),
             ),
           ),
           const SizedBox(width: 8),

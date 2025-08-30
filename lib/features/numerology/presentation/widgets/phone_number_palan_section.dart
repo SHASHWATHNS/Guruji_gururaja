@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart' show rootBundle;
@@ -22,7 +23,7 @@ class _PhoneNumberPalanSectionState extends State<PhoneNumberPalanSection> {
     'கணவன்/மனைவி - பார்ட்னர்ஷிப் - சமுதாயம்',
     'தொழில் - புகழ் - பதவிஉயர்வு',
   ];
-  static const String _totalHeading = 'லாபமா?  நஷ்டமா?';
+  static const String _totalHeading = 'TOTAL - லாபமா?  நஷ்டமா?';
 
   @override
   void didChangeDependencies() {
@@ -36,7 +37,7 @@ class _PhoneNumberPalanSectionState extends State<PhoneNumberPalanSection> {
       _store = null;
     });
 
-    const path = 'assets/palan/palan_ta.txt';
+    const path = 'assets/palan/palan_ta.json';
     try {
       final store = await PalanStore.load(path);
       if (!mounted) return;
@@ -83,16 +84,15 @@ class _PhoneNumberPalanSectionState extends State<PhoneNumberPalanSection> {
       // TOTAL row
       final digits = input.split('').map(int.parse).toList();
       final sumDigits = digits.fold<int>(0, (a, b) => a + b);
-      final expr = digits.join('+');
       final totalPalan = _store?.totalPalan(sumDigits) ?? 'மொத்த பலன் காணப்படவில்லை';
 
       _rows.add(_RowItem(
         kind: RowKind.totalPrimary,
-        label: 'Total',
+        label: 'TOTAL',               // label not shown, we show the number instead
         heading: _totalHeading,
         palan: totalPalan,
-        note: '$expr = $sumDigits',
-        valueForLookup: sumDigits,
+        note: null,                   // ⬅ remove 9+0+... expression from UI
+        valueForLookup: sumDigits,    // ⬅ we’ll display this number big in the header
         highlight: true,
       ));
     });
@@ -148,6 +148,11 @@ class _PhoneNumberPalanSectionState extends State<PhoneNumberPalanSection> {
             ]),
             const SizedBox(height: 12),
 
+            if (_error != null) ...[
+              Text(_error!, style: const TextStyle(color: Colors.red)),
+              const SizedBox(height: 8),
+            ],
+
             if (_rows.isEmpty)
               Text('எண்ணை உள்ளிட்டு கணக்கிடு என்பதை தட்டவும்',
                   style: TextStyle(color: Colors.grey.shade600))
@@ -172,56 +177,58 @@ class PalanStore {
   final Map<String, String> _map;
   PalanStore._(this._map);
 
+  /// Load from JSON:
+  ///  - { "pairs": { "01": "...", ... }, "totals": { "1": "...", ... } }
+  ///  - or a flat map
   static Future<PalanStore> load(String assetPath) async {
     final raw = await rootBundle.loadString(assetPath);
+    final jsonData = json.decode(raw);
 
     final map = <String, String>{};
-    final lines = raw.split('\n');
 
-    // tolerant Tamil header
-    final header = RegExp(
-      r'^\s*(\d{1,3})\s*எண்\s*[:：\-–—]*',
-      caseSensitive: false,
-    );
+    String _clean(String s) => s.replaceAll(RegExp(r'\s+'), ' ').trim();
 
-    int? currentNum;
-    final buf = StringBuffer();
+    // accept *...* or <b>...</b>
+    String _normalizeBold(String s) {
+      final withHtmlBold =
+      s.replaceAllMapped(RegExp(r'\*(.*?)\*'), (m) => '<b>${m.group(1) ?? ''}</b>');
+      return _clean(withHtmlBold);
+    }
 
-    void commit() {
-      if (currentNum == null) return;
-      final text = _cleanup(buf.toString());
+    void _add(String key, String value) {
+      final text = _normalizeBold(value);
       if (text.isEmpty) return;
 
-      final k1 = currentNum!.toString();
-      final k2 = k1.padLeft(2, '0');
-      map[k1] = text;
-      map[k2] = text;
-      buf.clear();
+      map[key] = text;
+
+      final n = int.tryParse(key);
+      if (n != null) {
+        map.putIfAbsent(n.toString(), () => text);
+        map.putIfAbsent(n.toString().padLeft(2, '0'), () => text);
+        map.putIfAbsent(n.toString().padLeft(3, '0'), () => text);
+      }
     }
 
-    for (final rawLine in lines) {
-      final line = rawLine.trimRight();
-      final m = header.firstMatch(line);
-      if (m != null) {
-        commit();
-        currentNum = int.tryParse(m.group(1)!);
-        continue;
+    if (jsonData is Map && (jsonData['pairs'] is Map || jsonData['totals'] is Map)) {
+      if (jsonData['pairs'] is Map) {
+        (jsonData['pairs'] as Map).forEach((k, v) {
+          if (v is String) _add(k.toString(), v);
+        });
       }
-      buf.writeln(line);
+      if (jsonData['totals'] is Map) {
+        (jsonData['totals'] as Map).forEach((k, v) {
+          if (v is String) _add(k.toString(), v);
+        });
+      }
+    } else if (jsonData is Map) {
+      jsonData.forEach((k, v) {
+        if (v is String) _add(k.toString(), v);
+      });
+    } else {
+      throw FormatException('Unsupported JSON format for palan');
     }
-    commit();
 
     return PalanStore._(map);
-  }
-
-  static String _cleanup(String s) {
-    var t = s.trim();
-    t = t.replaceAll(RegExp(r'\*+'), '');
-    t = t.replaceAll('\r', ' ');
-    t = t.replaceAll(RegExp(r'\n\s*\n+'), '\n');
-    t = t.replaceAll('\n', ' ');
-    t = t.replaceAll(RegExp(r'\s+'), ' ').trim();
-    return t;
   }
 
   String? pairPalan(String twoDigitKey) {
@@ -235,7 +242,8 @@ class PalanStore {
   String? totalPalan(int value) {
     final k1 = value.toString();
     final k2 = value.toString().padLeft(2, '0');
-    return _map[k1] ?? _map[k2];
+    final k3 = value.toString().padLeft(3, '0');
+    return _map[k1] ?? _map[k2] ?? _map[k3];
   }
 }
 
@@ -248,8 +256,8 @@ class _RowItem {
   final String label;
   final String? heading;
   final String palan;
-  final String? note;
-  final int? valueForLookup;
+  final String? note;          // kept for compatibility (unused for TOTAL now)
+  final int? valueForLookup;   // used for TOTAL big number
   final bool highlight;
 
   _RowItem({
@@ -277,7 +285,7 @@ class _PalanRow extends StatelessWidget {
     '111','112','113','114','115','116','117','119','120'
   };
   static final Set<String> yellowSet = {
-    '11','17','21','23','27','29','46','54','68','93'
+    '00','11','17','21','23','27','29','46','54','68','93'
   };
   static final Set<String> redSet = {
     '01','03','05','07','09','13','15','18','19','24','25','28','31','34','38','40','43','44',
@@ -285,79 +293,162 @@ class _PalanRow extends StatelessWidget {
     '78','81','82','83','86','91','94','96','98','103','105','107','118'
   };
 
-  Color? _colorForLabel(String label) {
-    // Only color pair rows, not TOTAL
+  Color? _headerColorForLabel(String label, bool isPrimary) {
+    if (isPrimary) return Colors.amber.shade300;
     if (greenSet.contains(label)) return Colors.green.shade100;
     if (yellowSet.contains(label)) return Colors.yellow.shade200;
-    if (redSet.contains(label)) return Colors.red.shade200;
-    return null;
+    if (redSet.contains(label)) return Colors.red.shade500;
+    return Colors.grey.shade100;
+  }
+
+  // ---- Body renderer: bold centered first heading + normal body ----
+  List<Widget> _renderPalanBody(String palan, bool isPrimary, BuildContext context) {
+    final baseStyle = TextStyle(
+      fontSize: isPrimary ? 16.5 : 16,
+      height: 1.35,
+      fontWeight: isPrimary ? FontWeight.w600 : FontWeight.w400,
+      color: Colors.black,
+    );
+
+    // Find first <b>...</b> or *...*
+    final boldTag = RegExp(r'<b>(.*?)</b>');
+    final starTag = RegExp(r'\*(.*?)\*');
+
+    String? heading;
+    String remainder = palan;
+
+    final m1 = boldTag.firstMatch(palan);
+    final m2 = starTag.firstMatch(palan);
+    RegExpMatch? chosen;
+    if (m1 != null && m2 != null) {
+      chosen = (m1.start < m2.start) ? m1 : m2;
+    } else {
+      chosen = m1 ?? m2;
+    }
+
+    if (chosen != null) {
+      heading = chosen.group(1)?.trim();
+      remainder = palan.substring(0, chosen.start) + palan.substring(chosen.end);
+    }
+
+    String _stripTags(String s) {
+      return s
+          .replaceAllMapped(boldTag, (m) => m.group(1) ?? '')
+          .replaceAllMapped(starTag, (m) => m.group(1) ?? '')
+          .replaceAll(RegExp(r'\s+'), ' ')
+          .trim();
+    }
+
+    final body = _stripTags(remainder);
+    final widgets = <Widget>[];
+
+    if (heading != null && heading!.isNotEmpty) {
+      widgets.add(
+        Padding(
+          padding: const EdgeInsets.only(bottom: 6),
+          child: Center(
+            child: Text(
+              heading!,
+              textAlign: TextAlign.center,
+              style: baseStyle.copyWith(fontWeight: FontWeight.bold, fontSize: (isPrimary ? 18 : 16)),
+            ),
+          ),
+        ),
+      );
+    }
+
+    if (body.isNotEmpty) {
+      widgets.add(Text(body, style: baseStyle));
+    }
+
+    if (widgets.isEmpty) {
+      widgets.add(Text(palan, style: baseStyle));
+    }
+
+    return widgets;
   }
 
   @override
   Widget build(BuildContext context) {
     final isPrimary = row.kind == RowKind.totalPrimary;
 
-    Color bg;
-    Color border;
-    if (isPrimary) {
-      bg = Colors.amber.shade300;
-      border = Colors.amber.shade700;
-    } else {
-      bg = _colorForLabel(row.label) ?? Colors.grey.shade50;
-      border = Colors.grey.shade300;
-    }
+    final borderColor = Colors.grey.shade300;
+    final headerBg = _headerColorForLabel(row.label, isPrimary);
 
-    final titleChipColor = isPrimary ? Colors.black : Colors.black87;
-    final titleText = isPrimary ? 'TOTAL' : row.label;
+    // Number to show big in header:
+    final displayNumber = isPrimary
+        ? (row.valueForLookup?.toString() ?? '')
+        : row.label; // pairs show their 2-digit label
 
-    return Container(
-      padding: const EdgeInsets.all(12),
-      decoration: BoxDecoration(
-        color: bg,
-        borderRadius: BorderRadius.circular(12),
-        border: Border.all(color: border),
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Row(children: [
-            Container(
-              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
-              decoration: BoxDecoration(color: titleChipColor, borderRadius: BorderRadius.circular(999)),
-              child: Text(titleText, style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
+    final headingText = row.heading ?? '';
+
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        // TOP HEADER BAR (colored; only this part changes color)
+        Container(
+          padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+          decoration: BoxDecoration(
+            color: headerBg,
+            borderRadius: const BorderRadius.only(
+              topLeft: Radius.circular(12),
+              topRight: Radius.circular(12),
             ),
-            const SizedBox(width: 8),
-            if (row.note != null)
-              Flexible(
-                child: Text(
-                  row.note!,
-                  style: TextStyle(fontSize: 12, color: Colors.grey.shade800, fontStyle: FontStyle.italic),
-                ),
-              ),
-          ]),
-
-          if (row.heading != null) ...[
-            const SizedBox(height: 8),
-            Text(
-              row.heading!,
-              style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                fontWeight: FontWeight.w700,
-                color: Colors.red,
-              ),
-            ),
-          ],
-
-          const SizedBox(height: 8),
-          Text(
-            row.palan,
-            style: TextStyle(
-              fontSize: isPrimary ? 16.5 : 16,
-              height: 1.35,
-              fontWeight: isPrimary ? FontWeight.w600 : FontWeight.w400,
+            border: Border(
+              top: BorderSide(color: borderColor),
+              left: BorderSide(color: borderColor),
+              right: BorderSide(color: borderColor),
             ),
           ),
-        ],
-      ),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              // Big number
+              Text(
+                displayNumber,
+                style: TextStyle(
+                  fontWeight: FontWeight.w800,
+                  fontSize: 22, // ⬅ bigger number size in all boxes
+                  color: Colors.black87,
+                ),
+              ),
+              const SizedBox(width: 6),
+              const Text('—', style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600)),
+              const SizedBox(width: 6),
+              // Section heading
+              Expanded(
+                child: Text(
+                  headingText,
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
+                  style: const TextStyle(fontWeight: FontWeight.w700, fontSize: 16),
+                ),
+              ),
+            ],
+          ),
+        ),
+
+        // BOTTOM BODY BOX (always white)
+        Container(
+          padding: const EdgeInsets.all(12),
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: const BorderRadius.only(
+              bottomLeft: Radius.circular(12),
+              bottomRight: Radius.circular(12),
+            ),
+            border: Border(
+              bottom: BorderSide(color: borderColor),
+              left: BorderSide(color: borderColor),
+              right: BorderSide(color: borderColor),
+            ),
+          ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: _renderPalanBody(row.palan, isPrimary, context),
+          ),
+        ),
+      ],
     );
   }
 }

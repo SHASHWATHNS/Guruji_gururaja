@@ -6,7 +6,8 @@ import 'package:go_router/go_router.dart';
 import '../../../../core/constants/app_colors.dart';
 import '../../../../core/i18n/app_localizations.dart';
 import '../../../../core/settings/app_settings.dart';
-import '../../../auth/presentation/viewmodels/auth_view_model.dart';
+import '../../../auth/auth/presentation/viewmodels/auth_view_model.dart';
+
 
 class SettingsScreen extends ConsumerWidget {
   const SettingsScreen({super.key});
