@@ -22,6 +22,7 @@ dependencies:
   url_launcher: ^6.3.2
   equatable: ^2.0.7
   share_plus: ^11.1.0
+  dio: ^5.9.0
 
 dev_dependencies:
   flutter_test:
@@ -58,4 +59,5 @@ flutter:
 
     - assets/tarot/
     - assets/tarot/data/tarot_cards.json
+    - assets/india_districts.json
 

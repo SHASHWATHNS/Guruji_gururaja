@@ -2,12 +2,12 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 // NEW
+import '../features/horoscope/presentation/screens/horoscope_form_screen.dart';
 import '../features/splash/presentation/screens/splash_screen.dart';
 import '../features/auth/presentation/screens/login_screen.dart';
 
 // Existing
 import '../features/home/presentation/screens/home_screen.dart';
-import '../features/horoscope/presentation/screens/horoscope_screen.dart';
 import '../features/matchmaking/presentation/screens/matchmaking_screen.dart';
 import '../features/panchanga/presentation/screens/panchanga_screen.dart';
 import '../features/prashna/presentation/screens/prashna_screen.dart';
@@ -35,7 +35,7 @@ final appRouterProvider = Provider<GoRouter>((ref) {
 
       // --- App ---
       GoRoute(path: '/', name: 'home', builder: (_, __) => const HomeScreen()),
-      GoRoute(path: '/horoscope', name: 'horoscope', builder: (_, __) => const HoroscopeScreen()),
+      GoRoute(path: '/horoscope', name: 'horoscope', builder: (_, __) => const HoroscopeFormScreen()),
       GoRoute(path: '/alp-matchmaking', name: 'alp-matchmaking', builder: (_, __) => const MatchMakingScreen()),
       GoRoute(path: '/panchanga', name: 'panchanga', builder: (_, __) => const PanchangaScreen()),
       GoRoute(path: '/prashna', name: 'prashna', builder: (_, __) => const PrashnaScreen()),
