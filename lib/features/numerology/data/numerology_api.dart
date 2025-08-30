@@ -25,6 +25,9 @@ class NumerologyApi {
         return '/numerology/lucky-color';
       case NumerologySection.stones:
         return '/numerology/stones';
+      case NumerologySection.nameList:
+        // TODO: Handle this case.
+        throw UnimplementedError();
     }
   }
 

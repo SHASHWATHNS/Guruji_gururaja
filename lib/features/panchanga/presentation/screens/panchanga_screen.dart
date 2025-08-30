@@ -67,7 +67,10 @@ class PanchangaScreen extends ConsumerWidget {
                         elevation: 0,
                         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(6)),
                       ),
-                      child: Text(_fmt(st.date), style: const TextStyle(fontWeight: FontWeight.w700)),
+                      child: Text(
+                        _fmt(st.date),
+                        style: const TextStyle(fontWeight: FontWeight.w700),
+                      ),
                     ),
                   ),
                   const SizedBox(width: 8),
@@ -112,11 +115,11 @@ class PanchangaScreen extends ConsumerWidget {
               child: TabBarView(
                 children: [
                   _PanchangaTab(st: st),
-                  _ComingSoon(label: 'Kundali'),
-                  _ComingSoon(label: 'Hora'),
-                  _ComingSoon(label: 'Pancha Pakshi'),
-                  _ComingSoon(label: 'Pancha Tatva'),
-                  _ComingSoon(label: 'Tatva Character'),
+                  const _ComingSoon(label: 'Kundali'),
+                  const _ComingSoon(label: 'Hora'),
+                  const _ComingSoon(label: 'Pancha Pakshi'),
+                  const _ComingSoon(label: 'Pancha Tatva'),
+                  const _ComingSoon(label: 'Tatva Character'),
                 ],
               ),
             ),
@@ -130,6 +133,14 @@ class PanchangaScreen extends ConsumerWidget {
 class _PanchangaTab extends ConsumerWidget {
   final PanchangaState st;
   const _PanchangaTab({required this.st});
+
+  // ✅ Correct weekday: 1=Mon..7=Sun → index 0..6
+  String _weekdayName(DateTime d) {
+    const names = [
+      'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'
+    ];
+    return names[d.weekday - 1];
+  }
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -149,6 +160,19 @@ class _PanchangaTab extends ConsumerWidget {
       itemCount: data.sections.length,
       itemBuilder: (_, i) {
         final sec = data.sections[i];
+
+        // We may need to override the "Vedic Day" row only.
+        List<PanchangaItem> items = sec.items.map((item) {
+          if (item.label.trim().toLowerCase() == 'vedic day') {
+            return PanchangaItem(
+              label: item.label,
+              value: _weekdayName(st.date), // ✅ show correct weekday for selected date
+              timeText: item.timeText,
+            );
+          }
+          return item;
+        }).toList();
+
         return Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -157,7 +181,7 @@ class _PanchangaTab extends ConsumerWidget {
               const Divider(thickness: 2),
               const SizedBox(height: 4),
             ],
-            for (final item in sec.items) _PanchangaRow(item: item),
+            for (final item in items) _PanchangaRow(item: item),
           ],
         );
       },
@@ -216,8 +240,10 @@ class _ComingSoon extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Text('$label — coming soon',
-          style: const TextStyle(fontStyle: FontStyle.italic, color: Colors.black54)),
+      child: Text(
+        '$label — coming soon',
+        style: const TextStyle(fontStyle: FontStyle.italic, color: Colors.black54),
+      ),
     );
   }
 }

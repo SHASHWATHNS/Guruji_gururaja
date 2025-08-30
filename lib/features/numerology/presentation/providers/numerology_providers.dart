@@ -7,6 +7,7 @@ enum NumerologySection {
   kattangalLuckyNumbers,
   cellNumber,
   name,
+  nameList,
   vehicleNumber,
   luckyColor,
   stones,
@@ -15,7 +16,7 @@ enum NumerologySection {
 /// Configure your API once here
 final numerologyApiProvider = Provider<NumerologyApi>((ref) {
   // TODO: put your real base URL and API key
-  const baseUrl = 'https://your-numerology-api.example.com';
+  const baseUrl = 'https://your-numerology-api.services.com';
   const apiKey  = 'YOUR_API_KEY';
   return NumerologyApi(baseUrl: baseUrl, apiKey: apiKey);
 });

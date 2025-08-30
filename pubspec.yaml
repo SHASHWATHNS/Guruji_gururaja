@@ -1,4 +1,4 @@
-name: guraj_astro
+name: guruji_gururaja
 description: "A new Flutter project."
 publish_to: 'none'
 
@@ -22,6 +22,7 @@ dependencies:
   url_launcher: ^6.3.2
   equatable: ^2.0.7
   share_plus: ^11.1.0
+  flutter_html: ^3.0.0
 
 dev_dependencies:
   flutter_test:
@@ -34,10 +35,10 @@ flutter_icons:
   ios: true
 
   # Use your 1024×1024 square photo as the source
-  image_path: "assets/images/icon.png"
+  image_path: "assets/images/icon.jpg"
 
   # ✅ Adaptive icon (Android)
-  adaptive_icon_foreground: "assets/images/icon.png"
+  adaptive_icon_foreground: "assets/images/icon.jpg"
   adaptive_icon_background: "#222222"   # dark grey to match your photo background
 
   # iOS best-practice
@@ -52,10 +53,18 @@ flutter:
     - assets/images/splash.jpg
     - assets/images/about_face.jpg
     - assets/images/header.PNG
-    - assets/images/icon.png
+    - assets/images/icon.jpg
+    - assets/stones/
 
-    - assets/palan/palan_ta.txt
+    - assets/palan/palan_ta.json
+    - assets/names/natchathiram_names_ta.json
 
     - assets/tarot/
     - assets/tarot/data/tarot_cards.json
+
+
+
+
+
+
 
