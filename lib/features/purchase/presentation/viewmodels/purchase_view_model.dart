@@ -1,6 +1,8 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:guraj_astro/features/purchase/data/purchase_local_service.dart';
-import 'package:guraj_astro/features/purchase/domain/entities/subscription_plan.dart';
+
+
+import '../../data/purchase_local_service.dart';
+import '../../domain/entities/subscription_plan.dart';
 
 /// Providers
 final purchaseServiceProvider = Provider<PurchaseLocalService>((ref) {

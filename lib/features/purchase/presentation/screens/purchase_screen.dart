@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:guraj_astro/features/purchase/domain/entities/subscription_plan.dart';
-import 'package:guraj_astro/features/purchase/presentation/viewmodels/purchase_view_model.dart';
+
+import '../../domain/entities/subscription_plan.dart';
+import '../viewmodels/purchase_view_model.dart';
 
 class PurchaseScreen extends ConsumerWidget {
   const PurchaseScreen({super.key});

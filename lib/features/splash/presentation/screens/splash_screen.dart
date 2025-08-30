@@ -2,34 +2,25 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import '../../../auth/auth/presentation/viewmodels/auth_view_model.dart';
 
-import '../../../auth/presentation/viewmodels/auth_view_model.dart';
-
-/// Splash with fade-in / fade-out of splash.jpg on white background.
-/// After ~1.8s it routes to Home or Login.
 class SplashScreen extends ConsumerStatefulWidget {
   const SplashScreen({super.key});
   @override
   ConsumerState<SplashScreen> createState() => _SplashScreenState();
 }
 
-class _SplashScreenState extends ConsumerState<SplashScreen>
-    with SingleTickerProviderStateMixin {
-  late final AnimationController _ctrl = AnimationController(
-    vsync: this,
-    duration: const Duration(milliseconds: 1500),
-  );
-  late final Animation<double> _fade =
-  CurvedAnimation(parent: _ctrl, curve: Curves.easeInOut);
+class _SplashScreenState extends ConsumerState<SplashScreen> with SingleTickerProviderStateMixin {
+  late final AnimationController _ctrl = AnimationController(vsync: this, duration: const Duration(milliseconds: 1500));
+  late final Animation<double> _fade = CurvedAnimation(parent: _ctrl, curve: Curves.easeInOut);
 
   @override
   void initState() {
     super.initState();
     _ctrl.repeat(reverse: true);
-
     scheduleMicrotask(() async {
       await ref.read(authProvider.notifier).loadSession();
-      await Future.delayed(const Duration(milliseconds: 1800)); // one fade cycle
+      await Future.delayed(const Duration(milliseconds: 1800));
       if (!mounted) return;
       final loggedIn = ref.read(authProvider).isLoggedIn;
       context.go(loggedIn ? '/' : '/login');
@@ -37,10 +28,7 @@ class _SplashScreenState extends ConsumerState<SplashScreen>
   }
 
   @override
-  void dispose() {
-    _ctrl.dispose();
-    super.dispose();
-  }
+  void dispose() { _ctrl.dispose(); super.dispose(); }
 
   @override
   Widget build(BuildContext context) {
@@ -48,10 +36,7 @@ class _SplashScreenState extends ConsumerState<SplashScreen>
       backgroundColor: Colors.white,
       body: SafeArea(
         child: Center(
-          child: FadeTransition(
-            opacity: _fade,
-            child: const _LogoBox(),
-          ),
+          child: FadeTransition(opacity: _fade, child: const _LogoBox()),
         ),
       ),
     );
@@ -72,14 +57,8 @@ class _LogoBox extends StatelessWidget {
         errorBuilder: (_, __, ___) => Container(
           color: Colors.white,
           alignment: Alignment.center,
-          child: const Text(
-            'Splash',
-            style: TextStyle(
-              fontSize: 28,
-              fontWeight: FontWeight.w800,
-              color: Colors.black87,
-            ),
-          ),
+          child: const Text('Splash',
+              style: TextStyle(fontSize: 28, fontWeight: FontWeight.w800, color: Colors.black87)),
         ),
       ),
     );

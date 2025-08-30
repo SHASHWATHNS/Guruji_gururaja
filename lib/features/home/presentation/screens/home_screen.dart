@@ -1,18 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:url_launcher/url_launcher.dart';
-
-import 'package:guraj_astro/features/numerology/presentation/screens/numerology_screen.dart';
-import 'package:guraj_astro/features/prashna/presentation/screens/prashna_screen.dart';
-import 'package:guraj_astro/features/settings/presentation/screens/settings_screen.dart';
-
 import '../../../about/presentation/screens/about_founder_screen.dart';
 import '../../../feedback/presentation/screens/class_feedback_screen.dart';
 import '../../../horoscope/presentation/screens/horoscope_form_screen.dart';
 import '../../../matchmaking/presentation/screens/matchmaking_screen.dart';
+import '../../../numerology/presentation/screens/numerology_screen.dart';
 import '../../../panchanga/presentation/screens/panchanga_screen.dart';
 
+import '../../../prashna/presentation/screens/prashna_screen.dart';
 import '../../../purchase/presentation/screens/purchase_screen.dart';
+import '../../../settings/presentation/screens/settings_screen.dart';
 import '../../../tarot/presentation/screens/tarot_quick_grid_screen.dart';
 import '../../../transit/presentation/screens/transit_screen.dart';
 import '../widgets/home_header.dart';
