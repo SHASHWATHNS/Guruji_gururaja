@@ -113,6 +113,11 @@ class AppLocalizations {
     'about.youtube': {'en': 'YouTube Channel', 'ta': 'யூடியூப் சேனல்'},
     'about.share': {'en': 'Share App', 'ta': 'ஆப்பை பகிர்'},
 
+    // Horoscope Result Tabs
+    'horoscope.details': {'en': 'Birth Details', 'ta': 'ஜாதகரின் விவரங்கள்'},
+    'horoscope.chart': {'en': 'Chart (Kattangal)', 'ta': 'கட்டங்கள்'},
+
+
 
   };
 
