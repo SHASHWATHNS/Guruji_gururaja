@@ -151,7 +151,7 @@ class _VehicleNumberPalanSectionState extends State<VehicleNumberPalanSection> {
 
       _rows.add(_RowItem(
         labelNumber: pairsTotal,
-        heading: 'PAIRS TOTAL — $pair1 + $pair2',
+        heading: 'Paris Total — $pair1 + $pair2',
         palan: palanPairsTotal,
       ));
 
@@ -172,6 +172,14 @@ class _VehicleNumberPalanSectionState extends State<VehicleNumberPalanSection> {
   @override
   Widget build(BuildContext context) {
     final ready = _store != null;
+
+    // Common decoration for "elongated" inputs with sample inside
+    InputDecoration _decor(String hint) => InputDecoration(
+      hintText: hint, // sample inside the box
+      border: const OutlineInputBorder(),
+      isDense: false,
+      contentPadding: const EdgeInsets.symmetric(horizontal: 14, vertical: 18), // taller/elongated
+    );
 
     return Card(
       elevation: 0,
@@ -200,43 +208,44 @@ class _VehicleNumberPalanSectionState extends State<VehicleNumberPalanSection> {
             Text(_headingSample, style: TextStyle(color: Colors.grey.shade700, fontStyle: FontStyle.italic)),
             const SizedBox(height: 10),
 
+            // Inputs row — elongated fields; button moved to next line
             Row(children: [
               Expanded(
                 flex: 6,
                 child: TextField(
                   controller: _box1Ctrl,
                   keyboardType: TextInputType.text,
-                  decoration: const InputDecoration(
-                    labelText: 'BOX 1: TN 54 A',
-                    border: OutlineInputBorder(),
-                  ),
+                  decoration: _decor('TN XX (A–Z)'), // sample inside Box 1
                   textCapitalization: TextCapitalization.characters,
                   onSubmitted: (_) => ready ? _calculate() : null,
                 ),
               ),
-              const SizedBox(width: 8),
+              const SizedBox(width: 12),
               Expanded(
                 flex: 4,
                 child: TextField(
                   controller: _box2Ctrl,
                   keyboardType: TextInputType.number,
-                  decoration: const InputDecoration(
-                    labelText: 'BOX 2: 8490',
-                    border: OutlineInputBorder(),
-                  ),
+                  decoration: _decor('XXXX'), // sample inside Box 2
                   maxLength: 4,
                   buildCounter: (_, {required int currentLength, required bool isFocused, required int? maxLength}) =>
                   const SizedBox.shrink(),
                   onSubmitted: (_) => ready ? _calculate() : null,
                 ),
               ),
-              const SizedBox(width: 8),
-              ElevatedButton.icon(
+            ]),
+
+            const SizedBox(height: 12),
+
+            // Button moved to the next line
+            Align(
+              alignment: Alignment.centerLeft,
+              child: ElevatedButton.icon(
                 onPressed: ready ? _calculate : null,
                 icon: const Icon(Icons.calculate),
                 label: Text(ready ? 'கணக்கிடு' : 'ஏற்றுகிறது'),
               ),
-            ]),
+            ),
 
             const SizedBox(height: 12),
 

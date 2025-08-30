@@ -2,7 +2,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../../domain/entities/birth_input.dart';
 import '../providers/horoscope_form_provider.dart';
 import '../providers/place_picker_provider.dart';
 import 'horoscope_result_screen.dart';

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:guruji_gururaja/features/horoscope/presentation/screens/tabs/navamsa_kattam.dart';
 import '../../domain/entities/birth_input.dart';
 import 'tabs/jadagarin_vivaram_tab.dart';
 import 'tabs/kattangal_tab.dart';
@@ -10,11 +11,11 @@ class HoroscopeResultScreen extends StatelessWidget {
 
   static const _tabs = [
     ('Jadagarin Vivaram', Icons.person),
-    ('Kattangal', Icons.wb_sunny),
+    ('Rasi Kattam', Icons.wb_sunny),
+    ('Navamsa Kattam', Icons.wb_sunny),  // <-- New Tab Name Updated
     ('Dasa_Buthi', Icons.timeline),
-    ('Pirapu + Kochaaram', Icons.public),
-    ('Baavaga Attavanai', Icons.table_chart),
-    ('Yogangal', Icons.star),
+    // ('Baavaga Attavanai', Icons.table_chart),
+    // ('Yogangal', Icons.star),
   ];
 
   @override
@@ -33,8 +34,8 @@ class HoroscopeResultScreen extends StatelessWidget {
           children: [
             JadagarinVivaramTab(input: input),
             KattangalTab(input: input),
-            DasaButhiTab(input: input),            // <-- use it here
-            _PlaceholderTab('Natal + Transit', input),
+            NavamsaKattamTab(input: input),  // <-- New Tab Added in TabBarView
+            DasaButhiTab(input: input),
             _PlaceholderTab('House Table', input),
             _PlaceholderTab('Yogas', input),
           ],

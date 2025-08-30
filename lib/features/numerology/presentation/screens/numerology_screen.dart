@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-
 import '../providers/numerology_providers.dart';
 import '../widgets/name_list_section.dart';
 import '../widgets/name_palan_section.dart';
 import '../widgets/phone_number_palan_section.dart';
-
 import '../widgets/stones_section.dart';
 import '../widgets/vehicle_number_palan_section.dart';
 
@@ -58,6 +56,27 @@ class _NumerologySectionPage extends ConsumerWidget {
     final isNameTab = section == NumerologySection.name;
     final isNameListTab = section == NumerologySection.nameList;
     final isStonesTab = section == NumerologySection.stones;
+    final isBirthDrivenTab = section == NumerologySection.jadagarinVivaram ||
+        section == NumerologySection.kattangalLuckyNumbers;
+
+    // NEW: Birth-details + Results (mirrors Horoscope flow)
+    if (isBirthDrivenTab) {
+      return ListView(
+        padding: const EdgeInsets.all(16),
+        children: [
+          const _BirthDetailsForm(),
+          const SizedBox(height: 16),
+          asyncData.when(
+            loading: () => const Center(child: CircularProgressIndicator()),
+            error: (e, st) => _ErrorView(
+              message: e.toString(),
+              onRetry: () => ref.invalidate(numerologySectionProvider(section)),
+            ),
+            data: (json) => _JsonViewer(json: json),
+          ),
+        ],
+      );
+    }
 
     // CELL NUMBER: always show calculator; provider content optional beneath
     if (isCellNumberTab) {
@@ -139,6 +158,80 @@ class _NumerologySectionPage extends ConsumerWidget {
   }
 }
 
+/// ---------------- Birth details form (local-only widget) ----------------
+class _BirthDetailsForm extends ConsumerWidget {
+  const _BirthDetailsForm();
+
+  String _fmt(DateTime d) =>
+      '${d.day.toString().padLeft(2, '0')}-${d.month.toString().padLeft(2, '0')}-${d.year}';
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final st = ref.watch(numerologyInputProvider);
+    final notifier = ref.read(numerologyInputProvider.notifier);
+
+    final nameCtrl = TextEditingController(text: st.name);
+
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text('Name', style: Theme.of(context).textTheme.titleMedium),
+        const SizedBox(height: 8),
+        TextField(
+          controller: nameCtrl,
+          onChanged: notifier.setName,
+          decoration: const InputDecoration(
+            border: OutlineInputBorder(),
+            hintText: 'Enter full name',
+          ),
+        ),
+        const SizedBox(height: 16),
+        Text('Date of Birth', style: Theme.of(context).textTheme.titleMedium),
+        const SizedBox(height: 8),
+        InkWell(
+          onTap: () async {
+            final picked = await showDatePicker(
+              context: context,
+              initialDate: st.dob,
+              firstDate: DateTime(1900),
+              lastDate: DateTime.now().add(const Duration(days: 365)),
+            );
+            if (picked != null) notifier.setDob(picked);
+          },
+          child: InputDecorator(
+            decoration: const InputDecoration(border: OutlineInputBorder()),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(_fmt(st.dob)),
+                const Icon(Icons.calendar_month),
+              ],
+            ),
+          ),
+        ),
+        const SizedBox(height: 16),
+        SizedBox(
+          width: double.infinity,
+          child: ElevatedButton(
+            // Pressing this just re-triggers the dependent provider calculation
+            onPressed: () {
+              // no-op: state already updated by controls; we can force recompute:
+              // By invalidating both birth-driven sections to refresh
+              final container = ProviderScope.containerOf(context);
+              container.invalidate(
+                  numerologySectionProvider(NumerologySection.jadagarinVivaram));
+              container.invalidate(
+                  numerologySectionProvider(NumerologySection.kattangalLuckyNumbers));
+            },
+            child: const Text('Continue'),
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+/// ---------------- Existing helper UI ----------------
 class _ErrorView extends StatelessWidget {
   const _ErrorView({required this.message, required this.onRetry});
   final String message;

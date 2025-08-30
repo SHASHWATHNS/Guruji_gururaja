@@ -4,16 +4,16 @@ import 'package:http/http.dart' as http;
 import 'package:flutter_svg/flutter_svg.dart' as svg;
 import '../../../domain/entities/birth_input.dart'; // Import BirthInput class
 
-class KattangalTab extends StatefulWidget {
+class NavamsaKattamTab extends StatefulWidget {
   final BirthInput input;
-  const KattangalTab({super.key, required this.input});
+  const NavamsaKattamTab({super.key, required this.input});
 
   @override
-  State<KattangalTab> createState() => _KattangalTabState();
+  State<NavamsaKattamTab> createState() => _NavamsaKattamTabState();
 }
 
-class _KattangalTabState extends State<KattangalTab> {
-  static const _apiUrl = 'https://json.freeastrologyapi.com/horoscope-chart-svg-code';
+class _NavamsaKattamTabState extends State<NavamsaKattamTab> {
+  static const _apiUrl = 'https://json.freeastrologyapi.com/navamsa-chart-svg-code'; // <-- New API URL
   static const _apiKey = 'Gn8Fe7i5YiOy87nmWxU19aycrUNs3Ug42u1dVC8f'; // <-- use your key
 
   String? _rawSvg;     // raw from API
@@ -135,7 +135,7 @@ class _KattangalTabState extends State<KattangalTab> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text(''), // Removed the text from the AppBar
+        title: const Text('Navamsa Kattam'),  // <-- Updated title
         actions: [
           IconButton(
             tooltip: 'Reload',

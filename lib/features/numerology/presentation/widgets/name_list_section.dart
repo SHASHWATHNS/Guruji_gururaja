@@ -4,7 +4,7 @@ import 'package:flutter/services.dart' show rootBundle, ClipboardData, Clipboard
 
 /// NameListSection
 /// - Boy/Girl segmented selector
-/// - 27 Tamil நச்சத்திரங்கள் as chips
+/// - 27 Tamil நச்சத்திரங்கள் shown as compact chips in a 3x9 grid
 /// - Names list loaded from assets/names/natchathiram_names_ta.json
 class NameListSection extends StatefulWidget {
   const NameListSection({super.key});
@@ -98,9 +98,9 @@ class _NameListSectionState extends State<NameListSection> {
                 const SizedBox(height: 20, width: 20, child: CircularProgressIndicator(strokeWidth: 2)),
             ]),
 
-            const SizedBox(height: 12),
+            const SizedBox(height: 10),
 
-            // Boy/Girl toggle
+            // Boy/Girl toggle + search
             Row(
               children: [
                 SegmentedButton<bool>(
@@ -111,7 +111,7 @@ class _NameListSectionState extends State<NameListSection> {
                   selected: {_isBoy},
                   onSelectionChanged: (s) => setState(() => _isBoy = s.first),
                 ),
-                const SizedBox(width: 12),
+                const SizedBox(width: 10),
                 Expanded(
                   child: TextField(
                     controller: _searchCtrl,
@@ -126,27 +126,43 @@ class _NameListSectionState extends State<NameListSection> {
               ],
             ),
 
-            const SizedBox(height: 12),
+            const SizedBox(height: 10),
 
-            // 27 natchathiram chips
-            Wrap(
-              spacing: 8,
-              runSpacing: 8,
-              children: _starsTa.map((star) {
+            // ===== 27 natchathiram chips in a compact 3x9 grid =====
+            GridView.builder(
+              shrinkWrap: true,
+              physics: const NeverScrollableScrollPhysics(),
+              itemCount: _starsTa.length, // 27
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 3,        // 3 per row
+                crossAxisSpacing: 6,      // tighter spacing
+                mainAxisSpacing: 6,
+                childAspectRatio: 3.2,    // shorter height to reduce scrolling
+              ),
+              itemBuilder: (context, index) {
+                final star = _starsTa[index];
                 final selected = star == _selectedStar;
-                return ChoiceChip(
-                  label: Text(star),
-                  selected: selected,
-                  onSelected: (_) => setState(() => _selectedStar = star),
+                return Center(
+                  child: ChoiceChip(
+                    label: Text(
+                      star,
+                      style: const TextStyle(fontSize: 12), // smaller label
+                    ),
+                    selected: selected,
+                    materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                    visualDensity: VisualDensity.compact,
+                    padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 6),
+                    onSelected: (_) => setState(() => _selectedStar = star),
+                  ),
                 );
-              }).toList(),
+              },
             ),
 
-            const SizedBox(height: 12),
+            const SizedBox(height: 10),
 
             if (_error != null) ...[
               Text(_error!, style: const TextStyle(color: Colors.red)),
-              const SizedBox(height: 8),
+              const SizedBox(height: 6),
             ],
 
             if (!ready)
@@ -159,7 +175,7 @@ class _NameListSectionState extends State<NameListSection> {
                     '$_selectedStar — ${_isBoy ? "ஆண் குழந்தை" : "பெண் குழந்தை"} பெயர்கள் (${filtered.length})',
                     style: Theme.of(context).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w600),
                   ),
-                  const SizedBox(height: 8),
+                  const SizedBox(height: 6),
                   if (filtered.isEmpty)
                     Text('இந்த தேர்வுக்கு பெயர்கள் கிடைக்கவில்லை.', style: TextStyle(color: Colors.grey.shade600)),
                   if (filtered.isNotEmpty)
@@ -167,12 +183,16 @@ class _NameListSectionState extends State<NameListSection> {
                       shrinkWrap: true,
                       physics: const NeverScrollableScrollPhysics(),
                       itemCount: filtered.length,
-                      separatorBuilder: (_, __) => const Divider(height: 12),
+                      separatorBuilder: (_, __) => const Divider(height: 6), // tighter separator
                       itemBuilder: (_, i) {
                         final name = filtered[i];
                         return ListTile(
                           dense: true,
-                          title: Text(name, style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w500)),
+                          contentPadding: EdgeInsets.zero, // less horizontal padding
+                          title: Text(
+                            name,
+                            style: const TextStyle(fontSize: 15, fontWeight: FontWeight.w500),
+                          ),
                           trailing: IconButton(
                             icon: const Icon(Icons.copy),
                             tooltip: 'Copy',

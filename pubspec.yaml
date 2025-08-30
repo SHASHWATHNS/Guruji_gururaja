@@ -2,7 +2,7 @@ name: guruji_gururaja
 description: "A new Flutter project."
 publish_to: 'none'
 
-version: 1.0.0+1
+version: 1.0.1+2
 
 environment:
   sdk: ^3.8.1
@@ -24,6 +24,7 @@ dependencies:
   share_plus: ^11.1.0
   dio: ^5.9.0
   flutter_html: ^3.0.0
+  flutter_svg: ^2.2.0
 
 dev_dependencies:
   flutter_test:

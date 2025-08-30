@@ -4,8 +4,8 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 
 import 'app_router.dart';
 import '../core/theme/app_theme.dart';
-import '../core/i18n/app_localizations.dart';     // ⬅️ add this
-import '../core/settings/app_settings.dart';     // ⬅️ and this
+import '../core/i18n/app_localizations.dart';
+import '../core/settings/app_settings.dart';
 
 class AstroApp extends ConsumerWidget {
   const AstroApp({super.key});
@@ -13,17 +13,17 @@ class AstroApp extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final router = ref.watch(appRouterProvider);
-    final settings = ref.watch(appSettingsProvider); // ⬅️ read theme/locale
+    final settings = ref.watch(appSettingsProvider);
 
     return MaterialApp.router(
       debugShowCheckedModeBanner: false,
       theme: AppTheme.light,
-      darkTheme: AppTheme.dark,                 // ⬅️ provide dark theme
-      themeMode: settings.themeMode,            // ⬅️ from Settings
-      locale: settings.locale,                  // ⬅️ from Settings
-      supportedLocales: AppLocalizations.supportedLocales, // ⬅️ en + ta
+      darkTheme: AppTheme.dark,
+      themeMode: settings.themeMode,
+      locale: settings.locale,
+      supportedLocales: AppLocalizations.supportedLocales,
       localizationsDelegates: const [
-        appLocalizationsDelegate,               // ⬅️ your delegate
+        appLocalizationsDelegate,
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
         GlobalCupertinoLocalizations.delegate,

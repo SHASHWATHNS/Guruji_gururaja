@@ -341,7 +341,7 @@ class _NamePalanCard extends StatelessWidget {
   Color _headerColorByNumber(String label) {
     if (_inSet(greenSet, label)) return Colors.green.shade100;
     if (_inSet(yellowSet, label)) return Colors.yellow.shade200;
-    if (_inSet(redSet, label)) return Colors.red.shade200;
+    if (_inSet(redSet, label)) return Colors.red.shade500;
     return Colors.grey.shade100;
   }
 

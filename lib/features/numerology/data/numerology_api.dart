@@ -8,7 +8,7 @@ class NumerologyApi {
   final String apiKey;
 
   /// Map a section to your API endpoint path.
-  /// TODO: Replace these with your real paths (or query params).
+  /// Keep these as-is; provider decides which sections call API vs local calc.
   String _pathFor(NumerologySection s) {
     switch (s) {
       case NumerologySection.jadagarinVivaram:
@@ -26,13 +26,13 @@ class NumerologyApi {
       case NumerologySection.stones:
         return '/numerology/stones';
       case NumerologySection.nameList:
-        // TODO: Handle this case.
+      // nameList is handled by a custom widget (no API call)
         throw UnimplementedError();
     }
   }
 
   /// Example: GET <baseUrl>/<path>
-  /// Add query parameters here if your API needs them (e.g., name, dob).
+  /// NOTE: We keep this function unchanged (no new parameters).
   Future<Map<String, dynamic>> fetchSection(NumerologySection section) async {
     final uri = Uri.parse('$baseUrl${_pathFor(section)}');
 
@@ -40,7 +40,7 @@ class NumerologyApi {
       uri,
       headers: {
         'Content-Type': 'application/json',
-        'x-api-key': apiKey, // remove if your API doesn’t need it
+        'x-api-key': apiKey, // remove if not needed
       },
     );
 
@@ -51,7 +51,6 @@ class NumerologyApi {
     final body = jsonDecode(res.body);
     if (body is Map<String, dynamic>) return body;
 
-    // If API returns a list, wrap it
     if (body is List) {
       return {'items': body};
     }

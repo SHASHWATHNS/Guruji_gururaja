@@ -98,6 +98,32 @@ class _PhoneNumberPalanSectionState extends State<PhoneNumberPalanSection> {
     });
   }
 
+  Color? _headerColorForLabel(int value) {
+    // Color set based on the value
+    final Set<String> greenSet = {
+      '02', '04', '06', '08', '10', '12', '14', '16', '20', '22', '26', '30',
+      '32', '33', '35', '36', '37', '39', '41', '42', '45', '51', '52', '56', '60',
+      '64', '66', '70', '72', '73', '74', '77', '79', '80', '84', '85', '87', '88',
+      '89', '90', '92', '95', '97', '99', '100', '101', '102', '104', '106', '108',
+      '109', '110', '111', '112', '113', '114', '115', '116', '117', '119', '120'
+    };
+    final Set<String> yellowSet = {
+      '00', '11', '17', '21', '23', '27', '29', '46', '54', '68', '93'
+    };
+    final Set<String> redSet = {
+      '01', '03', '05', '07', '09', '13', '15', '18', '19', '24', '25', '28', '31',
+      '34', '38', '40', '43', '44', '47', '48', '49', '50', '53', '55', '57', '58',
+      '59', '61', '62', '63', '65', '67', '69', '71', '75', '76', '78', '81', '82',
+      '83', '86', '91', '94', '96', '98', '103', '105', '107', '118'
+    };
+
+    final valueStr = value.toString().padLeft(2, '0');
+    if (greenSet.contains(valueStr)) return Colors.green.shade100;
+    if (yellowSet.contains(valueStr)) return Colors.yellow.shade200;
+    if (redSet.contains(valueStr)) return Colors.red.shade500;
+    return Colors.grey.shade100;
+  }
+
   @override
   Widget build(BuildContext context) {
     final ready = _store != null;
@@ -162,7 +188,13 @@ class _PhoneNumberPalanSectionState extends State<PhoneNumberPalanSection> {
                 physics: const NeverScrollableScrollPhysics(),
                 itemCount: _rows.length,
                 separatorBuilder: (_, __) => const SizedBox(height: 10),
-                itemBuilder: (_, i) => _PalanRow(row: _rows[i]),
+                itemBuilder: (_, i) {
+                  // Determine the color for each box based on the number
+                  final row = _rows[i];
+                  final color = _headerColorForLabel(row.valueForLookup ?? 0);
+
+                  return _PalanRow(row: row, headerColor: color);
+                },
               ),
           ],
         ),
@@ -177,9 +209,6 @@ class PalanStore {
   final Map<String, String> _map;
   PalanStore._(this._map);
 
-  /// Load from JSON:
-  ///  - { "pairs": { "01": "...", ... }, "totals": { "1": "...", ... } }
-  ///  - or a flat map
   static Future<PalanStore> load(String assetPath) async {
     final raw = await rootBundle.loadString(assetPath);
     final jsonData = json.decode(raw);
@@ -188,17 +217,14 @@ class PalanStore {
 
     String _clean(String s) => s.replaceAll(RegExp(r'\s+'), ' ').trim();
 
-    // accept *...* or <b>...</b>
     String _normalizeBold(String s) {
-      final withHtmlBold =
-      s.replaceAllMapped(RegExp(r'\*(.*?)\*'), (m) => '<b>${m.group(1) ?? ''}</b>');
+      final withHtmlBold = s.replaceAllMapped(RegExp(r'\*(.*?)\*'), (m) => '<b>${m.group(1) ?? ''}</b>');
       return _clean(withHtmlBold);
     }
 
     void _add(String key, String value) {
       final text = _normalizeBold(value);
       if (text.isEmpty) return;
-
       map[key] = text;
 
       final n = int.tryParse(key);
@@ -256,8 +282,8 @@ class _RowItem {
   final String label;
   final String? heading;
   final String palan;
-  final String? note;          // kept for compatibility (unused for TOTAL now)
-  final int? valueForLookup;   // used for TOTAL big number
+  final String? note;
+  final int? valueForLookup; // used for TOTAL big number
   final bool highlight;
 
   _RowItem({
@@ -275,7 +301,9 @@ class _RowItem {
 
 class _PalanRow extends StatelessWidget {
   final _RowItem row;
-  const _PalanRow({super.key, required this.row});
+  final Color? headerColor;
+
+  const _PalanRow({super.key, required this.row, this.headerColor});
 
   // sets for colors
   static final Set<String> greenSet = {
@@ -294,78 +322,11 @@ class _PalanRow extends StatelessWidget {
   };
 
   Color? _headerColorForLabel(String label, bool isPrimary) {
-    if (isPrimary) return Colors.amber.shade300;
+    if (isPrimary) return headerColor ?? Colors.amber.shade300;
     if (greenSet.contains(label)) return Colors.green.shade100;
     if (yellowSet.contains(label)) return Colors.yellow.shade200;
     if (redSet.contains(label)) return Colors.red.shade500;
     return Colors.grey.shade100;
-  }
-
-  // ---- Body renderer: bold centered first heading + normal body ----
-  List<Widget> _renderPalanBody(String palan, bool isPrimary, BuildContext context) {
-    final baseStyle = TextStyle(
-      fontSize: isPrimary ? 16.5 : 16,
-      height: 1.35,
-      fontWeight: isPrimary ? FontWeight.w600 : FontWeight.w400,
-      color: Colors.black,
-    );
-
-    // Find first <b>...</b> or *...*
-    final boldTag = RegExp(r'<b>(.*?)</b>');
-    final starTag = RegExp(r'\*(.*?)\*');
-
-    String? heading;
-    String remainder = palan;
-
-    final m1 = boldTag.firstMatch(palan);
-    final m2 = starTag.firstMatch(palan);
-    RegExpMatch? chosen;
-    if (m1 != null && m2 != null) {
-      chosen = (m1.start < m2.start) ? m1 : m2;
-    } else {
-      chosen = m1 ?? m2;
-    }
-
-    if (chosen != null) {
-      heading = chosen.group(1)?.trim();
-      remainder = palan.substring(0, chosen.start) + palan.substring(chosen.end);
-    }
-
-    String _stripTags(String s) {
-      return s
-          .replaceAllMapped(boldTag, (m) => m.group(1) ?? '')
-          .replaceAllMapped(starTag, (m) => m.group(1) ?? '')
-          .replaceAll(RegExp(r'\s+'), ' ')
-          .trim();
-    }
-
-    final body = _stripTags(remainder);
-    final widgets = <Widget>[];
-
-    if (heading != null && heading!.isNotEmpty) {
-      widgets.add(
-        Padding(
-          padding: const EdgeInsets.only(bottom: 6),
-          child: Center(
-            child: Text(
-              heading!,
-              textAlign: TextAlign.center,
-              style: baseStyle.copyWith(fontWeight: FontWeight.bold, fontSize: (isPrimary ? 18 : 16)),
-            ),
-          ),
-        ),
-      );
-    }
-
-    if (body.isNotEmpty) {
-      widgets.add(Text(body, style: baseStyle));
-    }
-
-    if (widgets.isEmpty) {
-      widgets.add(Text(palan, style: baseStyle));
-    }
-
-    return widgets;
   }
 
   @override
@@ -450,5 +411,70 @@ class _PalanRow extends StatelessWidget {
         ),
       ],
     );
+  }
+
+  List<Widget> _renderPalanBody(String palan, bool isPrimary, BuildContext context) {
+    final baseStyle = TextStyle(
+      fontSize: isPrimary ? 16.5 : 16,
+      height: 1.35,
+      fontWeight: isPrimary ? FontWeight.w600 : FontWeight.w400,
+      color: Colors.black,
+    );
+
+    final boldTag = RegExp(r'<b>(.*?)</b>');
+    final starTag = RegExp(r'\*(.*?)\*');
+
+    String? heading;
+    String remainder = palan;
+
+    final m1 = boldTag.firstMatch(palan);
+    final m2 = starTag.firstMatch(palan);
+    RegExpMatch? chosen;
+    if (m1 != null && m2 != null) {
+      chosen = (m1.start < m2.start) ? m1 : m2;
+    } else {
+      chosen = m1 ?? m2;
+    }
+
+    if (chosen != null) {
+      heading = chosen.group(1)?.trim();
+      remainder = palan.substring(0, chosen.start) + palan.substring(chosen.end);
+    }
+
+    String _stripTags(String s) {
+      return s
+          .replaceAllMapped(boldTag, (m) => m.group(1) ?? '')
+          .replaceAllMapped(starTag, (m) => m.group(1) ?? '')
+          .replaceAll(RegExp(r'\s+'), ' ')
+          .trim();
+    }
+
+    final body = _stripTags(remainder);
+    final widgets = <Widget>[];
+
+    if (heading != null && heading!.isNotEmpty) {
+      widgets.add(
+        Padding(
+          padding: const EdgeInsets.only(bottom: 6),
+          child: Center(
+            child: Text(
+              heading!,
+              textAlign: TextAlign.center,
+              style: baseStyle.copyWith(fontWeight: FontWeight.bold, fontSize: (isPrimary ? 18 : 16)),
+            ),
+          ),
+        ),
+      );
+    }
+
+    if (body.isNotEmpty) {
+      widgets.add(Text(body, style: baseStyle));
+    }
+
+    if (widgets.isEmpty) {
+      widgets.add(Text(palan, style: baseStyle));
+    }
+
+    return widgets;
   }
 }

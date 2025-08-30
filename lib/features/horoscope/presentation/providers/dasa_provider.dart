@@ -181,14 +181,15 @@ DasaSnapshot _snapshotFrom(List<MahaDasa> maha) {
 
 // --------------------- Demo fallback (only if APIs fail) ---------------------
 DasaTree _demoTree(BirthInput input) {
-  final now = DateTime.now();
-  final start0 = DateTime(now.year - 8, now.month, now.day);
+
+  final now =input.dobLocal;
+  final start0 = DateTime(now.year, now.month, now.day);
   final names = ['Sun','Moon','Mars','Rahu','Jupiter','Saturn','Mercury','Ketu','Venus'];
 
   DateTime st = start0;
   final List<MahaDasa> maha = [];
   for (int i = 0; i < names.length; i++) {
-    final end = DateTime(st.year + 6, st.month, st.day);
+    final end = DateTime(st.year, st.month, st.day);
     final ants = <AntarDasa>[];
     var ast = st;
     for (int k = 0; k < 9; k++) {
