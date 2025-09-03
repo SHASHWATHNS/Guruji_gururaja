@@ -3,8 +3,6 @@ import '../../data/numerology_api.dart';
 
 /// Tabs
 enum NumerologySection {
-  jadagarinVivaram,
-  kattangalLuckyNumbers,
   cellNumber,
   name,
   nameList,
@@ -12,6 +10,7 @@ enum NumerologySection {
   luckyColor,
   stones,
 }
+
 
 /// ---------------- Birth-details state (mirrors Horoscope flow) ----------------
 class NumerologyInputState {
@@ -169,12 +168,7 @@ FutureProvider.family<Map<String, dynamic>, NumerologySection>(
       final api = ref.read(numerologyApiProvider);
       final input = ref.watch(numerologyInputProvider);
 
-      if (section == NumerologySection.jadagarinVivaram) {
-        return _buildJadagarinVivaramJson(input);
-      }
-      if (section == NumerologySection.kattangalLuckyNumbers) {
-        return _buildKattangalJson(input);
-      }
+
 
       // All other tabs go to your API
       return api.fetchSection(section);

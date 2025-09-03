@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../../domain/entities/subscription_plan.dart';
 import '../viewmodels/purchase_view_model.dart';
@@ -52,14 +54,15 @@ class _Body extends ConsumerWidget {
       children: [
         const Padding(
           padding: EdgeInsets.fromLTRB(16, 8, 16, 8),
-          child: Text('Choose your plan', style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600)),
+          child: Text('Choose your plan',
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600)),
         ),
         ...state.plans.map((p) => _PlanCard(plan: p)).toList(),
         const SizedBox(height: 24),
         Center(
           child: TextButton(
             onPressed: () {
-              // Terms/Privacy navigation hook
+              // Terms/Privacy/Restore navigation hook
             },
             child: const Text('Terms • Privacy • Restore purchases'),
           ),
@@ -111,7 +114,14 @@ class _TrialBanner extends StatelessWidget {
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(16),
-          boxShadow: const [BoxShadow(blurRadius: 8, spreadRadius: 0, offset: Offset(0, 2), color: Color(0x33000000))],
+          boxShadow: const [
+            BoxShadow(
+              blurRadius: 8,
+              spreadRadius: 0,
+              offset: Offset(0, 2),
+              color: Color(0x33000000),
+            )
+          ],
         ),
         padding: const EdgeInsets.all(16),
         child: Row(
@@ -121,7 +131,8 @@ class _TrialBanner extends StatelessWidget {
             Expanded(
               child: Text(
                 usesText,
-                style: const TextStyle(fontWeight: FontWeight.w600, fontSize: 16),
+                style: const TextStyle(
+                    fontWeight: FontWeight.w600, fontSize: 16),
               ),
             ),
             const SizedBox(width: 12),
@@ -149,43 +160,171 @@ class _PlanCard extends StatelessWidget {
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
         child: Padding(
           padding: const EdgeInsets.all(16),
-          child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                children: [
+                  Expanded(
+                    child: Text(
+                      plan.title,
+                      style: const TextStyle(
+                          fontSize: 18, fontWeight: FontWeight.w700),
+                    ),
+                  ),
+                  Text(
+                    plan.price,
+                    style: const TextStyle(
+                        fontSize: 16, fontWeight: FontWeight.w600),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 4),
+              Text(plan.tagline, style: const TextStyle(fontSize: 13)),
+              const SizedBox(height: 12),
+              ...plan.perks.map(
+                    (p) => Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Padding(
+                      padding: EdgeInsets.only(top: 2),
+                      child: Icon(Icons.check_circle, size: 18),
+                    ),
+                    const SizedBox(width: 8),
+                    Expanded(child: Text(p)),
+                  ],
+                ),
+              ),
+              const SizedBox(height: 12),
+              SizedBox(
+                width: double.infinity,
+                child: FilledButton(
+                  onPressed: () async {
+                    // Open UPI with deep link (multiple fallbacks)
+                    await _UpiHelper.payViaUpi(
+                      context: context,
+                      upiId: 'astroyuvarajaa@oksbi',
+                      payeeName: 'Guruji Gururaja',
+                      note: 'Subscription: ${plan.title}',
+                      amount: _UpiHelper.tryParseAmount(plan.price) ?? 1.00,
+                    );
+                  },
+                  child: const Text('Subscribe'),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+/// -------------------------------------
+/// UPI helper (deep link + robust fallback)
+/// -------------------------------------
+class _UpiHelper {
+  static double? tryParseAmount(String priceLabel) {
+    final match = RegExp(r'(\d+(?:\.\d+)?)').firstMatch(priceLabel);
+    if (match == null) return null;
+    return double.tryParse(match.group(1)!);
+  }
+
+  static Future<void> payViaUpi({
+    required BuildContext context,
+    required String upiId,
+    required String payeeName,
+    String? note,
+    required double amount, // ensure amount is present
+  }) async {
+    // Generic UPI URI
+    final common = {
+      'pa': upiId,
+      'pn': payeeName,
+      'tn': note ?? 'Subscription',
+      'am': amount.toStringAsFixed(2),
+      'cu': 'INR',
+    };
+
+    // Try in this order
+    final candidates = <Uri>[
+      Uri.parse('upi://pay').replace(queryParameters: common),
+      // Specific app schemes as fallbacks
+      Uri.parse('tez://upi/pay').replace(queryParameters: common),       // Google Pay
+      Uri.parse('phonepe://pay').replace(queryParameters: common),       // PhonePe
+      Uri.parse('paytmmp://pay').replace(queryParameters: common),       // Paytm
+    ];
+
+    for (final uri in candidates) {
+      try {
+        if (await canLaunchUrl(uri)) {
+          final ok = await launchUrl(uri, mode: LaunchMode.externalApplication);
+          if (ok) return; // success
+        }
+      } catch (_) {
+        // try next
+      }
+    }
+
+    // If nothing handled it:
+    _showFallbackSheet(context, upiId);
+  }
+
+  static void _showFallbackSheet(BuildContext context, String upiId) {
+    showModalBottomSheet(
+      context: context,
+      showDragHandle: true,
+      builder: (ctx) => Padding(
+        padding: const EdgeInsets.fromLTRB(16, 12, 16, 24),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            const Icon(Icons.qr_code_2, size: 40),
+            const SizedBox(height: 8),
+            const Text(
+              'Open any UPI app and pay to this UPI ID',
+              style: TextStyle(fontWeight: FontWeight.w600),
+            ),
+            const SizedBox(height: 8),
+            SelectableText(
+              upiId,
+              style: const TextStyle(fontSize: 16),
+            ),
+            const SizedBox(height: 12),
             Row(
               children: [
                 Expanded(
-                  child: Text(plan.title, style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w700)),
+                  child: OutlinedButton.icon(
+                    onPressed: () async {
+                      await Clipboard.setData(ClipboardData(text: upiId));
+                      if (context.mounted) {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(content: Text('UPI ID copied')),
+                        );
+                      }
+                    },
+                    icon: const Icon(Icons.copy),
+                    label: const Text('Copy UPI ID'),
+                  ),
                 ),
-                Text(plan.price, style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w600)),
+                const SizedBox(width: 12),
+                Expanded(
+                  child: FilledButton.icon(
+                    onPressed: () => Navigator.of(context).maybePop(),
+                    icon: const Icon(Icons.close),
+                    label: const Text('Close'),
+                  ),
+                ),
               ],
             ),
-            const SizedBox(height: 4),
-            Text(plan.tagline, style: const TextStyle(fontSize: 13)),
-            const SizedBox(height: 12),
-            ...plan.perks.map((p) => Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const Padding(
-                  padding: EdgeInsets.only(top: 2),
-                  child: Icon(Icons.check_circle, size: 18),
-                ),
-                const SizedBox(width: 8),
-                Expanded(child: Text(p)),
-              ],
-            )),
-            const SizedBox(height: 12),
-            SizedBox(
-              width: double.infinity,
-              child: FilledButton(
-                onPressed: () {
-                  // 🔗 Hook your payment flow here
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(content: Text('Selected: ${plan.title}. Integrate payment here.')),
-                  );
-                },
-                child: const Text('Subscribe'),
-              ),
+            const SizedBox(height: 8),
+            const Text(
+              'Tip: If nothing opens automatically, go to Google Pay/PhonePe/Paytm '
+                  'and paste the UPI ID above.',
+              textAlign: TextAlign.center,
+              style: TextStyle(fontSize: 12, color: Colors.black54),
             ),
-          ]),
+          ],
         ),
       ),
     );

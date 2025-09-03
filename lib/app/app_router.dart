@@ -5,7 +5,6 @@ import 'package:go_router/go_router.dart';
 import '../features/horoscope/presentation/screens/horoscope_form_screen.dart';
 
 import '../features/auth/auth/presentation/screens/login_screen.dart';
-import '../features/numerology/presentation/screens/numerology_form_screen.dart';
 import '../features/splash/presentation/screens/splash_screen.dart';
 
 // Existing (unchanged)...
@@ -49,10 +48,6 @@ final appRouterProvider = Provider<GoRouter>((ref) {
       GoRoute(path: '/transit', name: 'transit', builder: (_, __) => const TransitScreen()),
       GoRoute(path: '/numerology', name: 'numerology', builder: (_, __) => const NumerologyScreen()),
       GoRoute(path: '/tarot', name: 'tarot-grid', builder: (_, __) => const TarotQuickGridScreen()),
-      GoRoute(
-        path: '/numerology-form',
-        builder: (_, __) => const NumerologyFormScreen(),
-      ),
       GoRoute(
         path: '/tarot/detail',
         name: 'tarot-detail',

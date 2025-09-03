@@ -15,7 +15,6 @@ class NavamsaKattamTab extends StatefulWidget {
 class _NavamsaKattamTabState extends State<NavamsaKattamTab> {
   static const _apiUrl = 'https://json.freeastrologyapi.com/navamsa-chart-svg-code'; // <-- New API URL
   static const _apiKey = 'Gn8Fe7i5YiOy87nmWxU19aycrUNs3Ug42u1dVC8f'; // <-- use your key
-
   String? _rawSvg;     // raw from API
   String? _svg;        // sanitized
   String? _error;      // error text to show

@@ -11,10 +11,6 @@ class NumerologyApi {
   /// Keep these as-is; provider decides which sections call API vs local calc.
   String _pathFor(NumerologySection s) {
     switch (s) {
-      case NumerologySection.jadagarinVivaram:
-        return '/numerology/jadagarin-vivaram';
-      case NumerologySection.kattangalLuckyNumbers:
-        return '/numerology/kattangal-lucky-numbers';
       case NumerologySection.cellNumber:
         return '/numerology/cell-number';
       case NumerologySection.name:

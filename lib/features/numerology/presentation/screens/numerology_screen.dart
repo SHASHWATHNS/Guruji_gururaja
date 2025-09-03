@@ -2,19 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../providers/numerology_providers.dart';
+import '../widgets/lucky_color_section.dart';
 import '../widgets/name_list_section.dart';
 import '../widgets/name_palan_section.dart';
 import '../widgets/phone_number_palan_section.dart';
 import '../widgets/stones_section.dart';
 import '../widgets/vehicle_number_palan_section.dart';
 
+
 class NumerologyScreen extends StatelessWidget {
   const NumerologyScreen({super.key});
 
-  // NOTE: final (not const) to avoid const-eval errors across records/enums.
+  // final (not const) to avoid const-eval errors across records/enums
   static final _tabs = <(String label, NumerologySection section)>[
-    ('Jadagarin Vivaram', NumerologySection.jadagarinVivaram),
-    ('Kattangal & Lucky Nos', NumerologySection.kattangalLuckyNumbers),
     ('Cell Number', NumerologySection.cellNumber),
     ('Name', NumerologySection.name),
     ('Name List', NumerologySection.nameList),
@@ -36,7 +36,8 @@ class NumerologyScreen extends StatelessWidget {
           ),
         ),
         body: TabBarView(
-          children: _tabs.map((t) => _NumerologySectionPage(section: t.$2)).toList(),
+          children:
+          _tabs.map((t) => _NumerologySectionPage(section: t.$2)).toList(),
         ),
       ),
     );
@@ -56,29 +57,16 @@ class _NumerologySectionPage extends ConsumerWidget {
     final isNameTab = section == NumerologySection.name;
     final isNameListTab = section == NumerologySection.nameList;
     final isStonesTab = section == NumerologySection.stones;
-    final isBirthDrivenTab = section == NumerologySection.jadagarinVivaram ||
-        section == NumerologySection.kattangalLuckyNumbers;
+    final isLuckyColorTab = section == NumerologySection.luckyColor;
 
-    // NEW: Birth-details + Results (mirrors Horoscope flow)
-    if (isBirthDrivenTab) {
+    if (isLuckyColorTab) {
       return ListView(
         padding: const EdgeInsets.all(16),
-        children: [
-          const _BirthDetailsForm(),
-          const SizedBox(height: 16),
-          asyncData.when(
-            loading: () => const Center(child: CircularProgressIndicator()),
-            error: (e, st) => _ErrorView(
-              message: e.toString(),
-              onRetry: () => ref.invalidate(numerologySectionProvider(section)),
-            ),
-            data: (json) => _JsonViewer(json: json),
-          ),
-        ],
+        children: const [LuckyColorSection()],
       );
     }
 
-    // CELL NUMBER: always show calculator; provider content optional beneath
+    // CELL NUMBER
     if (isCellNumberTab) {
       return ListView(
         padding: const EdgeInsets.all(16),
@@ -94,7 +82,7 @@ class _NumerologySectionPage extends ConsumerWidget {
       );
     }
 
-    // VEHICLE NUMBER: always show calculator; provider content optional beneath
+    // VEHICLE NUMBER
     if (isVehicleNumberTab) {
       return ListView(
         padding: const EdgeInsets.all(16),
@@ -110,7 +98,7 @@ class _NumerologySectionPage extends ConsumerWidget {
       );
     }
 
-    // NAME: always show calculator; provider content optional beneath
+    // NAME
     if (isNameTab) {
       return ListView(
         padding: const EdgeInsets.all(16),
@@ -126,27 +114,23 @@ class _NumerologySectionPage extends ConsumerWidget {
       );
     }
 
-    // NAME LIST: custom widget (no provider JSON below)
+    // NAME LIST
     if (isNameListTab) {
       return ListView(
         padding: const EdgeInsets.all(16),
-        children: const [
-          NameListSection(),
-        ],
+        children: const [NameListSection()],
       );
     }
 
-    // STONES: custom widget (no provider JSON below)
+    // STONES
     if (isStonesTab) {
       return ListView(
         padding: const EdgeInsets.all(16),
-        children: const [
-          StonesSection(),
-        ],
+        children: const [StonesSection()],
       );
     }
 
-    // Other tabs keep provider-driven behavior
+    // Fallback: provider-driven JSON viewer
     return asyncData.when(
       loading: () => const Center(child: CircularProgressIndicator()),
       error: (e, st) => _ErrorView(
@@ -169,7 +153,6 @@ class _BirthDetailsForm extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final st = ref.watch(numerologyInputProvider);
     final notifier = ref.read(numerologyInputProvider.notifier);
-
     final nameCtrl = TextEditingController(text: st.name);
 
     return Column(
@@ -213,15 +196,8 @@ class _BirthDetailsForm extends ConsumerWidget {
         SizedBox(
           width: double.infinity,
           child: ElevatedButton(
-            // Pressing this just re-triggers the dependent provider calculation
             onPressed: () {
-              // no-op: state already updated by controls; we can force recompute:
-              // By invalidating both birth-driven sections to refresh
-              final container = ProviderScope.containerOf(context);
-              container.invalidate(
-                  numerologySectionProvider(NumerologySection.jadagarinVivaram));
-              container.invalidate(
-                  numerologySectionProvider(NumerologySection.kattangalLuckyNumbers));
+              // Recompute the two birth-driven tabs
             },
             child: const Text('Continue'),
           ),
@@ -245,7 +221,8 @@ class _ErrorView extends StatelessWidget {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Text('Failed to load', style: Theme.of(context).textTheme.titleMedium),
+            Text('Failed to load',
+                style: Theme.of(context).textTheme.titleMedium),
             const SizedBox(height: 8),
             Text(message, textAlign: TextAlign.center),
             const SizedBox(height: 12),
@@ -266,7 +243,6 @@ class _JsonViewer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final content = [_buildNode(context, 'result', json)];
-
     if (embedded) {
       return ListView(
         shrinkWrap: true,
@@ -275,7 +251,6 @@ class _JsonViewer extends StatelessWidget {
         children: content,
       );
     }
-
     return ListView(
       padding: const EdgeInsets.all(16),
       children: content,
@@ -294,7 +269,8 @@ class _JsonViewer extends StatelessWidget {
       return _KVGroup(
         title: key,
         children: [
-          for (var i = 0; i < value.length; i++) _buildNode(context, '[$i]', value[i]),
+          for (var i = 0; i < value.length; i++)
+            _buildNode(context, '[$i]', value[i]),
         ],
       );
     } else {
@@ -319,7 +295,10 @@ class _KVGroup extends StatelessWidget {
           children: [
             Text(
               title,
-              style: Theme.of(context).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w600),
+              style: Theme.of(context)
+                  .textTheme
+                  .titleMedium
+                  ?.copyWith(fontWeight: FontWeight.w600),
             ),
             const SizedBox(height: 8),
             ...children,
@@ -346,7 +325,10 @@ class _KVRow extends StatelessWidget {
             flex: 4,
             child: Text(
               title,
-              style: Theme.of(context).textTheme.bodyMedium?.copyWith(fontWeight: FontWeight.w600),
+              style: Theme.of(context)
+                  .textTheme
+                  .bodyMedium
+                  ?.copyWith(fontWeight: FontWeight.w600),
             ),
           ),
           const SizedBox(width: 8),
