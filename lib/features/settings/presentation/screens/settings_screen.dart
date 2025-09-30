@@ -30,7 +30,7 @@ class SettingsScreen extends ConsumerWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             Text(
-              l10n.t('app.title'),
+              l10n.t('Settings'),
               maxLines: 1,
               overflow: TextOverflow.ellipsis,
               style: const TextStyle(
@@ -350,14 +350,14 @@ class LanguageToggle extends StatelessWidget {
                   child: InkWell(
                     borderRadius: BorderRadius.circular(26),
                     onTap: () => onChanged(const Locale('ta')),
-                    child: const _LangCell(label: 'TA', emoji: '🇮🇳'),
+                    child: const _LangCell(label: 'TA'),
                   ),
                 ),
                 Expanded(
                   child: InkWell(
                     borderRadius: BorderRadius.circular(26),
                     onTap: () => onChanged(const Locale('en')),
-                    child: const _LangCell(label: 'EN', emoji: '🇬🇧'),
+                    child: const _LangCell(label: 'EN'),
                   ),
                 ),
               ],
@@ -371,8 +371,7 @@ class LanguageToggle extends StatelessWidget {
 
 class _LangCell extends StatelessWidget {
   final String label;
-  final String emoji;
-  const _LangCell({required this.label, required this.emoji});
+  const _LangCell({required this.label});
 
   @override
   Widget build(BuildContext context) {
@@ -380,7 +379,6 @@ class _LangCell extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Text(emoji, style: const TextStyle(fontSize: 18)),
           const SizedBox(width: 8),
           Text(
             label,

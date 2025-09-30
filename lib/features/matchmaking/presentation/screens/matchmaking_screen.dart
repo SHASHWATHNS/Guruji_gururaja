@@ -7,6 +7,8 @@ import 'package:http/http.dart' as http;
 
 import '../../../../core/constants/app_colors.dart';
 import '../../../../core/i18n/app_localizations.dart';
+import '../../../../core/config/app_config.dart';
+
 
 class MatchMakingScreen extends ConsumerStatefulWidget {
   const MatchMakingScreen({super.key});
@@ -29,11 +31,6 @@ class _MatchingStarScreenState extends ConsumerState<MatchMakingScreen> {
 
   bool _calculating = false;
   _MatchResult? _result;
-
-  // >>>>>>> IMPORTANT: put your API key here <<<<<<<
-  static const String _apiKey = 'Gn8Fe7i5YiOy87nmWxU19aycrUNs3Ug42u1dVC8f';
-  static const String _endpoint =
-      'https://json.freeastrologyapi.com/match-making/ashtakoot-score';
 
   @override
   void dispose() {
@@ -92,11 +89,12 @@ class _MatchingStarScreenState extends ConsumerState<MatchMakingScreen> {
         }
       });
 
+      final endpoint = '${AppConfig.astroBaseUrl}/match-making/ashtakoot-score';
       final res = await http.post(
-        Uri.parse(_endpoint),
+        Uri.parse(endpoint),
         headers: {
           'Content-Type': 'application/json',
-          'x-api-key': _apiKey,
+          'x-api-key': AppConfig.astroApiKey,
         },
         body: body,
       );

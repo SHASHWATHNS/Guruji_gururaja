@@ -3,7 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../../../about/presentation/screens/about_founder_screen.dart';
 import '../../../feedback/presentation/screens/class_feedback_screen.dart';
-import '../../../horoscope/presentation/screens/horoscope_form_screen.dart';
+import '../../../horoscope/form/horoscope_form_screen.dart';
 import '../../../matchmaking/presentation/screens/matchmaking_screen.dart';
 import '../../../numerology/presentation/screens/numerology_screen.dart';
 import '../../../panchanga/presentation/screens/panchanga_screen.dart';
@@ -89,7 +89,7 @@ class HomeScreen extends ConsumerWidget {
                         icon: Icons.question_answer,
                         color: Colors.indigo.shade500,
                         onTap: () => Navigator.of(context).push(
-                          MaterialPageRoute(builder: (_) => const PrashnaScreen()),
+                          MaterialPageRoute(builder: (_) => const JamakkolHome()),
                         ),
                       ),
                       right: MenuButton(

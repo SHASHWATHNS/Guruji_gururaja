@@ -1,4 +1,5 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import '../../../../core/config/app_config.dart';
 import '../../data/numerology_api.dart';
 
 /// Tabs
@@ -156,8 +157,8 @@ Map<String, dynamic> _buildKattangalJson(NumerologyInputState input) {
 
 /// ---------------- Existing API config ----------------
 final numerologyApiProvider = Provider<NumerologyApi>((ref) {
-  const baseUrl = 'https://your-numerology-api.services.com';
-  const apiKey = 'YOUR_API_KEY';
+  final baseUrl = AppConfig.astroBaseUrl;
+  final apiKey  = AppConfig.astroApiKey;
   return NumerologyApi(baseUrl: baseUrl, apiKey: apiKey);
 });
 
@@ -172,4 +173,6 @@ FutureProvider.family<Map<String, dynamic>, NumerologySection>(
 
       // All other tabs go to your API
       return api.fetchSection(section);
-    });
+    },
+    );
+
