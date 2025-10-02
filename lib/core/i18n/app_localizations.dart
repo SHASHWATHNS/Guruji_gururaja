@@ -121,9 +121,9 @@ class AppLocalizations {
     'paksha.theypirai': {'en': 'Theypirai', 'ta': 'தேய்பிறை'},
 
     // Chart sections / errors
-    'chart.raasi.title': {'en': 'Rāśi (Kattangal)', 'ta': 'ராசிக்கட்டம்'},
-    'chart.navamsa.title': {'en': 'Navāṁśa (Navamsa Kattam)', 'ta': 'நவாம்சக்கட்டம்'},
-    'chart.planets.extended': {'en': 'Planets — Extended', 'ta': 'கிரகங்கள் — விரிவான'},
+    'chart.raasi.title': {'en': 'Rasi Kattam', 'ta': 'ராசிக்கட்டம்'},
+    'chart.navamsa.title': {'en': 'Navamsa Kattam', 'ta': 'நவாம்சக்கட்டம்'},
+    'chart.planets.extended': {'en': 'Planets', 'ta': 'கிரகங்கள்'},
     'chart.error': {'en': 'Charts error', 'ta': 'வரைபட பிழை'},
     'chart.raasi.error': {'en': 'Rāśi error', 'ta': 'ராசி பிழை'},
     'chart.navamsa.error': {'en': 'Navāṁśa error', 'ta': 'நவாம்சம் பிழை'},
@@ -136,7 +136,7 @@ class AppLocalizations {
     'planets.col.body': {'en': 'Body', 'ta': 'கிரகம்'},
     'planets.col.sign': {'en': 'Sign', 'ta': 'ராசி'},
     'planets.col.lord': {'en': 'Lord', 'ta': 'அதிபதி'},
-    'planets.col.house': {'en': 'H', 'ta': 'பா'},
+    'planets.col.house': {'en': 'House', 'ta': 'வீடு'},
     'planets.col.deg': {'en': '°', 'ta': '°'},
     'planets.col.min': {'en': '\'', 'ta': '\''},
     'planets.col.sec': {'en': '"', 'ta': '"'},

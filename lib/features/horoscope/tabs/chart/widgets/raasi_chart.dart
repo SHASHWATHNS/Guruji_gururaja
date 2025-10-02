@@ -24,6 +24,9 @@ class RaasiChart extends ConsumerWidget {
         ),
       ),
       data: (svg) {
+        // Strip outer planets from the vendor SVG text labels
+        final cleanSvg = _stripOuterPlanets(svg);
+
         final maxW = MediaQuery.sizeOf(context).width - 24;
         final box = maxW.clamp(260.0, 520.0);
         return Container(
@@ -35,10 +38,25 @@ class RaasiChart extends ConsumerWidget {
             boundaryMargin: const EdgeInsets.all(32),
             minScale: 0.5,
             maxScale: 8,
-            child: SvgPicture.string(svg, fit: BoxFit.contain, allowDrawingOutsideViewBox: true),
+            child: SvgPicture.string(
+              cleanSvg,
+              fit: BoxFit.contain,
+              allowDrawingOutsideViewBox: true,
+            ),
           ),
         );
       },
     );
   }
+}
+
+/// Remove any <text>…</text> nodes that mention Uranus / Neptune / Pluto.
+/// Non-destructive: only filters labels, leaves geometry intact.
+String _stripOuterPlanets(String rawSvg) {
+  final re = RegExp(
+    r'<text[^>]*>.*?(Uranus|Neptune|Pluto).*?</text>',
+    caseSensitive: false,
+    dotAll: true,
+  );
+  return rawSvg.replaceAll(re, '');
 }

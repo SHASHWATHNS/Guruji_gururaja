@@ -51,7 +51,11 @@ class ChartService {
     var raw = (data is Map<String, dynamic>) ? (data['output'] ?? data) : data;
     for (int i = 0; i < 3; i++) {
       if (raw is String) {
-        try { raw = jsonDecode(raw); } catch (_) { break; }
+        try {
+          raw = jsonDecode(raw);
+        } catch (_) {
+          break;
+        }
       }
     }
     return raw;
@@ -80,19 +84,35 @@ class ChartService {
     final r = await _dio.post('/planets/extended', data: body);
     final root = (r.data['output'] ?? {}) as Map<String, dynamic>;
 
+    // Ordered, with outer three commented out as requested.
     const order = [
-      'Ascendant','Sun','Moon','Mars','Mercury','Jupiter','Venus','Saturn',
-      'Rahu','Ketu','Uranus','Neptune','Pluto',
+      'Ascendant',
+      'Sun',
+      'Moon',
+      'Mars',
+      'Mercury',
+      'Jupiter',
+      'Venus',
+      'Saturn',
+      'Rahu',
+      'Ketu',
+      // 'Uranus',
+      // 'Neptune',
+      // 'Pluto',
     ];
 
     final rows = <PlanetRow>[];
     for (final key in order) {
       final raw = (root[key] ?? {}) as Map<String, dynamic>;
       final name = (raw['localized_name'] ?? key).toString();
+
+      // Retro marker (keep Ascendant clean)
       final isRetro = (raw['isRetro']?.toString().toLowerCase() == 'true');
+      final displayName = (isRetro && key != 'Ascendant') ? '$name (va)' : name;
+
       rows.add(
         PlanetRow(
-          name: (isRetro && key != 'Ascendant') ? '$name (va)' : name,
+          name: displayName,
           house: (raw['house_number'] ?? '').toString(),
           sign: (raw['zodiac_sign_name'] ?? '').toString(),
           lord: (raw['zodiac_sign_lord'] ?? '').toString(),
